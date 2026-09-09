@@ -1,0 +1,20 @@
+{
+  "name": "Ted Wang",
+  "fullName": "Zhuoran “Ted” Wang",
+  "role": "Product × Engineering × AI",
+  "description": "Ted Wang — product-minded engineer and Cornell Systems Engineering graduate student working across AI products, infrastructure, and emerging technology.",
+  "location": "New York",
+  "school": "Cornell University",
+  "focus": "Product / AI / Systems",
+  "statusIndicator": "Open to Product / AI opportunities",
+  "email": "wangzhuoran.ted@gmail.com",
+  "url": "https://tedwang.dev",
+  "linkedin": "https://www.linkedin.com/in/zhuoranwang",
+  "nav": [
+    { "label": "Work", "href": "/#work" },
+    { "label": "Experience", "href": "/#experience" },
+    { "label": "About", "href": "/#about" },
+    { "label": "Resume", "href": "/resume.pdf" },
+    { "label": "Contact", "href": "/#contact" }
+  ]
+}

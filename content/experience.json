@@ -1,0 +1,70 @@
+{
+  "experience": [
+    {
+      "year": "2026 — Present",
+      "org": "Cornell University",
+      "title": "M.Eng, Systems Engineering",
+      "description": "Graduate study focused on AI, systems, and product-oriented problem solving, with a research focus on AI and open source bug reports."
+    },
+    {
+      "year": "Apr 2026 — Jul 2026",
+      "org": "Dreame Technology",
+      "title": "Product Manager Intern, AI NAS Business Unit",
+      "description": "0→1 development of a privacy-first, AI-powered personal storage platform. User research, model evaluation, MCP-based tool routing, and the Home Theater product, inside a company-wide leadership incubator (1 of 40 selected)."
+    },
+    {
+      "year": "Apr 2023 — Mar 2026",
+      "org": "Spectrum",
+      "title": "Field Operation Designer III",
+      "description": "Acted as product owner for an internal GIS/CAD network design tool used by 200+ engineers. Delivered 150+ FTTH and 620+ enterprise fiber solutions, and led automation that cut design and verification time significantly."
+    },
+    {
+      "year": "May 2022 — Mar 2023",
+      "org": "Decom Electrical Co., Ltd.",
+      "title": "R&D / Project Engineer",
+      "description": "Co-engineered a 600mm-wide SF6 gas-insulated switchgear system — 3D models and assembly drawings from concept through prototype, with DFM/DFA review that cut assembly errors 15%."
+    },
+    {
+      "year": "Jan 2021 — Dec 2022",
+      "org": "NYU Tandon, Plasma Physics Lab",
+      "title": "Research Assistant",
+      "description": "Designed Paschen Curve experiments on gas-discharge breakdown voltage and built a plasma physics lab from an empty facility to operational readiness."
+    },
+    {
+      "year": "May 2019 — Nov 2019",
+      "org": "A.T. Kearney",
+      "title": "Consulting Intern",
+      "description": "Analyzed customer and store-performance data for a major retail client; findings contributed to a 15% sales increase."
+    }
+  ],
+  "skillGroups": [
+    {
+      "name": "Product",
+      "skills": ["Product Strategy", "Roadmaps", "PRDs", "User Research", "Prioritization", "Experimentation", "Metrics", "Cross-functional Leadership"]
+    },
+    {
+      "name": "AI",
+      "skills": ["LLMs", "AI Agents", "MCP", "Tool Calling", "Model Evaluation", "Prompt Engineering", "Local AI"]
+    },
+    {
+      "name": "Technical",
+      "skills": ["Python", "SQL", "APIs", "Automation", "Networking", "Data Analysis", "Systems Engineering", "R"]
+    },
+    {
+      "name": "Tools",
+      "skills": ["Figma", "Canva", "JIRA", "Git", "SolidWorks", "AutoCAD"]
+    }
+  ],
+  "education": [
+    {
+      "school": "Cornell University",
+      "degree": "M.Eng, Systems Engineering",
+      "note": "Duffield School of Engineering · Expected Dec 2027 · Research focus: AI and open source bug reports"
+    },
+    {
+      "school": "New York University, Tandon School of Engineering",
+      "degree": "B.S., Applied Physics",
+      "note": "Sept 2018 — Dec 2022"
+    }
+  ]
+}

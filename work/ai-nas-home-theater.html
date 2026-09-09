@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Making local AI actually useful at home.</title>
+  <meta name="description" content="Worked on an AI-powered NAS platform combining local models, intelligent file management, media discovery, privacy controls, and AI agents — during a 0→1 build that won the CES Asia Best Innovation Award." />
+  <link rel="canonical" href="https://tedwang.dev/work/ai-nas-home-theater.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#f4f3ef" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Making local AI actually useful at home. — Ted Wang" />
+  <meta property="og:description" content="Worked on an AI-powered NAS platform combining local models, intelligent file management, media discovery, privacy controls, and AI agents — during a 0→1 build that won the CES Asia Best Innovation Award." />
+  <meta property="og:url" content="https://tedwang.dev/work/ai-nas-home-theater.html" />
+  <meta property="og:site_name" content="Ted Wang" />
+  <meta property="og:image" content="https://tedwang.dev/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Making local AI actually useful at home. — Ted Wang" />
+  <meta name="twitter:description" content="Worked on an AI-powered NAS platform combining local models, intelligent file management, media discovery, privacy controls, and AI agents — during a 0→1 build that won the CES Asia Best Innovation Award." />
+  <meta name="twitter:image" content="https://tedwang.dev/og.png" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <script>
+    // Set theme before paint to avoid a flash of the wrong theme.
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="grain"></div>
+  
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="nav-wrap">
+    <nav id="nav">
+      <a href="/#top" class="brand"><span class="brand-dot"></span> TED WANG</a>
+      <div class="nav-links">
+        <a href="/#work">Work</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#about">About</a>
+        <a href="/resume.pdf">Resume</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#contact" class="nav-cta">Let&rsquo;s talk ↗</a>
+        
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <main id="main">
+
+  <header class="cs-header">
+    <a class="cs-back reveal" href="/#work">← Back to work</a>
+    <div class="reveal">
+      <div class="section-kicker">01 · Product Management · AI · LLM · Consumer Technology</div>
+      <h1>Making local AI actually useful at home.</h1>
+      <p class="lede">Worked on an AI-powered NAS platform combining local models, intelligent file management, media discovery, privacy controls, and AI agents — during a 0→1 build that won the CES Asia Best Innovation Award.</p>
+      <div class="tags" style="margin-top:22px"><span class="tag">LLM</span><span class="tag">Qwen</span><span class="tag">MCP</span><span class="tag">AI Agents</span><span class="tag">User Research</span><span class="tag">Home Theater</span><span class="tag">Privacy</span><span class="tag">Product Strategy</span></div>
+    </div>
+  </header>
+
+  <div class="cs-visual-wrap reveal">
+    <div class="cs-visual dark" style="background:var(--dark-panel)">
+      
+        <div class="ai-ui">
+          <div class="fake-top"><span class="fake-dot"></span><span class="fake-dot"></span><span class="fake-dot"></span></div>
+          <div class="ai-header"><strong>Home Theater</strong><span class="ai-badge">Local AI</span></div>
+          <div class="media-grid"><div class="poster"></div><div class="poster"></div><div class="poster"></div><div class="poster"></div><div class="poster"></div><div class="poster"></div><div class="poster"></div><div class="poster"></div></div>
+          <div class="ai-panel"><span class="pulse"></span><span>&ldquo;Find something atmospheric under 2 hours.&rdquo;</span><b>Ask AI →</b></div>
+        </div>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+      <div class="cs-block reveal">
+        <div class="eyebrow2">Problem</div>
+        <div class="prose">
+          <h2>What wasn&rsquo;t working</h2>
+          <p>Local AI systems had powerful capabilities but poor discoverability, unreliable tool calling, and unclear user value. The on-device agent could technically do a lot — but nobody could tell, and it kept timing out.</p>
+        </div>
+      </div>
+
+      <div class="cs-block reveal">
+        <div class="eyebrow2">User Insight</div>
+        <div class="prose">
+          <h2>What the user actually needed</h2>
+          <p>Users did not want “AI features.” They wanted AI to remove friction from things they already cared about — media, files, photos, and privacy. The product had to disappear into an existing habit, not add a new one.</p>
+        </div>
+      </div>
+
+      <div class="cs-block reveal">
+        <div class="eyebrow2">My Role</div>
+        <div>
+          <h2>What I owned</h2>
+          <ul class="bullets">
+            <li>Interviewed 100+ NAS users to separate real product opportunities from feature requests.</li>
+            <li>Prioritized the roadmap for the AI NAS business unit inside a company-wide incubator, competing against ~100 other internal projects for investment.</li>
+            <li>Designed and validated the AI Home Theater experience end to end, from concept through a 3-iteration beta.</li>
+            <li>Owned model selection for the on-device agent and diagnosed a scaling defect in its tool-calling architecture.</li>
+            <li>Defined the privacy architecture that separated a fully offline volume from a connected service volume.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal">
+        <div class="eyebrow2">Constraints</div>
+        <div>
+          <h2>What had to be true</h2>
+          <ul class="bullets">
+            <li>Everything had to run acceptably on consumer NAS hardware, not a cloud GPU cluster.</li>
+            <li>Privacy was a stated product pillar, not a compliance checkbox — the architecture had to hold up under real scrutiny.</li>
+            <li>The agent's tool registry was growing faster than its ability to reason about which tool to call, and every added integration made timeouts more likely.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal">
+        <div class="eyebrow2">Decision Process</div>
+        <div class="decision-steps">
+          
+          <div class="decision-step">
+            <div class="step-head"><span class="step-idx">01</span><h3>Finding the real opportunity</h3></div>
+            <p>Rather than starting from “what can the AI do,” I ran structured interviews with 100+ existing NAS users to map where they actually lost time: finding a movie to watch, organizing a media library, recovering from duplicate or misnamed files.</p>
+            <p>Home Theater — AI-assisted media discovery and recommendation — surfaced as the clearest, most testable opportunity, so I scoped an MVP around it instead of a broader “AI assistant” pitch.</p>
+          </div>
+          <div class="decision-step">
+            <div class="step-head"><span class="step-idx">02</span><h3>Diagnosing the timeout problem</h3></div>
+            <p>Agent timeouts and runaway token use traced back to exhaustive API enumeration — the agent was reasoning over every available tool on every turn.</p>
+            <p>I proposed an MCP-based tool registry so the agent only reasoned over relevant tools per task, cutting tool-selection token overhead by roughly 80% and eliminating the timeouts outright.</p>
+          </div>
+          <div class="decision-step">
+            <div class="step-head"><span class="step-idx">03</span><h3>Choosing the on-device model</h3></div>
+            <p>Model choice had to balance quality, latency, and what would actually run on-device. I built a 6-dimension evaluation framework and A/B tested 7 candidate LLMs across 1,000+ prompts.</p>
+            <p>Qwen paired with Hermes scored highest (4.5/5) and became the on-device default; the same evaluation harness later caught 40+ release-critical defects before they reached users.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal">
+        <div class="eyebrow2">Solution</div>
+        <div>
+          <h2>What shipped</h2>
+          <ul class="bullets">
+            <li>An AI Home Theater experience: on-device recommendations for similar titles, actors, and directors, plus IMDb-based subtitle matching, wrapped in a simple conversational entry point.</li>
+            <li>Auto Scan — ingestion-time indexing and tagging that cut manual organization and retrieval time by 90%.</li>
+            <li>An MCP-based tool registry that scoped the agent's available tools to the task at hand instead of the full catalog.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal">
+        <div class="eyebrow2">Technical Architecture</div>
+        <div>
+          <h2>How it was built</h2>
+          <ul class="bullets">
+            <li>Dual-volume privacy design: an isolated private volume for fully offline data and models, and a separate connected-service volume for anything that touches the network — so users could opt into convenience without quietly losing the offline guarantee.</li>
+            <li>On-device inference (Qwen + Hermes) for recommendation and conversational features, with the MCP tool registry mediating access to file-system and media-metadata tools.</li>
+            <li>A reproducible evaluation harness (1,000+ prompts across 7 models) used both for model selection and as an ongoing regression suite.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal">
+        <div class="eyebrow2">Product Decisions</div>
+        <div>
+          <h2>Trade-offs I made on purpose</h2>
+          <ul class="bullets">
+            <li>Shipped Home Theater as a narrow, well-tested wedge rather than a broad “AI assistant,” so the team could validate real usage before expanding scope.</li>
+            <li>Treated the tool-calling defect as a product problem, not just an engineering bug — an agent that times out has no product value regardless of model quality.</li>
+            <li>Made privacy a structural property of the architecture (separate volumes) rather than a setting a user could misconfigure.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal">
+        <div class="eyebrow2">Results</div>
+        <div class="cs-metrics">
+          <div class="cs-metric"><strong>81%</strong><span>DAU penetration in beta, against a 5-interactions/week test bar</span></div>
+          <div class="cs-metric"><strong>60%</strong><span>2-week retention among beta testers</span></div>
+          <div class="cs-metric"><strong>140</strong><span>Feedback items synthesized into 3 product iterations</span></div>
+          <div class="cs-metric"><strong>CES Asia</strong><span>Best Innovation Award, contributed to by the privacy architecture</span></div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal">
+        <div class="eyebrow2">What I Learned</div>
+        <div>
+          <h2>Takeaways</h2>
+          <ul class="bullets">
+            <li>A model-quality problem and a product-adoption problem can look identical from the outside — the fix here was architectural (tool scoping), not a bigger model.</li>
+            <li>Validating one sharp use case with real usage data made the case for full-scale investment far more effectively than a broader feature list would have.</li>
+          </ul>
+        </div>
+      </div>
+  </div>
+
+  <div class="cs-next reveal">
+    <a href="/work/spectrum-network-automation.html">
+      <div>
+        <div class="lbl">Next case study</div>
+        <div class="title">Turning repetitive infrastructure work into software.</div>
+      </div>
+      <span class="go">→</span>
+    </a>
+  </div>
+  </main>
+  
+  <footer>
+    <span>TED WANG © 2026</span>
+    <span>Designed with curiosity. Built with intention.</span>
+  </footer>
+  <script src="/assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+[
+  {
+    "slug": "ai-nas-home-theater",
+    "index": "01",
+    "category": "Product Management · AI · LLM · Consumer Technology",
+    "headline": "Making local AI actually useful at home.",
+    "summary": "Worked on an AI-powered NAS platform combining local models, intelligent file management, media discovery, privacy controls, and AI agents — during a 0→1 build that won the CES Asia Best Innovation Award.",
+    "tags": ["LLM", "Qwen", "MCP", "AI Agents", "User Research", "Home Theater", "Privacy", "Product Strategy"],
+    "metrics": [
+      { "value": "100+", "label": "User interviews" },
+      { "value": "80%", "label": "Reduction in unnecessary tool-selection tokens" },
+      { "value": "78%", "label": "Beta activation for Home Theater" },
+      { "value": "40+", "label": "Critical AI issues identified through evaluation" }
+    ],
+    "visual": "aiHomeTheater",
+    "isCaseStudy": true,
+    "caseStudy": {
+      "problem": "Local AI systems had powerful capabilities but poor discoverability, unreliable tool calling, and unclear user value. The on-device agent could technically do a lot — but nobody could tell, and it kept timing out.",
+      "insight": "Users did not want “AI features.” They wanted AI to remove friction from things they already cared about — media, files, photos, and privacy. The product had to disappear into an existing habit, not add a new one.",
+      "role": [
+        "Interviewed 100+ NAS users to separate real product opportunities from feature requests.",
+        "Prioritized the roadmap for the AI NAS business unit inside a company-wide incubator, competing against ~100 other internal projects for investment.",
+        "Designed and validated the AI Home Theater experience end to end, from concept through a 3-iteration beta.",
+        "Owned model selection for the on-device agent and diagnosed a scaling defect in its tool-calling architecture.",
+        "Defined the privacy architecture that separated a fully offline volume from a connected service volume."
+      ],
+      "constraints": [
+        "Everything had to run acceptably on consumer NAS hardware, not a cloud GPU cluster.",
+        "Privacy was a stated product pillar, not a compliance checkbox — the architecture had to hold up under real scrutiny.",
+        "The agent's tool registry was growing faster than its ability to reason about which tool to call, and every added integration made timeouts more likely."
+      ],
+      "decisionProcess": [
+        {
+          "heading": "Finding the real opportunity",
+          "body": [
+            "Rather than starting from “what can the AI do,” I ran structured interviews with 100+ existing NAS users to map where they actually lost time: finding a movie to watch, organizing a media library, recovering from duplicate or misnamed files.",
+            "Home Theater — AI-assisted media discovery and recommendation — surfaced as the clearest, most testable opportunity, so I scoped an MVP around it instead of a broader “AI assistant” pitch."
+          ]
+        },
+        {
+          "heading": "Diagnosing the timeout problem",
+          "body": [
+            "Agent timeouts and runaway token use traced back to exhaustive API enumeration — the agent was reasoning over every available tool on every turn.",
+            "I proposed an MCP-based tool registry so the agent only reasoned over relevant tools per task, cutting tool-selection token overhead by roughly 80% and eliminating the timeouts outright."
+          ]
+        },
+        {
+          "heading": "Choosing the on-device model",
+          "body": [
+            "Model choice had to balance quality, latency, and what would actually run on-device. I built a 6-dimension evaluation framework and A/B tested 7 candidate LLMs across 1,000+ prompts.",
+            "Qwen paired with Hermes scored highest (4.5/5) and became the on-device default; the same evaluation harness later caught 40+ release-critical defects before they reached users."
+          ]
+        }
+      ],
+      "solution": [
+        "An AI Home Theater experience: on-device recommendations for similar titles, actors, and directors, plus IMDb-based subtitle matching, wrapped in a simple conversational entry point.",
+        "Auto Scan — ingestion-time indexing and tagging that cut manual organization and retrieval time by 90%.",
+        "An MCP-based tool registry that scoped the agent's available tools to the task at hand instead of the full catalog."
+      ],
+      "architecture": [
+        "Dual-volume privacy design: an isolated private volume for fully offline data and models, and a separate connected-service volume for anything that touches the network — so users could opt into convenience without quietly losing the offline guarantee.",
+        "On-device inference (Qwen + Hermes) for recommendation and conversational features, with the MCP tool registry mediating access to file-system and media-metadata tools.",
+        "A reproducible evaluation harness (1,000+ prompts across 7 models) used both for model selection and as an ongoing regression suite."
+      ],
+      "productDecisions": [
+        "Shipped Home Theater as a narrow, well-tested wedge rather than a broad “AI assistant,” so the team could validate real usage before expanding scope.",
+        "Treated the tool-calling defect as a product problem, not just an engineering bug — an agent that times out has no product value regardless of model quality.",
+        "Made privacy a structural property of the architecture (separate volumes) rather than a setting a user could misconfigure."
+      ],
+      "results": [
+        { "value": "81%", "label": "DAU penetration in beta, against a 5-interactions/week test bar" },
+        { "value": "60%", "label": "2-week retention among beta testers" },
+        { "value": "140", "label": "Feedback items synthesized into 3 product iterations" },
+        { "value": "CES Asia", "label": "Best Innovation Award, contributed to by the privacy architecture" }
+      ],
+      "learnings": [
+        "A model-quality problem and a product-adoption problem can look identical from the outside — the fix here was architectural (tool scoping), not a bigger model.",
+        "Validating one sharp use case with real usage data made the case for full-scale investment far more effectively than a broader feature list would have."
+      ]
+    }
+  },
+  {
+    "slug": "spectrum-network-automation",
+    "index": "02",
+    "category": "Automation · Infrastructure · Internal Tools · Product Thinking",
+    "headline": "Turning repetitive infrastructure work into software.",
+    "summary": "Owned the roadmap for an internal GIS/CAD network design tool used by 200+ engineers, and turned repeated operational bottlenecks into automation adopted company-wide.",
+    "tags": ["Fiber", "HFC", "FTTH", "Python", "Internal Tooling", "Workflow Automation", "Network Infrastructure"],
+    "metrics": [
+      { "value": "150+", "label": "FTTH designs delivered" },
+      { "value": "620+", "label": "Enterprise fiber solutions across Manhattan" },
+      { "value": "60%", "label": "Faster signal verification" },
+      { "value": "2 hrs", "label": "Engineering time saved per project" }
+    ],
+    "visual": "flow",
+    "isCaseStudy": true,
+    "caseStudy": {
+      "problem": "200+ engineers relied on an internal GIS/CAD tool for network design, but the workflow around it was manual: downstream signal recalculation, BOM assembly, and equipment-error checking all depended on someone doing the same repetitive steps correctly, every time.",
+      "insight": "The bottleneck wasn't the design tool itself — it was everything engineers did by hand around it. Interviews with 30+ designers kept surfacing the same two time sinks: recalculating signal levels after a change, and manually pulling bills of materials.",
+      "role": [
+        "Functioned as product owner for the internal GIS/CAD network design tool, translating feedback from 30+ users into a prioritized roadmap.",
+        "Identified manual downstream signal recalculation as a key bottleneck and defined a 3-click Python automation for tracing, recalculation, and verification.",
+        "Built an Auto BOM function that automatically recorded equipment changes as they happened.",
+        "Owned the prioritization model for a 30-person cross-functional unit, ranking requests by volume, urgency, and dependency.",
+        "Led a 20-person audit of 1,000+ optical nodes for DOCSIS 4.0 readiness."
+      ],
+      "constraints": [
+        "Any automation had to slot into an existing, already-adopted GIS/CAD workflow — engineers wouldn't switch tools, so the tool had to come to them.",
+        "Errors in signal recalculation or BOM data have real field consequences, so automation had to be at least as accurate as careful manual work, not just faster.",
+        "Prioritization had to serve a 30-person cross-functional unit with genuinely competing, legitimate priorities."
+      ],
+      "decisionProcess": [
+        {
+          "heading": "Finding the bottleneck through interviews",
+          "body": [
+            "Rather than assuming what to automate, I interviewed 30+ designers about where their time actually went. Manual downstream signal recalculation and BOM/equipment-error checking came up repeatedly, independent of region or seniority."
+          ]
+        },
+        {
+          "heading": "Designing a 3-click automation, not a new system",
+          "body": [
+            "Because designers wouldn't adopt a separate tool, the automation was built as a lightweight layer that traced, recalculated, and verified signal levels in three clicks inside the existing workflow — cutting recalculation time significantly and manual errors by 25%.",
+            "The same logic pattern — trace, compute, verify — was reused for Auto BOM, which recorded equipment changes automatically instead of requiring a manual pull."
+          ]
+        },
+        {
+          "heading": "Scaling adoption",
+          "body": [
+            "Both tools were rolled out incrementally across regional teams; the recalculation automation was adopted by 3+ regional teams, and Auto BOM went company-wide once report-generation time savings (about 50%) were demonstrated in the first region."
+          ]
+        }
+      ],
+      "solution": [
+        "A 3-click Python automation for downstream signal tracing, recalculation, and verification, embedded in the existing design workflow.",
+        "Auto BOM: automatic recording of equipment changes as designers made them, replacing manual bill-of-materials assembly.",
+        "A prioritization model for the 30-person cross-functional unit that ranked requests by volume, urgency, and dependency instead of first-come-first-served."
+      ],
+      "architecture": [
+        "Python automation layered on top of the existing GIS/CAD tool's data model, so designers kept their existing workflow and tool of record.",
+        "Change-tracking hooks that captured equipment modifications at the point of design, rather than reconstructing them later from disparate records."
+      ],
+      "productDecisions": [
+        "Prioritized automating the two highest-frequency manual tasks (signal recalculation, BOM pulling) identified directly from user interviews, over building new design features.",
+        "Chose incremental regional rollout over a single company-wide launch, using early results to build the case for wider adoption."
+      ],
+      "results": [
+        { "value": "40%", "label": "Faster design turnaround across 200+ engineers" },
+        { "value": "40%", "label": "Reduction in high-priority delays via the prioritization model" },
+        { "value": "28%", "label": "Improved network-data accuracy from the DOCSIS 4.0 audit" },
+        { "value": "50%", "label": "Faster report generation with Auto BOM, company-wide" }
+      ],
+      "learnings": [
+        "The highest-leverage product opportunities were hiding inside operational workflows nobody thought of as a “product” — they just looked like how the job was done.",
+        "Automation that respects an existing workflow spreads faster than automation that asks people to change how they work."
+      ]
+    }
+  },
+  {
+    "slug": "ai-trading-signals",
+    "index": "03",
+    "category": "AI · Data · Product Experiment",
+    "headline": "Turning market noise into actionable signals.",
+    "summary": "An experimental, AI-assisted market monitoring system built to identify abnormal trading activity, summarize signals, and help active traders understand market reactions faster.",
+    "tags": ["AI", "Data", "Alerts", "Rapid Prototyping", "Product Experiment"],
+    "metrics": [
+      { "value": "Experiment", "label": "Self-initiated product exploration" },
+      { "value": "3", "label": "Core detection signals prototyped" },
+      { "value": "Iterative", "label": "Built through rapid prototyping and testing" }
+    ],
+    "visual": "signals",
+    "isCaseStudy": true,
+    "caseStudy": {
+      "problem": "Markets generate far more data than any single person can watch. Active traders either miss meaningful anomalies in the noise, or burn out trying to monitor everything manually.",
+      "insight": "The goal wasn't to predict the market — it was to reduce the cognitive load of scanning it. Traders didn't need another opinion; they needed the system to notice what deserved attention and explain why, in plain language.",
+      "role": [
+        "Scoped and built the product as a personal experiment, from problem framing through a working prototype.",
+        "Designed the core loop: detect anomaly → summarize → explain → let the user decide.",
+        "Built a volume-anomaly detection layer, an AI explanation panel, and an alert timeline as the first testable slice."
+      ],
+      "constraints": [
+        "The system had to stay explanatory, never prescriptive — surfacing signals without telling users what to do with them.",
+        "Signal quality mattered more than signal quantity: a feed full of low-value alerts would train users to ignore it."
+      ],
+      "decisionProcess": [
+        {
+          "heading": "Choosing what to detect first",
+          "body": [
+            "Rather than building broad market coverage, I started with volume-acceleration anomalies — a signal that's cheap to compute, easy to validate, and immediately legible to an active trader."
+          ]
+        },
+        {
+          "heading": "Designing the explanation layer",
+          "body": [
+            "An anomaly on its own is just a number. The AI explanation panel translates a detected anomaly into a short, plain-language summary of what changed and why it might matter, without predicting a direction."
+          ]
+        }
+      ],
+      "solution": [
+        "A signal feed surfacing detected anomalies in near real time.",
+        "Volume-anomaly detection as the first production signal, with room to add sentiment and order-flow signals.",
+        "An AI explanation panel that summarizes what the system noticed in plain language.",
+        "An alert timeline for reviewing what fired and when."
+      ],
+      "architecture": [
+        "A lightweight monitoring layer that ingests market data, computes anomaly scores, and routes flagged events to a summarization step before they reach the feed."
+      ],
+      "productDecisions": [
+        "Deliberately kept the product to a dashboard-style signal feed rather than stock-market clichés (tickers, candlesticks-as-hero), to keep the focus on interpretation over spectacle.",
+        "Treated this as a validation exercise for a product hypothesis — reduce cognitive load, not just add more data — rather than a trading tool to monetize immediately."
+      ],
+      "results": [
+        { "value": "3", "label": "Detection and explanation components validated end-to-end" },
+        { "value": "Personal", "label": "Self-funded exploration outside of full-time roles" }
+      ],
+      "learnings": [
+        "Explaining a signal is a harder and more valuable product problem than detecting one.",
+        "Restraint — showing fewer, higher-confidence signals — is itself a product decision, not a limitation."
+      ]
+    }
+  },
+  {
+    "slug": "engineering-foundations",
+    "index": "04",
+    "category": "Plasma Physics · Electrical Engineering · Infrastructure · Software",
+    "headline": "Engineering before product management.",
+    "summary": "The industries changed — plasma physics research, electrical equipment engineering, telecommunications infrastructure, software automation, AI products. The underlying habit didn't: understand the system, find the bottleneck, build a better solution.",
+    "tags": ["Plasma Physics", "SOLIDWORKS", "AutoCAD", "MATLAB", "DFM/DFA", "Systems Thinking"],
+    "metrics": [
+      { "value": "2019", "label": "Consulting — structured problem solving" },
+      { "value": "2021", "label": "Plasma physics research, NYU Tandon" },
+      { "value": "2022", "label": "Electrical / mechanical product engineering" },
+      { "value": "2023+", "label": "Infrastructure, automation, AI products" }
+    ],
+    "visual": "timeline",
+    "isCaseStudy": true,
+    "caseStudy": {
+      "problem": "Before product management, the work was hands-on: physics experiments, electrical hardware, and field infrastructure — each with its own constraints, materials, and failure modes.",
+      "insight": "Every environment rewarded the same habit: understand how the system actually behaves, find where it breaks down or wastes effort, and build a concrete fix — a curve fit, a tolerance adjustment, an automation script.",
+      "role": [
+        "NYU Tandon Plasma Physics Lab: designed Paschen Curve experiments isolating the effect of magnetic-field orientation on gas-discharge breakdown voltage, and built the lab itself from an empty facility to operational readiness.",
+        "Decom Electrical: co-engineered a 600mm-wide SF6 gas-insulated switchgear system, producing 3D models and assembly drawings in SOLIDWORKS and AutoCAD from concept through prototype.",
+        "A.T. Kearney: analyzed customer and store-performance data for a major retail client, contributing to a 15% sales increase."
+      ],
+      "constraints": [
+        "Physical hardware has no “ship a patch later” — tolerance and assembly decisions had to be right before prototype build.",
+        "A brand-new lab meant building infrastructure (vacuum systems, safety integration) before any experiment could run at all."
+      ],
+      "decisionProcess": [
+        {
+          "heading": "From physics to hardware to infrastructure",
+          "body": [
+            "Each role sharpened the same instinct in a different medium: MATLAB models for curve fitting in the lab; DFM/DFA and tolerance review for switchgear assembly; and later, workflow analysis for telecom infrastructure and AI systems."
+          ]
+        }
+      ],
+      "solution": [
+        "A working plasma physics lab, built from equipment acquisition through vacuum-system setup and safety integration.",
+        "A 600mm-wide SF6 gas-insulated switchgear system carried from concept to prototype assembly."
+      ],
+      "architecture": [
+        "Not applicable in the software sense — the throughline is methodology: instrument the system, isolate the variable, fix the bottleneck."
+      ],
+      "productDecisions": [
+        "Carried a bias toward hands-on validation — build the experiment, build the prototype, test it — into later product and engineering work."
+      ],
+      "results": [
+        { "value": "15%", "label": "Sales increase from Kearney's retail analysis" },
+        { "value": "15%", "label": "Fewer assembly errors from DFM/DFA review at Decom" }
+      ],
+      "learnings": [
+        "Systems thinking transfers across mediums — plasma physics, electrical hardware, fiber networks, and AI agents are different systems with the same underlying discipline."
+      ]
+    }
+  }
+]
