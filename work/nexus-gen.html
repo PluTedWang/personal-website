@@ -183,7 +183,7 @@
             <li>Interviewed 100+ NAS users to separate real product opportunities from feature requests, and used that to rank the phases.</li>
             <li>Owned the roadmap for the AI NAS unit inside a company wide incubator, competing with roughly one hundred internal projects for investment.</li>
             <li>Owned model selection for the on device agent through a six dimension evaluation and A/B tests of seven LLMs across 1,000+ prompts.</li>
-            <li>Diagnosed the agent's timeout defect and drove the move to an MCP based tool registry.</li>
+            <li>Diagnosed the agent's timeout defect and drove the move to an MCP based tool registry: 80% fewer unnecessary tool selection tokens, roughly three minutes off average latency, timeout failures eliminated.</li>
             <li>Defined the dual volume privacy architecture that separated a fully offline volume from a connected service volume.</li>
             <li>Owned requirements and flows for the AI chat, onboarding, photo gallery, and media library surfaces, working with two designers.</li>
             <li>Built two surfaces myself: the Home Theater prototype and the Vitrine display driver. Each has its own page.</li>
@@ -222,7 +222,7 @@
             <div class="decision-step">
               <div class="step-head"><span class="step-idx">03</span><h3>Diagnose the timeouts</h3></div>
               <p>Agent timeouts and runaway token use traced back to exhaustive API enumeration: the agent was reasoning over every available tool on every turn.</p>
-              <p>I proposed an MCP based tool registry so the agent only reasoned over relevant tools per task. Tool selection overhead dropped by roughly 80% and the timeouts disappeared.</p>
+              <p>I proposed an MCP based tool registry so the agent only reasoned over relevant tools per task. Unnecessary tool selection tokens dropped by 80%, average latency fell by about three minutes, timeout failures disappeared, and the agent could scale to more tools without getting slower.</p>
             </div>
             <div class="decision-step">
               <div class="step-head"><span class="step-idx">04</span><h3>Choose the on device model</h3></div>
@@ -245,7 +245,7 @@
           <h2>What shipped</h2>
           <ul class="bullets">
             <li>A product overview and roadmap that the team, the incubator committee, and later the investor deck all built on.</li>
-            <li>An MCP based tool registry that scoped the agent's tools to the task at hand.</li>
+            <li>An MCP based tool registry that scoped the agent's tools to the task at hand, cutting tool selection tokens by 80% and average latency by about three minutes.</li>
             <li>A reproducible model evaluation harness used for selection and then as a regression suite.</li>
             <li>The dual volume privacy architecture.</li>
             <li>Four designed surfaces with owned requirements: AI chat, onboarding, photo gallery, media library.</li>
@@ -358,10 +358,10 @@
         <div class="eyebrow2">Results</div>
         <div>
           <div class="cs-metrics">
-            <div class="cs-metric"><strong>Funded</strong><span>Selected for investment from roughly one hundred incubator projects</span></div>
-            <div class="cs-metric"><strong>80%</strong><span>Reduction in unnecessary tool selection tokens, timeouts eliminated</span></div>
-            <div class="cs-metric"><strong>40+</strong><span>Release critical defects caught by the evaluation harness</span></div>
-            <div class="cs-metric"><strong>CES Asia</strong><span>Best Innovation Award, privacy architecture cited</span></div>
+            <div class="cs-metric"><strong>81%</strong><span>Of beta users active daily (DAU penetration during testing)</span></div>
+            <div class="cs-metric"><strong>78%</strong><span>Beta activation, 60% D14 retention</span></div>
+            <div class="cs-metric"><strong>80%</strong><span>Reduction in unnecessary tool selection tokens</span></div>
+            <div class="cs-metric"><strong>3 min</strong><span>Lower average latency, timeout failures eliminated</span></div>
           </div>
         </div>
       </div>
@@ -397,7 +397,7 @@
               <div class="branch-label">Branch 01 · Consumer product</div>
               <h3>Home Theater</h3>
               <p>Validated as a priority use case through research with 100 NAS users, translated into an MVP, and aligned leadership and engineering behind it. Built with IMDb based subtitle matching and an on device recommendation engine.</p>
-              <div class="sc-stats"><div class="sc-stat"><strong>81%</strong><span>DAU penetration</span></div><div class="sc-stat"><strong>60%</strong><span>2 week retention</span></div></div>
+              <div class="sc-stats"><div class="sc-stat"><strong>81%</strong><span>DAU penetration</span></div><div class="sc-stat"><strong>60%</strong><span>D14 retention</span></div></div>
               <div class="tags"><span class="tag">User research</span><span class="tag">MVP</span><span class="tag">On device AI</span><span class="tag">Beta</span></div>
               <span class="sc-go">Read the branch <i>→</i></span>
             </div>

@@ -236,11 +236,7 @@ function heroSection() {
           <div class="wall-seam s1"></div>
           <div class="wall-seam s2"></div>
         </div>
-        <div class="cube" data-depth="0.9" data-rot="0">
-          <img src="assets/img/nexusgen-device.png" alt="" />
-          <div class="cube-shadow"></div>
-        </div>
-        <div class="hero-caption"><span>01</span> NexusGen · private AI server</div>
+        <div class="hero-caption"><span>01</span> Light, concrete, silence</div>
       </div>
     </section>`;
 }

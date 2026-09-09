@@ -17,20 +17,20 @@
     ],
     "metrics": [
       {
-        "value": "100+",
-        "label": "NAS users interviewed"
+        "value": "81%",
+        "label": "Beta users active daily"
       },
       {
-        "value": "1 of ~100",
-        "label": "Incubator projects funded"
+        "value": "78%",
+        "label": "Beta activation"
       },
       {
-        "value": "4 phases",
-        "label": "Twelve month roadmap, 21 PRDs"
+        "value": "60%",
+        "label": "D14 retention"
       },
       {
-        "value": "CES Asia",
-        "label": "Best Innovation Award"
+        "value": "80%",
+        "label": "Fewer tool selection tokens, timeouts gone"
       }
     ],
     "visual": "nexus",
@@ -50,7 +50,7 @@
           },
           {
             "value": "60%",
-            "label": "2 week retention"
+            "label": "D14 retention"
           }
         ],
         "tags": [
@@ -304,7 +304,7 @@
         "Interviewed 100+ NAS users to separate real product opportunities from feature requests, and used that to rank the phases.",
         "Owned the roadmap for the AI NAS unit inside a company wide incubator, competing with roughly one hundred internal projects for investment.",
         "Owned model selection for the on device agent through a six dimension evaluation and A/B tests of seven LLMs across 1,000+ prompts.",
-        "Diagnosed the agent's timeout defect and drove the move to an MCP based tool registry.",
+        "Diagnosed the agent's timeout defect and drove the move to an MCP based tool registry: 80% fewer unnecessary tool selection tokens, roughly three minutes off average latency, timeout failures eliminated.",
         "Defined the dual volume privacy architecture that separated a fully offline volume from a connected service volume.",
         "Owned requirements and flows for the AI chat, onboarding, photo gallery, and media library surfaces, working with two designers.",
         "Built two surfaces myself: the Home Theater prototype and the Vitrine display driver. Each has its own page."
@@ -334,7 +334,7 @@
           "heading": "Diagnose the timeouts",
           "body": [
             "Agent timeouts and runaway token use traced back to exhaustive API enumeration: the agent was reasoning over every available tool on every turn.",
-            "I proposed an MCP based tool registry so the agent only reasoned over relevant tools per task. Tool selection overhead dropped by roughly 80% and the timeouts disappeared."
+            "I proposed an MCP based tool registry so the agent only reasoned over relevant tools per task. Unnecessary tool selection tokens dropped by 80%, average latency fell by about three minutes, timeout failures disappeared, and the agent could scale to more tools without getting slower."
           ]
         },
         {
@@ -354,7 +354,7 @@
       ],
       "solution": [
         "A product overview and roadmap that the team, the incubator committee, and later the investor deck all built on.",
-        "An MCP based tool registry that scoped the agent's tools to the task at hand.",
+        "An MCP based tool registry that scoped the agent's tools to the task at hand, cutting tool selection tokens by 80% and average latency by about three minutes.",
         "A reproducible model evaluation harness used for selection and then as a regression suite.",
         "The dual volume privacy architecture.",
         "Four designed surfaces with owned requirements: AI chat, onboarding, photo gallery, media library.",
@@ -376,20 +376,20 @@
       ],
       "results": [
         {
-          "value": "Funded",
-          "label": "Selected for investment from roughly one hundred incubator projects"
+          "value": "81%",
+          "label": "Of beta users active daily (DAU penetration during testing)"
+        },
+        {
+          "value": "78%",
+          "label": "Beta activation, 60% D14 retention"
         },
         {
           "value": "80%",
-          "label": "Reduction in unnecessary tool selection tokens, timeouts eliminated"
+          "label": "Reduction in unnecessary tool selection tokens"
         },
         {
-          "value": "40+",
-          "label": "Release critical defects caught by the evaluation harness"
-        },
-        {
-          "value": "CES Asia",
-          "label": "Best Innovation Award, privacy architecture cited"
+          "value": "3 min",
+          "label": "Lower average latency, timeout failures eliminated"
         }
       ],
       "learnings": [
