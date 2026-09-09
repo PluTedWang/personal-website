@@ -2,6 +2,14 @@
 // Zero-dependency static site generator.
 // Reads content/*.json, writes index.html + work/*.html.
 // Run: node scripts/generate.mjs
+//
+// IMPORTANT: every internal link/asset path is written RELATIVE to the page
+// that contains it (never a leading "/"). That's deliberate: a leading
+// slash (e.g. href="/assets/styles.css") resolves against the filesystem
+// root when someone just double-clicks index.html (file://...), not
+// against the site folder — so nothing loads and the page renders unstyled.
+// Relative paths work identically whether the folder is opened directly
+// from disk or served from a real domain.
 
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -16,9 +24,28 @@ const exp = JSON.parse(readFileSync(path.join(ROOT, "content/experience.json"), 
 
 const YEAR = new Date().getFullYear();
 
+/* ---------------- path helpers ----------------
+ * ctx.base  = "" on the home page, "../" on a page one directory down (work/*.html)
+ * ctx.isHome = true only for index.html
+ */
+
+// Resolve a site-root-relative path (as written in content/site.json, e.g.
+// "/#work" or "/resume.pdf") to a path relative to the current page.
+function siteHref(ctx, href) {
+  if (href.startsWith("/#")) {
+    const anchor = href.slice(1); // "#work"
+    return ctx.isHome ? anchor : `${ctx.base}index.html${anchor}`;
+  }
+  return ctx.base + href.slice(1); // strip leading "/"
+}
+
+function assetHref(ctx, relPath) {
+  return ctx.base + relPath;
+}
+
 /* ---------------- shared partials ---------------- */
 
-function headMeta({ title, description, path: urlPath, ogTitle }) {
+function headMeta(ctx, { title, description, path: urlPath, ogTitle }) {
   const canonical = `${site.url}${urlPath}`;
   return `
   <meta charset="UTF-8" />
@@ -26,7 +53,7 @@ function headMeta({ title, description, path: urlPath, ogTitle }) {
   <title>${title}</title>
   <meta name="description" content="${description}" />
   <link rel="canonical" href="${canonical}" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="${assetHref(ctx, "favicon.svg")}" type="image/svg+xml" />
   <meta name="theme-color" content="#f4f3ef" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="${ogTitle || title}" />
@@ -38,7 +65,7 @@ function headMeta({ title, description, path: urlPath, ogTitle }) {
   <meta name="twitter:title" content="${ogTitle || title}" />
   <meta name="twitter:description" content="${description}" />
   <meta name="twitter:image" content="${site.url}/og.png" />
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="${assetHref(ctx, "assets/styles.css")}" />
   <script>
     // Set theme before paint to avoid a flash of the wrong theme.
     (function () {
@@ -58,18 +85,19 @@ function themeToggleSvg() {
         </button>`;
 }
 
-function navHtml() {
+function navHtml(ctx) {
   const links = site.nav
-    .map((l) => `<a href="${l.href}">${l.label}</a>`)
+    .map((l) => `<a href="${siteHref(ctx, l.href)}">${l.label}</a>`)
     .join("\n        ");
+  const brandHref = ctx.isHome ? "#top" : `${ctx.base}index.html#top`;
   return `
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="nav-wrap">
     <nav id="nav">
-      <a href="/#top" class="brand"><span class="brand-dot"></span> ${site.name.toUpperCase()}</a>
+      <a href="${brandHref}" class="brand"><span class="brand-dot"></span> ${site.name.toUpperCase()}</a>
       <div class="nav-links">
         ${links}
-        <a href="/#contact" class="nav-cta">Let&rsquo;s talk ↗</a>
+        <a href="${siteHref(ctx, "/#contact")}" class="nav-cta">Let&rsquo;s talk ↗</a>
         ${themeToggleSvg()}
       </div>
     </nav>
@@ -84,19 +112,19 @@ function footerHtml() {
   </footer>`;
 }
 
-function page({ title, description, urlPath, ogTitle, body }) {
+function page(ctx, { title, description, urlPath, ogTitle, body }) {
   return `<!DOCTYPE html>
 <html lang="en">
-<head>${headMeta({ title, description, path: urlPath, ogTitle })}
+<head>${headMeta(ctx, { title, description, path: urlPath, ogTitle })}
 </head>
 <body>
   <div class="grain"></div>
-  ${navHtml()}
+  ${navHtml(ctx)}
   <main id="main">
 ${body}
   </main>
   ${footerHtml()}
-  <script src="/assets/main.js"></script>
+  <script src="${assetHref(ctx, "assets/main.js")}"></script>
 </body>
 </html>
 `;
@@ -167,6 +195,11 @@ function isDarkVisual(v) {
 }
 
 /* ---------------- home page ---------------- */
+// Everything below this line renders only on the home page, so it is
+// always relative to the site root (no directory changes needed).
+
+const HOME_CTX = { base: "", isHome: true };
+const WORK_CTX = { base: "../", isHome: false };
 
 function heroSection() {
   return `
@@ -177,7 +210,7 @@ function heroSection() {
         <p class="hero-copy">I&rsquo;m Ted Wang — a Cornell Systems Engineering graduate student with experience across AI products, telecommunications infrastructure, automation, and product development.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#work">Explore my work <span class="arrow">→</span></a>
-          <a class="btn" href="/resume.pdf">Download résumé <span class="arrow">↓</span></a>
+          <a class="btn" href="resume.pdf">Download résumé <span class="arrow">↓</span></a>
         </div>
         <div class="hero-meta">
           <span><i></i>${site.school}</span>
@@ -212,7 +245,7 @@ function projectCard(project, index) {
     .map((m) => `<div class="m"><strong>${m.value}</strong><span>${m.label}</span></div>`)
     .join("");
   const tags = project.tags.map((t) => `<span class="tag">${t}</span>`).join("");
-  const linkHref = project.isCaseStudy ? `/work/${project.slug}.html` : `#experience`;
+  const linkHref = project.isCaseStudy ? `work/${project.slug}.html` : `#experience`;
   const linkLabel = project.isCaseStudy ? "View case study" : "See the throughline";
   const linkArrow = project.isCaseStudy ? "→" : "↗";
 
@@ -369,7 +402,7 @@ function contactSection() {
       <div class="hero-actions">
         <a class="btn primary" href="mailto:${site.email}">Email me <span class="arrow">↗</span></a>
         <a class="btn" href="${site.linkedin}" target="_blank" rel="noreferrer">LinkedIn <span class="arrow">↗</span></a>
-        <a class="btn" href="/resume.pdf">Résumé <span class="arrow">↓</span></a>
+        <a class="btn" href="resume.pdf">Résumé <span class="arrow">↓</span></a>
       </div>
     </section>`;
 }
@@ -386,7 +419,7 @@ function buildHome() {
     contactSection(),
   ].join("\n");
 
-  return page({
+  return page(HOME_CTX, {
     title: `${site.name} — ${site.role}`,
     description: site.description,
     urlPath: "/",
@@ -456,7 +489,7 @@ function buildCaseStudy(project, next) {
 
   const body = `
   <header class="cs-header">
-    <a class="cs-back reveal" href="/#work">← Back to work</a>
+    <a class="cs-back reveal" href="${siteHref(WORK_CTX, "/#work")}">← Back to work</a>
     <div class="reveal">
       <div class="section-kicker">${project.index} · ${project.category}</div>
       <h1>${project.headline}</h1>
@@ -489,7 +522,7 @@ ${csBullets("What I Learned", "Takeaways", cs.learnings)}
   </div>
 
   <div class="cs-next reveal">
-    <a href="/work/${next.slug}.html">
+    <a href="${next.slug}.html">
       <div>
         <div class="lbl">Next case study</div>
         <div class="title">${next.headline}</div>
@@ -498,7 +531,7 @@ ${csBullets("What I Learned", "Takeaways", cs.learnings)}
     </a>
   </div>`;
 
-  return page({
+  return page(WORK_CTX, {
     title: project.headline,
     description: project.summary,
     urlPath: `/work/${project.slug}.html`,
@@ -522,6 +555,9 @@ withCaseStudy.forEach((project, i) => {
 });
 
 /* ---------------- sitemap + robots ---------------- */
+// (These use absolute URLs from site.json's "url" on purpose — they're read
+// by search engines and social crawlers hitting the real deployed domain,
+// not by a browser opening the folder locally.)
 
 const urls = ["/", ...withCaseStudy.map((p) => `/work/${p.slug}.html`)];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -539,4 +575,4 @@ Sitemap: ${site.url}/sitemap.xml
 writeFileSync(path.join(ROOT, "robots.txt"), robots);
 
 console.log("wrote sitemap.xml, robots.txt");
-console.log("Done. Open index.html in a browser, or serve the folder with any static file server.");
+console.log("Done. Open index.html directly in a browser (double-click works — all paths are relative), or serve the folder with any static file server / host.");
