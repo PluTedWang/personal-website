@@ -229,14 +229,18 @@ function heroSection() {
           <span>${site.statusIndicator}</span>
         </div>
       </div>
-      <div class="hero-art reveal" aria-hidden="true" data-parallax>
-        <div class="wall" data-depth="0.25" data-rot="0">
-          <div class="wall-ties"></div>
-          <div class="wall-slit"></div>
-          <div class="wall-seam s1"></div>
-          <div class="wall-seam s2"></div>
+      <div class="hero-art reveal" aria-hidden="true">
+        <div class="cradle">
+          <div class="cradle-frame"></div>
+          <div class="cradle-row">
+            <div class="pend p1"><i></i><b></b></div>
+            <div class="pend p2"><i></i><b></b></div>
+            <div class="pend p3"><i></i><b></b></div>
+            <div class="pend p4"><i></i><b></b></div>
+            <div class="pend p5"><i></i><b></b></div>
+          </div>
+          <div class="cradle-floor"></div>
         </div>
-        <div class="hero-caption"><span>01</span> Light, concrete, silence</div>
       </div>
     </section>`;
 }
