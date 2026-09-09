@@ -649,116 +649,8 @@
     }
   },
   {
-    "slug": "spectrum-network-automation",
-    "index": "02",
-    "category": "Automation · Infrastructure · Internal Tools · Product Thinking",
-    "headline": "Turning repetitive infrastructure work into software.",
-    "summary": "Owned the roadmap for an internal GIS/CAD network design tool used by 200+ engineers, and turned repeated operational bottlenecks into automation adopted company wide.",
-    "tags": [
-      "Fiber",
-      "HFC",
-      "FTTH",
-      "Python",
-      "Internal Tooling",
-      "Workflow Automation",
-      "Network Infrastructure"
-    ],
-    "metrics": [
-      {
-        "value": "40%",
-        "label": "Faster design turnaround"
-      },
-      {
-        "value": "90%",
-        "label": "Faster signal recalculation"
-      },
-      {
-        "value": "$700K",
-        "label": "Savings per regional operation, Auto BOM"
-      },
-      {
-        "value": "620+",
-        "label": "Enterprise fiber solutions across Manhattan"
-      }
-    ],
-    "visual": "flow",
-    "isCaseStudy": true,
-    "caseStudy": {
-      "problem": "200+ engineers relied on an internal GIS/CAD tool for network design, but the workflow around it was manual: downstream signal recalculation, BOM assembly, and equipment error checking all depended on someone doing the same repetitive steps correctly, every time.",
-      "insight": "The bottleneck was not the design tool itself. It was everything engineers did by hand around it. Interviews with 30+ designers kept surfacing the same two time sinks: recalculating signal levels after a change, and manually pulling bills of materials.",
-      "role": [
-        "Product owner for Spectrum's internal GIS and CAD network design tool used by 200+ engineers, translating feedback from 30+ users into prioritized improvements and aligning Design, Construction, Operations, and Engineering teams, cutting design turnaround time 40%.",
-        "Identified manual downstream signal recalculation as a key design bottleneck and defined a 3 click automation for tracing, recalculation, and verification: recalculation time down 90%, manual errors down 25%, about 2 engineering hours saved per project across 3+ regions.",
-        "Identified manual BOM generation and equipment validation as recurring pain points through designer interviews and launched Auto BOM, which tracks equipment changes automatically: report generation time down 50%, better network upgrade budgeting, about $700K in savings per regional operation.",
-        "Owned the prioritization model for a 30 person cross functional unit, ranking requests by volume, urgency, and dependency.",
-        "Led a 20 person audit of 1,000+ optical nodes for DOCSIS 4.0 readiness."
-      ],
-      "constraints": [
-        "Any automation had to slot into an existing, already adopted GIS/CAD workflow. Engineers would not switch tools, so the tool had to come to them.",
-        "Errors in signal recalculation or BOM data have real field consequences, so automation had to be at least as accurate as careful manual work, not just faster.",
-        "Prioritization had to serve a 30 person cross functional unit with competing, legitimate priorities."
-      ],
-      "decisionProcess": [
-        {
-          "heading": "Finding the bottleneck through interviews",
-          "body": [
-            "Rather than assuming what to automate, I interviewed 30+ designers about where their time actually went. Manual downstream signal recalculation and BOM and equipment error checking came up repeatedly, independent of region or seniority."
-          ]
-        },
-        {
-          "heading": "Designing a three click automation, not a new system",
-          "body": [
-            "Because designers would not adopt a separate tool, the automation was built as a lightweight layer that traced, recalculated, and verified signal levels in three clicks inside the existing workflow, cutting recalculation time significantly and manual errors by 25%.",
-            "The same pattern, trace, compute, verify, was reused for Auto BOM, which recorded equipment changes automatically instead of requiring a manual pull."
-          ]
-        },
-        {
-          "heading": "Scaling adoption",
-          "body": [
-            "Both tools were rolled out incrementally across regional teams. The recalculation automation was adopted by 3+ regional teams, and Auto BOM went company wide once report generation savings of about 50% were demonstrated in the first region."
-          ]
-        }
-      ],
-      "solution": [
-        "A three click Python automation for downstream signal tracing, recalculation, and verification, embedded in the existing design workflow.",
-        "Auto BOM: automatic recording of equipment changes as designers made them, replacing manual bill of materials assembly.",
-        "A prioritization model for the 30 person cross functional unit that ranked requests by volume, urgency, and dependency instead of first come first served."
-      ],
-      "architecture": [
-        "Python automation layered on top of the existing GIS/CAD tool's data model, so designers kept their existing workflow and tool of record.",
-        "Change tracking hooks that captured equipment modifications at the point of design, rather than reconstructing them later from disparate records."
-      ],
-      "productDecisions": [
-        "Prioritized automating the two highest frequency manual tasks (signal recalculation, BOM pulling) identified directly from user interviews, over building new design features.",
-        "Chose incremental regional rollout over a single company wide launch, using early results to build the case for wider adoption."
-      ],
-      "results": [
-        {
-          "value": "40%",
-          "label": "Faster design turnaround across 200+ engineers"
-        },
-        {
-          "value": "90%",
-          "label": "Faster recalculation, 25% fewer manual errors, about 2 hours saved per project"
-        },
-        {
-          "value": "$700K",
-          "label": "Approximate savings per regional operation from Auto BOM"
-        },
-        {
-          "value": "28%",
-          "label": "Improved network data accuracy from the DOCSIS 4.0 audit"
-        }
-      ],
-      "learnings": [
-        "The highest leverage product opportunities were hiding inside operational workflows nobody thought of as a product. They just looked like how the job was done.",
-        "Automation that respects an existing workflow spreads faster than automation that asks people to change how they work."
-      ]
-    }
-  },
-  {
     "slug": "tapq",
-    "index": "03",
+    "index": "02",
     "category": "Founder · Product Management · Open Source · Wearables",
     "headline": "AI you control without a screen.",
     "summary": "TapQ is an open source macOS app that turns the AirPods people already wear into a private control surface for AI agents. Nod to approve, shake to decline, tilt to choose, speak to follow up. Launched from 50 beta users to 200+ downloads and 500+ GitHub stars with 40% D30 retention, and now expanding from developer agents into Business, Lecture, and Travel modes.",
@@ -1060,92 +952,116 @@
     "pipelineTitle": "A private micro interaction"
   },
   {
-    "slug": "ai-trading-signals",
-    "index": "04",
-    "category": "AI · Data · Product Experiment",
-    "headline": "Turning market noise into actionable signals.",
-    "summary": "An experimental, AI assisted market monitoring system built to identify abnormal trading activity, summarize signals, and help active traders understand market reactions faster.",
+    "slug": "spectrum-network-automation",
+    "index": "03",
+    "category": "Automation · Infrastructure · Internal Tools · Product Thinking",
+    "headline": "Turning repetitive infrastructure work into software.",
+    "summary": "Owned the roadmap for an internal GIS/CAD network design tool used by 200+ engineers, and turned repeated operational bottlenecks into automation adopted company wide.",
     "tags": [
-      "AI",
-      "Data",
-      "Alerts",
-      "Rapid Prototyping",
-      "Product Experiment"
+      "Fiber",
+      "HFC",
+      "FTTH",
+      "Python",
+      "Internal Tooling",
+      "Workflow Automation",
+      "Network Infrastructure"
     ],
     "metrics": [
       {
-        "value": "Experiment",
-        "label": "Self initiated product exploration"
+        "value": "40%",
+        "label": "Faster design turnaround"
       },
       {
-        "value": "3",
-        "label": "Core detection signals prototyped"
+        "value": "90%",
+        "label": "Faster signal recalculation"
       },
       {
-        "value": "Iterative",
-        "label": "Built through rapid prototyping and testing"
+        "value": "$700K",
+        "label": "Savings per regional operation, Auto BOM"
+      },
+      {
+        "value": "620+",
+        "label": "Enterprise fiber solutions across Manhattan"
       }
     ],
-    "visual": "signals",
+    "visual": "flow",
     "isCaseStudy": true,
     "caseStudy": {
-      "problem": "Markets generate far more data than any single person can watch. Active traders either miss meaningful anomalies in the noise, or burn out trying to monitor everything manually.",
-      "insight": "The goal was not to predict the market. It was to reduce the cognitive load of scanning it. Traders did not need another opinion; they needed the system to notice what deserved attention and explain why, in plain language.",
+      "problem": "200+ engineers relied on an internal GIS/CAD tool for network design, but the workflow around it was manual: downstream signal recalculation, BOM assembly, and equipment error checking all depended on someone doing the same repetitive steps correctly, every time.",
+      "insight": "The bottleneck was not the design tool itself. It was everything engineers did by hand around it. Interviews with 30+ designers kept surfacing the same two time sinks: recalculating signal levels after a change, and manually pulling bills of materials.",
       "role": [
-        "Scoped and built the product as a personal experiment, from problem framing through a working prototype.",
-        "Designed the core loop: detect anomaly, summarize, explain, let the user decide.",
-        "Built a volume anomaly detection layer, an AI explanation panel, and an alert timeline as the first testable slice."
+        "Product owner for Spectrum's internal GIS and CAD network design tool used by 200+ engineers, translating feedback from 30+ users into prioritized improvements and aligning Design, Construction, Operations, and Engineering teams, cutting design turnaround time 40%.",
+        "Identified manual downstream signal recalculation as a key design bottleneck and defined a 3 click automation for tracing, recalculation, and verification: recalculation time down 90%, manual errors down 25%, about 2 engineering hours saved per project across 3+ regions.",
+        "Identified manual BOM generation and equipment validation as recurring pain points through designer interviews and launched Auto BOM, which tracks equipment changes automatically: report generation time down 50%, better network upgrade budgeting, about $700K in savings per regional operation.",
+        "Owned the prioritization model for a 30 person cross functional unit, ranking requests by volume, urgency, and dependency.",
+        "Led a 20 person audit of 1,000+ optical nodes for DOCSIS 4.0 readiness."
       ],
       "constraints": [
-        "The system had to stay explanatory, never prescriptive, surfacing signals without telling users what to do with them.",
-        "Signal quality mattered more than signal quantity: a feed full of low value alerts would train users to ignore it."
+        "Any automation had to slot into an existing, already adopted GIS/CAD workflow. Engineers would not switch tools, so the tool had to come to them.",
+        "Errors in signal recalculation or BOM data have real field consequences, so automation had to be at least as accurate as careful manual work, not just faster.",
+        "Prioritization had to serve a 30 person cross functional unit with competing, legitimate priorities."
       ],
       "decisionProcess": [
         {
-          "heading": "Choosing what to detect first",
+          "heading": "Finding the bottleneck through interviews",
           "body": [
-            "Rather than building broad market coverage, I started with volume acceleration anomalies: a signal that is cheap to compute, easy to validate, and immediately legible to an active trader."
+            "Rather than assuming what to automate, I interviewed 30+ designers about where their time actually went. Manual downstream signal recalculation and BOM and equipment error checking came up repeatedly, independent of region or seniority."
           ]
         },
         {
-          "heading": "Designing the explanation layer",
+          "heading": "Designing a three click automation, not a new system",
           "body": [
-            "An anomaly on its own is just a number. The AI explanation panel translates a detected anomaly into a short, plain language summary of what changed and why it might matter, without predicting a direction."
+            "Because designers would not adopt a separate tool, the automation was built as a lightweight layer that traced, recalculated, and verified signal levels in three clicks inside the existing workflow, cutting recalculation time significantly and manual errors by 25%.",
+            "The same pattern, trace, compute, verify, was reused for Auto BOM, which recorded equipment changes automatically instead of requiring a manual pull."
+          ]
+        },
+        {
+          "heading": "Scaling adoption",
+          "body": [
+            "Both tools were rolled out incrementally across regional teams. The recalculation automation was adopted by 3+ regional teams, and Auto BOM went company wide once report generation savings of about 50% were demonstrated in the first region."
           ]
         }
       ],
       "solution": [
-        "A signal feed surfacing detected anomalies in near real time.",
-        "Volume anomaly detection as the first production signal, with room to add sentiment and order flow signals.",
-        "An AI explanation panel that summarizes what the system noticed in plain language.",
-        "An alert timeline for reviewing what fired and when."
+        "A three click Python automation for downstream signal tracing, recalculation, and verification, embedded in the existing design workflow.",
+        "Auto BOM: automatic recording of equipment changes as designers made them, replacing manual bill of materials assembly.",
+        "A prioritization model for the 30 person cross functional unit that ranked requests by volume, urgency, and dependency instead of first come first served."
       ],
       "architecture": [
-        "A lightweight monitoring layer that ingests market data, computes anomaly scores, and routes flagged events to a summarization step before they reach the feed."
+        "Python automation layered on top of the existing GIS/CAD tool's data model, so designers kept their existing workflow and tool of record.",
+        "Change tracking hooks that captured equipment modifications at the point of design, rather than reconstructing them later from disparate records."
       ],
       "productDecisions": [
-        "Deliberately kept the product to a dashboard style signal feed rather than stock market clichés, to keep the focus on interpretation over spectacle.",
-        "Treated this as a validation exercise for a product hypothesis, reduce cognitive load rather than add more data, rather than a trading tool to monetize immediately."
+        "Prioritized automating the two highest frequency manual tasks (signal recalculation, BOM pulling) identified directly from user interviews, over building new design features.",
+        "Chose incremental regional rollout over a single company wide launch, using early results to build the case for wider adoption."
       ],
       "results": [
         {
-          "value": "3",
-          "label": "Detection and explanation components validated end to end"
+          "value": "40%",
+          "label": "Faster design turnaround across 200+ engineers"
         },
         {
-          "value": "Personal",
-          "label": "Self funded exploration outside of full time roles"
+          "value": "90%",
+          "label": "Faster recalculation, 25% fewer manual errors, about 2 hours saved per project"
+        },
+        {
+          "value": "$700K",
+          "label": "Approximate savings per regional operation from Auto BOM"
+        },
+        {
+          "value": "28%",
+          "label": "Improved network data accuracy from the DOCSIS 4.0 audit"
         }
       ],
       "learnings": [
-        "Explaining a signal is a harder and more valuable product problem than detecting one.",
-        "Restraint, showing fewer, higher confidence signals, is itself a product decision, not a limitation."
+        "The highest leverage product opportunities were hiding inside operational workflows nobody thought of as a product. They just looked like how the job was done.",
+        "Automation that respects an existing workflow spreads faster than automation that asks people to change how they work."
       ]
     }
   },
   {
     "slug": "engineering-foundations",
-    "index": "05",
+    "index": "04",
     "category": "Plasma Physics · Electrical Engineering · Infrastructure · Software",
     "headline": "Engineering before product management.",
     "summary": "The industries changed: plasma physics research, electrical equipment engineering, telecommunications infrastructure, software automation, AI products. The underlying habit did not. Understand the system, find the bottleneck, build a better solution.",

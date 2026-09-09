@@ -326,10 +326,15 @@ function workSection() {
   return `
     <section class="section" id="work">
       <div class="section-head reveal">
-        <div class="section-kicker">Selected work</div>
+        <div class="portrait-col">
+          <figure class="portrait">
+            <img src="assets/img/ted-wang.jpg" alt="Ted Wang" loading="lazy" />
+          </figure>
+          <div class="section-kicker">Selected work</div>
+        </div>
         <div>
           <h2>Ideas turned into systems people can actually use.</h2>
-          <p class="section-sub">One main body of work at Dreame, with two branches I built myself, and the engineering that came before it.</p>
+          <p class="section-sub">One main body of work at Dreame with two branches I built myself, the product I am building now, and the engineering that came before it.</p>
         </div>
       </div>
       <div class="projects">

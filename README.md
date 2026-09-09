@@ -7,10 +7,10 @@ step, no `npm install`: open `index.html` in a browser and it works.
 
 ```
 index.html                  Home page (generated, do not hand edit)
-work/<slug>.html             7 case study pages (generated, do not hand edit):
+work/<slug>.html             6 case study pages (generated, do not hand edit):
                               nexus-gen (the trunk), home-theater and
                               vitrine-display (its two branches), spectrum,
-                              tapq, trading signals, engineering foundations
+                              tapq, engineering foundations
 content/site.json            Identity + contact links + nav
 content/projects.json        Projects and their case-study content. A project
                               with "parent" is a branch of that project; the

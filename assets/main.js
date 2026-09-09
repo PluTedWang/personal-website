@@ -140,7 +140,104 @@
     });
   }
 
+
+  /* ---------- Newton's cradle: pointer driven simulation ---------- */
+  function initCradle() {
+    var root = document.querySelector(".cradle");
+    if (!root) return;
+    var pends = Array.prototype.slice.call(root.querySelectorAll(".pend"));
+    var N = pends.length;
+    if (!N) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var a = 0;          // pendulum angle in radians; positive = swung out to the left
+    var v = 0;          // angular velocity
+    var k = 1;          // how many balls are in the moving group
+    var holding = false;
+    var holdTarget = 0;
+    var idleTimer = 0;
+    var lastT = 0;
+    var G = 9.81, L = 2.4;              // metres; sets the tempo
+    var HOLD = 30 * Math.PI / 180;      // lift angle while the pointer is held
+    var REST = 0.985;                   // energy kept through each collision
+    var AIR = 0.9985;                   // air drag per frame
+
+    function render() {
+      for (var i = 0; i < N; i++) {
+        var deg = 0;
+        if (a > 0 && i < k) deg = a * 180 / Math.PI;            // left group is out
+        else if (a < 0 && i >= N - k) deg = a * 180 / Math.PI;  // right group is out
+        pends[i].style.transform = "rotate(" + deg.toFixed(3) + "deg)";
+      }
+    }
+
+    function kick(count, angleDeg) {
+      k = Math.max(1, Math.min(N - 1, count));
+      a = angleDeg * Math.PI / 180;
+      v = 0;
+    }
+
+    function step(t) {
+      var dt = lastT ? Math.min(0.032, (t - lastT) / 1000) : 0.016;
+      lastT = t;
+      if (holding) {
+        a += (holdTarget - a) * Math.min(1, dt * 12);   // ease up to the hold angle
+        v = 0;
+      } else {
+        var prev = a;
+        var acc = -(G / L) * Math.sin(a);
+        v += acc * dt;
+        v *= AIR;
+        a += v * dt;
+        if ((prev > 0 && a <= 0) || (prev < 0 && a >= 0)) {
+          v *= REST;                                    // the click: energy crosses the row
+          root.classList.add("hit");
+          setTimeout(function () { root.classList.remove("hit"); }, 90);
+        }
+        if (Math.abs(a) < 0.004 && Math.abs(v) < 0.02) { a = 0; v = 0; idleTimer += dt; }
+        else idleTimer = 0;
+        if (!reduce && idleTimer > 2.2) { kick(1, 26); idleTimer = 0; }
+      }
+      render();
+      requestAnimationFrame(step);
+    }
+
+    // Which gap is the pointer in? Returns how many balls sit to its left (1..N-1).
+    function gapFor(clientX) {
+      var r = root.querySelector(".cradle-row").getBoundingClientRect();
+      var x = (clientX - r.left) / r.width;           // 0..1 across the row
+      var g = Math.round(x * N);                       // gap index 0..N
+      return Math.max(1, Math.min(N - 1, g));
+    }
+
+    function hold(clientX) {
+      holding = true;
+      k = gapFor(clientX);
+      holdTarget = HOLD;
+      if (a < 0) a = 0;                               // collapse a right swing before lifting left
+    }
+    function release() {
+      if (!holding) return;
+      holding = false;
+      v = 0;
+      idleTimer = 0;
+    }
+
+    root.addEventListener("mousemove", function (e) { hold(e.clientX); });
+    root.addEventListener("mouseleave", release);
+    root.addEventListener("click", function (e) { hold(e.clientX); a = holdTarget; release(); });
+    root.addEventListener("touchstart", function (e) {
+      if (!e.touches.length) return;
+      hold(e.touches[0].clientX); a = holdTarget; release();
+    }, { passive: true });
+
+    if (!reduce) kick(1, 26);
+    render();
+    requestAnimationFrame(step);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    initCradle();
     initThemeToggle();
     initNav();
     initReveal();
