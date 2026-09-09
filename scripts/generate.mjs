@@ -328,7 +328,7 @@ function workSection() {
       <div class="section-head reveal">
         <div class="portrait-col">
           <figure class="portrait">
-            <img src="assets/img/ted-wang.jpg" alt="Ted Wang" loading="lazy" />
+            <img src="assets/img/ted-wang.png" alt="Ted Wang" loading="lazy" />
           </figure>
           <div class="section-kicker">Selected work</div>
         </div>

@@ -162,12 +162,23 @@
     var REST = 0.985;                   // energy kept through each collision
     var AIR = 0.9985;                   // air drag per frame
 
-    function render() {
+    var disp = [];                      // what each ball actually shows, eased toward its target
+    for (var d0 = 0; d0 < N; d0++) disp.push(0);
+
+    function targetFor(i) {
+      if (a > 0 && i < k) return a;                // left group is out
+      if (a < 0 && i >= N - k) return a;           // right group is out
+      return 0;
+    }
+
+    function render(dt) {
+      // While holding, glide slowly; while swinging, follow the physics almost exactly.
+      var rate = holding ? 2.6 : 60;
+      var f = 1 - Math.exp(-rate * dt);
       for (var i = 0; i < N; i++) {
-        var deg = 0;
-        if (a > 0 && i < k) deg = a * 180 / Math.PI;            // left group is out
-        else if (a < 0 && i >= N - k) deg = a * 180 / Math.PI;  // right group is out
-        pends[i].style.transform = "rotate(" + deg.toFixed(3) + "deg)";
+        var tgt = targetFor(i);
+        disp[i] += (tgt - disp[i]) * f;
+        pends[i].style.transform = "rotate(" + (disp[i] * 180 / Math.PI).toFixed(3) + "deg)";
       }
     }
 
@@ -181,7 +192,7 @@
       var dt = lastT ? Math.min(0.032, (t - lastT) / 1000) : 0.016;
       lastT = t;
       if (holding) {
-        a += (holdTarget - a) * Math.min(1, dt * 12);   // ease up to the hold angle
+        a = holdTarget;                                  // the group glides up in render()
         v = 0;
       } else {
         var prev = a;
@@ -198,7 +209,7 @@
         else idleTimer = 0;
         if (!reduce && idleTimer > 2.2) { kick(1, 26); idleTimer = 0; }
       }
-      render();
+      render(dt);
       requestAnimationFrame(step);
     }
 
@@ -219,20 +230,24 @@
     function release() {
       if (!holding) return;
       holding = false;
+      // Let go from wherever the group actually is right now, so there is never a jump.
+      var lifted = disp[k - 1];
+      a = Math.max(0.02, lifted);
+      for (var i = 0; i < N; i++) disp[i] = targetFor(i);
       v = 0;
       idleTimer = 0;
     }
 
     root.addEventListener("mousemove", function (e) { hold(e.clientX); });
     root.addEventListener("mouseleave", release);
-    root.addEventListener("click", function (e) { hold(e.clientX); a = holdTarget; release(); });
+    root.addEventListener("click", function (e) { hold(e.clientX); for (var i = 0; i < N; i++) disp[i] = targetFor(i); release(); });
     root.addEventListener("touchstart", function (e) {
       if (!e.touches.length) return;
-      hold(e.touches[0].clientX); a = holdTarget; release();
+      hold(e.touches[0].clientX); for (var i = 0; i < N; i++) disp[i] = targetFor(i); release();
     }, { passive: true });
 
     if (!reduce) kick(1, 26);
-    render();
+    render(0.016);
     requestAnimationFrame(step);
   }
 
