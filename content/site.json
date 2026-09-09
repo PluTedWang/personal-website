@@ -9,12 +9,27 @@
   "statusIndicator": "Open to Product / AI opportunities",
   "email": "wangzhuoran.ted@gmail.com",
   "url": "https://tedwang.dev",
-  "linkedin": "https://www.linkedin.com/in/zhuoranwang",
+  "linkedin": "https://www.linkedin.com/in/ted-wang-zhuoran",
   "nav": [
-    { "label": "Work", "href": "/#work" },
-    { "label": "Experience", "href": "/#experience" },
-    { "label": "About", "href": "/#about" },
-    { "label": "Resume", "href": "/resume.pdf" },
-    { "label": "Contact", "href": "/#contact" }
+    {
+      "label": "Work",
+      "href": "/#work"
+    },
+    {
+      "label": "Experience",
+      "href": "/#experience"
+    },
+    {
+      "label": "About",
+      "href": "/#about"
+    },
+    {
+      "label": "Resume",
+      "href": "/resume.pdf"
+    },
+    {
+      "label": "Contact",
+      "href": "/#contact"
+    }
   ]
 }

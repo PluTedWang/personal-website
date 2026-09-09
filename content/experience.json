@@ -4,19 +4,25 @@
       "year": "2026 to Present",
       "org": "Cornell University",
       "title": "M.Eng, Systems Engineering",
-      "description": "Graduate study focused on AI, systems, and product-oriented problem solving, with a research focus on AI and open source bug reports."
+      "description": "Graduate study focused on AI systems and product oriented problem solving, with a research focus on AI systems and open source bug report evaluations."
+    },
+    {
+      "year": "May 2026 to Present",
+      "org": "TapQ (tapq.ai)",
+      "title": "Founder and Product Manager",
+      "description": "Open source AirPods interface for hands free AI agent control. Head gestures and IMU based voice attribution for full duplex agent interaction; 50 beta users to 200+ downloads and 500+ GitHub stars, 40% D30 retention. Roadmap from developer agents into Business, Lecture, and Travel modes."
     },
     {
       "year": "Apr 2026 to Jul 2026",
-      "org": "Dreame Technology",
+      "org": "Dreame Technology (CES Asia Innovation Award)",
       "title": "Product Manager Intern, AI NAS Business Unit",
-      "description": "0→1 development of a privacy-first, AI-powered personal storage platform. User research, model evaluation, MCP-based tool routing, and the Home Theater product, inside a company-wide leadership incubator (1 of 40 selected)."
+      "description": "Consumer electronics company building privacy first, AI powered home storage devices (seed round, $2M). 0 to 1 development inside a company wide incubator: user research with 100 NAS users, model selection across 7 LLMs, the MCP based tool registry, the dual volume privacy architecture, and the Home Theater MVP that reached 78% beta activation, 81% daily active, and 60% D14 retention."
     },
     {
       "year": "Apr 2023 to Mar 2026",
       "org": "Spectrum",
-      "title": "Field Operation Designer III",
-      "description": "Acted as product owner for an internal GIS/CAD network design tool used by 200+ engineers. Delivered 150+ FTTH and 620+ enterprise fiber solutions, and led automation that cut design and verification time significantly."
+      "title": "Designer Engineer III, Product Owner of the internal GIS/CAD design tool",
+      "description": "Owned the roadmap for the internal GIS and CAD network design tool used by 200+ engineers, aligning Design, Construction, Operations, and Engineering. Defined the 3 click signal recalculation automation (90% faster, 25% fewer errors, about 2 engineering hours saved per project) and launched Auto BOM (50% faster reports, about $700K in savings per regional operation). Delivered 150+ FTTH and 620+ enterprise fiber solutions across Manhattan."
     },
     {
       "year": "May 2022 to Mar 2023",
@@ -34,32 +40,65 @@
       "year": "May 2019 to Nov 2019",
       "org": "A.T. Kearney",
       "title": "Consulting Intern",
-      "description": "Analyzed customer and store-performance data for a major retail client; findings contributed to a 15% sales increase."
+      "description": "Analyzed customer and store performance data for Nike Factory Stores in China, identifying demand patterns and commercial opportunities; recommendations presented to Nike China executives contributed to a 15% sales increase."
     }
   ],
   "skillGroups": [
     {
       "name": "Product",
-      "skills": ["Product Strategy", "Roadmaps", "PRDs", "User Research", "Prioritization", "Experimentation", "Metrics", "Cross-functional Leadership"]
+      "skills": [
+        "Product Strategy",
+        "Roadmaps",
+        "PRDs",
+        "User Research",
+        "Prioritization",
+        "Experimentation",
+        "Metrics",
+        "Cross-functional Leadership"
+      ]
     },
     {
       "name": "AI",
-      "skills": ["LLMs", "AI Agents", "MCP", "Tool Calling", "Model Evaluation", "Prompt Engineering", "Local AI"]
+      "skills": [
+        "LLMs",
+        "AI Agents",
+        "MCP",
+        "Tool Calling",
+        "Model Evaluation",
+        "Prompt Engineering",
+        "Local AI"
+      ]
     },
     {
       "name": "Technical",
-      "skills": ["Python", "SQL", "APIs", "Automation", "Networking", "Data Analysis", "Systems Engineering", "R"]
+      "skills": [
+        "Python",
+        "SQL",
+        "APIs",
+        "Automation",
+        "Networking",
+        "Data Analysis",
+        "Systems Engineering",
+        "R"
+      ]
     },
     {
       "name": "Tools",
-      "skills": ["Figma", "Canva", "JIRA", "Git", "SolidWorks", "AutoCAD"]
+      "skills": [
+        "Figma",
+        "Canva",
+        "JIRA",
+        "Git",
+        "SolidWorks",
+        "AutoCAD"
+      ]
     }
   ],
   "education": [
     {
       "school": "Cornell University",
       "degree": "M.Eng, Systems Engineering",
-      "note": "Duffield School of Engineering · Expected Dec 2027 · Research focus: AI and open source bug reports"
+      "note": "Expected Dec 2027 · Research focus: AI systems and open source bug report evaluations"
     },
     {
       "school": "New York University, Tandon School of Engineering",

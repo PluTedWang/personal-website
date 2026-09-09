@@ -7,10 +7,10 @@ step, no `npm install`: open `index.html` in a browser and it works.
 
 ```
 index.html                  Home page (generated, do not hand edit)
-work/<slug>.html             6 case study pages (generated, do not hand edit):
+work/<slug>.html             7 case study pages (generated, do not hand edit):
                               nexus-gen (the trunk), home-theater and
                               vitrine-display (its two branches), spectrum,
-                              trading signals, engineering foundations
+                              tapq, trading signals, engineering foundations
 content/site.json            Identity + contact links + nav
 content/projects.json        Projects and their case-study content. A project
                               with "parent" is a branch of that project; the
@@ -24,8 +24,8 @@ assets/main.js                Nav scroll state, dark mode toggle, reveal on
                               scroll, on demand Figma live embeds
 scripts/generate.mjs          Static-site generator: reads content/*.json,
                               writes index.html + work/*.html
-scripts/build_resume.py       Generates resume.pdf from the same content
-resume.pdf                    Downloadable résumé (linked from nav + hero + footer CTA)
+resume.pdf                    Ted's own résumé PDF (linked from nav, hero, and contact).
+                              Replace the file to update the download.
 favicon.svg, og.png, robots.txt, sitemap.xml
 ```
 
@@ -43,18 +43,10 @@ shape of an existing one) and rerun the command above: a new page at
 `work/<slug>.html` is created automatically and it's wired into the
 "Selected Work" grid and the case-study next/prev links.
 
-To regenerate the résumé after editing your experience:
-
-```bash
-python3 scripts/build_resume.py   # needs: pip install reportlab
-```
-
 ## Before you publish
 
-A few placeholders are worth a look:
+One placeholder is worth a look:
 
-- `content/site.json` → `linkedin` is a placeholder URL: update it to your
-  real profile.
 - `content/site.json` → `url` (`https://tedwang.dev`) is used for canonical
   links, sitemap.xml, and Open Graph tags: set it to wherever this actually
   deploys, then rerun the generator.

@@ -61,6 +61,7 @@
     <h1>A private AI brain for the home.</h1>
     <p class="lede">Nexus Gen is a privacy first AI NAS: local models, agents, and storage in one box. I joined the 0 to 1 build inside Dreame's incubator, wrote the early PRD and twelve month roadmap, ran the user research, and shipped two of its surfaces with my own hands. The product won the CES Asia Best Innovation Award.</p>
     <div class="tags"><span class="tag">PRD</span><span class="tag">Roadmap</span><span class="tag">LLM</span><span class="tag">Agents</span><span class="tag">MCP</span><span class="tag">Privacy</span><span class="tag">Hardware</span><span class="tag">Go to market</span></div>
+    
   </header>
 
   <div class="cs-visual-wrap reveal">
@@ -180,11 +181,11 @@
           <h2>What I owned</h2>
           <ul class="bullets">
             <li>Wrote the product overview PRD and the twelve month roadmap: vision, personas, baseline inventory, architecture, four phases with priorities and estimates, and the buy versus build decisions.</li>
-            <li>Interviewed 100+ NAS users to separate real product opportunities from feature requests, and used that to rank the phases.</li>
+            <li>Interviewed 100 NAS users and ranked Home Theater as the number one new feature opportunity after core file management, then used the same research to order the roadmap phases.</li>
             <li>Owned the roadmap for the AI NAS unit inside a company wide incubator, competing with roughly one hundred internal projects for investment.</li>
             <li>Owned model selection for the on device agent through a six dimension evaluation and A/B tests of seven LLMs across 1,000+ prompts.</li>
             <li>Diagnosed the agent's timeout defect and drove the move to an MCP based tool registry: 80% fewer unnecessary tool selection tokens, roughly three minutes off average latency, timeout failures eliminated.</li>
-            <li>Defined the dual volume privacy architecture that separated a fully offline volume from a connected service volume.</li>
+            <li>Benchmarked competing NAS and cloud AI privacy models, identified user controlled data access as a key need, and defined the dual volume privacy architecture separating local and internet accessible data. It became a key differentiator behind the CES Asia 2026 Innovation Award.</li>
             <li>Owned requirements and flows for the AI chat, onboarding, photo gallery, and media library surfaces, working with two designers.</li>
             <li>Built two surfaces myself: the Home Theater prototype and the Vitrine display driver. Each has its own page.</li>
           </ul>
@@ -217,7 +218,7 @@
             <div class="decision-step">
               <div class="step-head"><span class="step-idx">02</span><h3>Find the real opportunity</h3></div>
               <p>Rather than starting from what the AI could do, I ran structured interviews with 100+ existing NAS users to map where they actually lost time: finding something to watch, organizing a media library, recovering from duplicate or misnamed files.</p>
-              <p>Home Theater surfaced as the clearest, most testable wedge. It became its own branch of the work.</p>
+              <p>Home Theater ranked as the number one new feature opportunity after core file management. It became its own branch of the work, with automated indexing, IMDb metadata, subtitle matching, and on device recommendations.</p>
             </div>
             <div class="decision-step">
               <div class="step-head"><span class="step-idx">03</span><h3>Diagnose the timeouts</h3></div>
@@ -231,7 +232,7 @@
             </div>
             <div class="decision-step">
               <div class="step-head"><span class="step-idx">05</span><h3>Make privacy structural</h3></div>
-              <p>The pitch promised that data never leaves the device. A setting cannot promise that; an architecture can. I defined two volumes: an isolated private volume for fully offline data and models, and a separate connected volume for anything that touches the network.</p>
+              <p>I benchmarked how competing NAS products and cloud AI services handled privacy and found the real need was user controlled data access, not a blanket promise. A setting cannot deliver that; an architecture can. I defined two volumes: an isolated private volume for fully offline data and models, and a separate internet accessible volume for anything that touches the network, so users decide what the model may reach.</p>
               <p>That design was part of what the CES Asia jury cited.</p>
             </div>
           </div>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI you control without a screen. · Ted Wang</title>
+  <meta name="description" content="TapQ is an open source macOS app that turns the AirPods people already wear into a private control surface for AI agents. Nod to approve, shake to decline, tilt to choose, speak to follow up. Launched from 50 beta users to 200+ downloads and 500+ GitHub stars with 40% D30 retention, and now expanding from developer agents into Business, Lecture, and Travel modes." />
+  <link rel="canonical" href="https://tedwang.dev/work/tapq.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#ebebe9" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI you control without a screen. · Ted Wang" />
+  <meta property="og:description" content="TapQ is an open source macOS app that turns the AirPods people already wear into a private control surface for AI agents. Nod to approve, shake to decline, tilt to choose, speak to follow up. Launched from 50 beta users to 200+ downloads and 500+ GitHub stars with 40% D30 retention, and now expanding from developer agents into Business, Lecture, and Travel modes." />
+  <meta property="og:url" content="https://tedwang.dev/work/tapq.html" />
+  <meta property="og:site_name" content="Ted Wang" />
+  <meta property="og:image" content="https://tedwang.dev/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI you control without a screen. · Ted Wang" />
+  <meta name="twitter:description" content="TapQ is an open source macOS app that turns the AirPods people already wear into a private control surface for AI agents. Nod to approve, shake to decline, tilt to choose, speak to follow up. Launched from 50 beta users to 200+ downloads and 500+ GitHub stars with 40% D30 retention, and now expanding from developer agents into Business, Lecture, and Travel modes." />
+  <meta name="twitter:image" content="https://tedwang.dev/og.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="grain"></div>
+  
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="nav-wrap">
+    <nav id="nav">
+      <a href="../index.html#top" class="brand"><span class="brand-mark"></span> Ted Wang</a>
+      <div class="nav-links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="../index.html#contact" class="nav-cta">Let&rsquo;s talk</a>
+        
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <main id="main">
+
+  <header class="cs-header reveal">
+    <a class="cs-back" href="../index.html#work">← Back to work</a>
+    <div class="section-kicker">03 &nbsp;·&nbsp; Founder · Product Management · Open Source · Wearables</div>
+    <h1>AI you control without a screen.</h1>
+    <p class="lede">TapQ is an open source macOS app that turns the AirPods people already wear into a private control surface for AI agents. Nod to approve, shake to decline, tilt to choose, speak to follow up. Launched from 50 beta users to 200+ downloads and 500+ GitHub stars with 40% D30 retention, and now expanding from developer agents into Business, Lecture, and Travel modes.</p>
+    <div class="tags"><span class="tag">0 to 1</span><span class="tag">Open source</span><span class="tag">AirPods</span><span class="tag">IMU</span><span class="tag">Voice</span><span class="tag">Agents</span><span class="tag">Roadmap</span><span class="tag">User research</span></div>
+    <div class="cs-links"><a class="btn" href="https://tapq.ai" target="_blank" rel="noreferrer">tapq.ai <span class="arrow">↗</span></a><a class="btn" href="https://github.com/spaceamoeba-t/tapq" target="_blank" rel="noreferrer">GitHub <span class="arrow">↗</span></a></div>
+  </header>
+
+  <div class="cs-visual-wrap reveal">
+    <div class="cs-visual dark">
+      
+        <div class="media-frame">
+          <img src="../assets/img/tapq-hero.jpg" alt="Two AirPods floating in front of a dark background with a sound wave behind them" loading="lazy" />
+        </div>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Problem</div>
+        <div>
+          <div class="prose">
+            <h2>What was not working</h2>
+            <p>AI capability is scaling faster than human attention. An agent can work alone for minutes, then stall on a permission prompt until someone comes back to the terminal. In meetings and lectures the same thing happens in reverse: the moment you need help is exactly the moment you cannot pick up a phone.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Insight</div>
+        <div>
+          <div class="prose">
+            <h2>What the user actually needed</h2>
+            <p>The next interface is not another app or another gadget. It is a private control surface people already wear. The product had to be silent to use, private in what it says back, and honest about when it is unsure.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal wide">
+        <div class="eyebrow2">The thesis</div>
+        <div>
+          <h2>AI is becoming ambient. Interaction is still stuck on screens.</h2>
+          <p class="lead">People now supervise several AI systems at once. The bottleneck is no longer the model. It is the moment a human has to return, unlock, read, and respond. Three frictions kept coming up in interviews, and each one had an interaction answer.</p>
+          <div class="thesis-grid">
+            <div class="thesis-col">
+              <div class="thesis-pain"><span class="strike">Wake words are awkward</span><p>Saying a wake phrase in a meeting, a lecture, or a quiet office announces the interaction to the whole room.</p></div>
+              <div class="thesis-arrow" aria-hidden="true">↓</div>
+              <div class="thesis-answer"><span>Head gestures</span><p>A double nod approves, a double shake declines, a tilt selects. Silent, private, and no phrase to say out loud.</p></div>
+            </div>
+            <div class="thesis-col">
+              <div class="thesis-pain"><span class="strike">Ambient voice is noisy</span><p>Always on assistants cannot tell the wearer from the people around them, so they either miss commands or act on someone else's.</p></div>
+              <div class="thesis-arrow" aria-hidden="true">↓</div>
+              <div class="thesis-answer"><span>IMU voice attribution</span><p>Motion data from the earbuds confirms the wearer is the one speaking, so full duplex conversation with an agent works in a shared space.</p></div>
+            </div>
+            <div class="thesis-col">
+              <div class="thesis-pain"><span class="strike">Agents stall on the human</span><p>A coding agent can work for minutes, then wait on a permission prompt until you come back to the terminal.</p></div>
+              <div class="thesis-arrow" aria-hidden="true">↓</div>
+              <div class="thesis-answer"><span>In ear supervision</span><p>Prompts are spoken in the ear. Approve, deny, choose an option, or queue a follow up without leaving what you are doing.</p></div>
+            </div>
+          </div>
+          <p class="positioning">TapQ does not manufacture hardware. It owns the interaction protocol between human intent and AI execution, on devices people already own.</p>
+        </div>
+      </div>
+
+      <div class="cs-block reveal wide">
+        <div class="eyebrow2">Roadmap</div>
+        <div>
+          <h2>From developer agents to the rest of the day</h2>
+          <p class="lead">The wedge is developer agent supervision because the actions are crisp: approve, deny, choose, follow up. The roadmap extends the same interaction primitive to meetings, lectures, and travel, in the order the research supported.</p>
+
+          <blockquote class="vision">Let people stay present in the real world while AI remains available, informed, and controllable.</blockquote>
+
+          <div class="prd-sub">Differentiators</div>
+          <ul class="bullets"><li>Existing device leverage: AirPods and the Mac you already own, no pendant or pin</li><li>Private in ear output: assistance goes to the wearer, never to the room</li><li>Motion as intent: nod, shake, and tilt are a silent response channel</li><li>Context aware intervention: the AI acts on what is happening now</li><li>Agent connectivity: it connects back to real workflows, not just answers</li><li>Safe fallback: an ambiguous gesture falls through to the screen instead of inventing an action</li></ul>
+
+          <div class="prd-sub">Who it is for</div>
+          <div class="personas"><div class="persona"><h4>Primary: AI native knowledge worker</h4><div class="who">Engineers, PMs, founders, consultants, researchers who already pay for AI and already wear AirPods</div><p>Supervising agents and sitting in meetings both keep pulling attention back to a screen</p></div><div class="persona"><h4>Secondary: university student</h4><div class="who">Graduate and undergraduate students in dense lectures</div><p>Concepts go by faster than they can be looked up without missing what comes next</p></div><div class="persona"><h4>Future: cross language professional</h4><div class="who">Travelers and people working across languages</div><p>Translation exists everywhere; interpretation and the ability to respond do not</p></div></div>
+
+          <div class="prd-sub">Already shipped in Developer Mode</div>
+          <div class="chips"><span class="chip">Spoken agent prompts</span><span class="chip">Approve and deny by voice or motion</span><span class="chip">Option selection by tilt</span><span class="chip">Completion announcements</span><span class="chip">Follow up instructions</span><span class="chip">Multi agent queue</span><span class="chip">Fail through to the native on screen prompt</span></div>
+
+          <div class="prd-sub">Four horizons</div>
+          <div class="roadmap">
+              <div class="phase">
+                <div class="phase-head"><span class="phase-id">H0</span><span class="phase-window">Shipped</span></div>
+                <div class="phase-goal">Developer Agent Mode: supervise coding agents without returning to the screen</div>
+                <ul><li>Five agent adapters</li><li>Double nod, double shake, tilt</li><li>IMU voice attribution</li><li>Full duplex voice with interruption</li><li>Unified gesture queue across sessions</li></ul>
+              </div>
+              <div class="phase">
+                <div class="phase-head"><span class="phase-id">H1</span><span class="phase-window">Priority</span></div>
+                <div class="phase-goal">Business Mode: understand the meeting while it is happening, remember it afterward</div>
+                <ul><li>Explicit meeting session and consent</li><li>Rolling context and term detection</li><li>Proactive offer, nod to explain</li><li>Contextual explanation in ear</li><li>Summary, decisions, action items, glossary</li></ul>
+              </div>
+              <div class="phase">
+                <div class="phase-head"><span class="phase-id">H2</span><span class="phase-window">Next</span></div>
+                <div class="phase-goal">Lecture Mode: turn passive capture into active learning</div>
+                <ul><li>Lecture capture</li><li>Concept detection tuned for teaching</li><li>Discreet explain this</li><li>Structured review notes</li><li>Unresolved questions surfaced</li></ul>
+              </div>
+              <div class="phase">
+                <div class="phase-head"><span class="phase-id">H3</span><span class="phase-window">Later</span></div>
+                <div class="phase-goal">Travel Mode: interpretation and response, not just translation</div>
+                <ul><li>Best available translation service</li><li>What did they mean by that</li><li>Tell them I have a reservation</li><li>Summarize the instructions</li><li>Hands free while moving</li></ul>
+              </div>
+          </div>
+
+          <div class="prd-sub">Architecture</div>
+          <div class="prd-layers"><div class="prd-layer"><span>AirPods</span><em>Private audio out, wearer microphone, IMU motion for nod, shake, tilt</em></div><div class="prd-layer"><span>TapQ runtime</span><em>Gesture detection, voice attribution, context and consent, routing, fail through</em></div><div class="prd-layer"><span>Agent adapters</span><em>Claude Code, Codex, Cursor, Google Antigravity, OpenCode</em></div><div class="prd-layer"><span>Modes</span><em>Developer, Business, Lecture, Travel</em></div></div>
+
+          <div class="prd-sub">Plumbing versus product</div>
+          <p class="prd-p">Transcription, summarization, and translation are treated as enabling capabilities from best available providers, not as the product. TapQ competes on the intervention: when to ask, how to ask privately, and what the gesture controls.</p>
+
+          <div class="prd-sub">Product principles</div>
+          <div class="chips"><span class="chip">Interrupt rarely, ask privately, answer immediately</span><span class="chip">Proactive offers begin conservatively and are measured on precision</span><span class="chip">Recording is explicit, visible, and consented, never background</span><span class="chip">A head gesture approves low risk actions only; consequential actions fall back to the screen</span><span class="chip">Low confidence does nothing rather than guessing</span></div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">My role</div>
+        <div>
+          <h2>What I owned</h2>
+          <ul class="bullets">
+            <li>Launched TapQ, an open source AirPods interface for hands free AI agent control, scaling from 50 beta users to 200+ downloads and 500+ GitHub stars while achieving 40% D30 retention; translated head gestures into intuitive approve, reject, and selection actions across AI agent workflows.</li>
+            <li>Identified voice attribution as a key limitation of always on AI interfaces through user interviews and designed an IMU based system that distinguishes the wearer's speech from ambient audio, enabling full duplex agent interaction without wake words.</li>
+            <li>Defined the product roadmap beyond developer agents into Business, Lecture, and Travel modes, prioritizing context aware meeting assistance based on user research; designed proactive AI experiences that surface unfamiliar terminology, respond to nod and shake gestures, generate contextual explanations, and capture searchable meeting or lecture notes.</li>
+            <li>Wrote the product strategy, the Business Mode PRD, the competitive landscape, the decision log, the metrics framework, and the research plan, all public in the repository.</li>
+            <li>Owned the investor product vision and the founding access waitlist at tapq.ai.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Constraints</div>
+        <div>
+          <h2>What had to be true</h2>
+          <ul class="bullets">
+            <li>No new hardware. Everything has to run on AirPods, a Mac, and sensor access Apple exposes.</li>
+            <li>Apple already ships nod and shake for Siri, so gestures alone are not a moat. The value has to come from what the gesture controls.</li>
+            <li>Proactive assistance that interrupts too often gets switched off. Precision over volume.</li>
+            <li>Meeting capture carries consent and privacy risk; recording state has to be explicit and visible.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Decision process</div>
+        <div>
+          <div class="decision-steps">
+          
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">01</span><h3>Pick the wedge where the actions are crisp</h3></div>
+              <p>Developer agent supervision was the first mode because the decisions are binary and frequent: approve, deny, choose, follow up. A double nod maps to yes without ambiguity, and users can feel the saved context switches the same day.</p>
+            </div>
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">02</span><h3>Solve attribution before adding voice</h3></div>
+              <p>Interviews kept surfacing two frictions: wake phrases feel socially awkward, and always on voice cannot tell who is talking. The IMU on the earbuds solves both. Motion confirms the wearer is speaking, so the agent can hold a full duplex conversation with interruptions in a shared room, without a wake word.</p>
+            </div>
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">03</span><h3>Choose Business Mode over Lecture and Travel</h3></div>
+              <p>An investor conversation surfaced a specific pain: professionals hear terms in meetings they do not want to ask about publicly. Follow up interviews and a survey confirmed it. Business Mode came first because the evidence was direct, willingness to pay is highest, and the nod maps cleanly to explain or dismiss.</p>
+              <p>Lecture Mode reuses the same context engine once Business Mode is validated. Travel Mode came last on purpose: live translation is being bundled by Apple, Google, and Meta, so TapQ adds interpretation and response on top rather than competing on translation.</p>
+            </div>
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">04</span><h3>Differentiate on the intervention, not the transcript</h3></div>
+              <p>Granola, Otter, Plaud, and ChatGPT Record already own capture and summaries. TapQ treats transcription as plumbing and competes on the private, context aware moment during the meeting: detect, ask, nod, explain.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Solution</div>
+        <div>
+          <h2>What shipped</h2>
+          <ul class="bullets">
+            <li>A macOS app that speaks agent prompts in the ear and accepts double nod to approve, double shake to decline, tilt to navigate options, and voice for follow ups.</li>
+            <li>IMU augmented voice detection that distinguishes wearer speech from ambient noise, with natural interruption between user and agent.</li>
+            <li>A unified gesture queue across concurrent agent sessions, and a fail open design so a missed gesture never blocks a workflow.</li>
+            <li>Five agent adapters: Claude Code, Codex, Cursor, Google Antigravity, OpenCode.</li>
+            <li>A public product package: strategy, Business Mode PRD, roadmap, decision log, metrics, research plan, and copy ready GitHub issues.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Shipped</div>
+        <div>
+          <figure class="cs-figure">
+            <img src="../assets/img/tapq-hero.jpg" alt="Two AirPods floating in front of a dark background with a sound wave behind them" loading="lazy" />
+            <figcaption>TapQ. The earbuds people already wear become the interface: the agent speaks in your ear, you answer with your head or your voice.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Business Mode</div>
+        <div>
+          <figure class="cs-figure">
+            <img src="../assets/img/tapq-meeting.jpg" alt="A meeting where unfamiliar terms like ROI, KPI, LTV and ESG are quietly annotated for one participant" loading="lazy" />
+            <figcaption>Business Mode. When a meeting mentions a term you do not know, TapQ quietly asks in your ear. Nod once and it explains using the meeting context, then takes the notes.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Architecture</div>
+        <div>
+          <h2>How it was built</h2>
+          <ul class="bullets">
+            <li>Swift 6 on macOS, Apache 2.0 licensed.</li>
+            <li>AirPods motion data drives gesture detection and voice attribution; speech backends deliver prompts privately in ear.</li>
+            <li>Adapters translate each agent's permission and clarification events into spoken prompts and route the response back.</li>
+            <li>Business Mode adds an explicit session, rolling transcript context, candidate term detection, and a consent gated explanation step.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Pipeline</div>
+        <div>
+          <h2>A private micro interaction</h2>
+          <ul class="pipeline">
+            <li><span class="pl-idx">1</span><span>Listen: the session captures the meeting or the agent's prompt</span></li>
+            <li><span class="pl-idx">2</span><span>Detect: rolling context flags an unfamiliar term or a decision the agent needs</span></li>
+            <li><span class="pl-idx">3</span><span>Ask: a short private question in your ear, never through a speaker</span></li>
+            <li><span class="pl-idx">4</span><span>Nod or shake: consent or dismissal, no wake word, no screen</span></li>
+            <li><span class="pl-idx">5</span><span>Explain or act: a contextual answer, an approval sent to the agent, a note saved</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Product decisions</div>
+        <div>
+          <h2>Trade offs I made on purpose</h2>
+          <ul class="bullets">
+            <li>Used hardware people already own instead of shipping a pendant or pin.</li>
+            <li>Made proactive help ask permission before explaining, and measured it on precision and unwanted interruption rate rather than volume.</li>
+            <li>Let a head gesture approve only low risk actions; consequential actions fall back to the screen.</li>
+            <li>Published the product thinking openly so the roadmap is a conversation with users, not a promise of dates.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Results</div>
+        <div>
+          <div class="cs-metrics">
+            <div class="cs-metric"><strong>500+</strong><span>GitHub stars</span></div>
+            <div class="cs-metric"><strong>200+</strong><span>Downloads, up from 50 beta users</span></div>
+            <div class="cs-metric"><strong>40%</strong><span>D30 retention</span></div>
+            <div class="cs-metric"><strong>4</strong><span>Modes on the roadmap: Developer, Business, Lecture, Travel</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">What I learned</div>
+        <div>
+          <h2>Takeaways</h2>
+          <ul class="bullets">
+            <li>A gesture is not a feature. What the gesture controls is the product.</li>
+            <li>Voice attribution is the unglamorous problem that makes always on AI socially usable.</li>
+            <li>Publishing the strategy and decision log in the open made the roadmap arguments shorter and the contributors better.</li>
+          </ul>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="cs-next reveal">
+    <a href="ai-trading-signals.html">
+      <div>
+        <div class="lbl">Next</div>
+        <div class="title">Turning market noise into actionable signals.</div>
+      </div>
+      <span class="go">→</span>
+    </a>
+  </div>
+  </main>
+  
+  <footer>
+    <span>Ted Wang · 2026</span>
+    <span>Designed and built by hand.</span>
+  </footer>
+  <script src="../assets/main.js"></script>
+</body>
+</html>

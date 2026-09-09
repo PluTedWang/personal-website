@@ -301,11 +301,11 @@
       "insight": "Users did not want AI features. They wanted AI to remove friction from things they already cared about: media, files, photos, and privacy. The product had to disappear into an existing habit, not add a new one. That single insight decided the roadmap order.",
       "role": [
         "Wrote the product overview PRD and the twelve month roadmap: vision, personas, baseline inventory, architecture, four phases with priorities and estimates, and the buy versus build decisions.",
-        "Interviewed 100+ NAS users to separate real product opportunities from feature requests, and used that to rank the phases.",
+        "Interviewed 100 NAS users and ranked Home Theater as the number one new feature opportunity after core file management, then used the same research to order the roadmap phases.",
         "Owned the roadmap for the AI NAS unit inside a company wide incubator, competing with roughly one hundred internal projects for investment.",
         "Owned model selection for the on device agent through a six dimension evaluation and A/B tests of seven LLMs across 1,000+ prompts.",
         "Diagnosed the agent's timeout defect and drove the move to an MCP based tool registry: 80% fewer unnecessary tool selection tokens, roughly three minutes off average latency, timeout failures eliminated.",
-        "Defined the dual volume privacy architecture that separated a fully offline volume from a connected service volume.",
+        "Benchmarked competing NAS and cloud AI privacy models, identified user controlled data access as a key need, and defined the dual volume privacy architecture separating local and internet accessible data. It became a key differentiator behind the CES Asia 2026 Innovation Award.",
         "Owned requirements and flows for the AI chat, onboarding, photo gallery, and media library surfaces, working with two designers.",
         "Built two surfaces myself: the Home Theater prototype and the Vitrine display driver. Each has its own page."
       ],
@@ -327,7 +327,7 @@
           "heading": "Find the real opportunity",
           "body": [
             "Rather than starting from what the AI could do, I ran structured interviews with 100+ existing NAS users to map where they actually lost time: finding something to watch, organizing a media library, recovering from duplicate or misnamed files.",
-            "Home Theater surfaced as the clearest, most testable wedge. It became its own branch of the work."
+            "Home Theater ranked as the number one new feature opportunity after core file management. It became its own branch of the work, with automated indexing, IMDb metadata, subtitle matching, and on device recommendations."
           ]
         },
         {
@@ -347,7 +347,7 @@
         {
           "heading": "Make privacy structural",
           "body": [
-            "The pitch promised that data never leaves the device. A setting cannot promise that; an architecture can. I defined two volumes: an isolated private volume for fully offline data and models, and a separate connected volume for anything that touches the network.",
+            "I benchmarked how competing NAS products and cloud AI services handled privacy and found the real need was user controlled data access, not a blanket promise. A setting cannot deliver that; an architecture can. I defined two volumes: an isolated private volume for fully offline data and models, and a separate internet accessible volume for anything that touches the network, so users decide what the model may reach.",
             "That design was part of what the CES Asia jury cited."
           ]
         }
@@ -470,8 +470,8 @@
       "problem": "A NAS full of movies is still a file browser with a play button. Finding something to watch meant scrolling folders, and the AI on the box had no obvious place to help.",
       "insight": "People did not want a recommendation engine. They wanted the shelf they already understand from streaming apps, on their own library, with the AI quietly doing the matching and the suggesting.",
       "role": [
-        "Validated Home Theater as a priority use case through research with 100 NAS users, translating the findings into an MVP and securing leadership and engineering alignment for MVP development.",
-        "Built the MVP with IMDb based subtitle matching and an on device recommendation engine, reaching 81% DAU penetration against a five interactions per week test requirement and 60% two week retention, supporting approval for full scale implementation.",
+        "Ranked Home Theater as the number one new feature opportunity after core file management through research with 100 NAS users, translated the findings into an MVP, and secured leadership and engineering alignment for MVP development.",
+        "Built the MVP with automated indexing, IMDb metadata, subtitle matching, and on device recommendations, reaching 78% beta activation, 81% of beta users active daily, and 60% D14 retention, supporting full scale implementation.",
         "Built the working prototype myself before it had an engineering slot: a FastAPI backend, a single SQLite table for metadata, HTTP range video streaming, and a shelf based UI with no build step.",
         "Owned requirements and flows for the media library design file.",
         "Ran a three iteration beta with 80 users and synthesized 140 feedback items into product changes."
@@ -665,20 +665,20 @@
     ],
     "metrics": [
       {
-        "value": "150+",
-        "label": "FTTH designs delivered"
+        "value": "40%",
+        "label": "Faster design turnaround"
+      },
+      {
+        "value": "90%",
+        "label": "Faster signal recalculation"
+      },
+      {
+        "value": "$700K",
+        "label": "Savings per regional operation, Auto BOM"
       },
       {
         "value": "620+",
         "label": "Enterprise fiber solutions across Manhattan"
-      },
-      {
-        "value": "60%",
-        "label": "Faster signal verification"
-      },
-      {
-        "value": "2 hrs",
-        "label": "Engineering time saved per project"
       }
     ],
     "visual": "flow",
@@ -687,9 +687,9 @@
       "problem": "200+ engineers relied on an internal GIS/CAD tool for network design, but the workflow around it was manual: downstream signal recalculation, BOM assembly, and equipment error checking all depended on someone doing the same repetitive steps correctly, every time.",
       "insight": "The bottleneck was not the design tool itself. It was everything engineers did by hand around it. Interviews with 30+ designers kept surfacing the same two time sinks: recalculating signal levels after a change, and manually pulling bills of materials.",
       "role": [
-        "Functioned as product owner for the internal GIS/CAD network design tool, translating feedback from 30+ users into a prioritized roadmap.",
-        "Identified manual downstream signal recalculation as a key bottleneck and defined a three click Python automation for tracing, recalculation, and verification.",
-        "Built an Auto BOM function that automatically recorded equipment changes as they happened.",
+        "Product owner for Spectrum's internal GIS and CAD network design tool used by 200+ engineers, translating feedback from 30+ users into prioritized improvements and aligning Design, Construction, Operations, and Engineering teams, cutting design turnaround time 40%.",
+        "Identified manual downstream signal recalculation as a key design bottleneck and defined a 3 click automation for tracing, recalculation, and verification: recalculation time down 90%, manual errors down 25%, about 2 engineering hours saved per project across 3+ regions.",
+        "Identified manual BOM generation and equipment validation as recurring pain points through designer interviews and launched Auto BOM, which tracks equipment changes automatically: report generation time down 50%, better network upgrade budgeting, about $700K in savings per regional operation.",
         "Owned the prioritization model for a 30 person cross functional unit, ranking requests by volume, urgency, and dependency.",
         "Led a 20 person audit of 1,000+ optical nodes for DOCSIS 4.0 readiness."
       ],
@@ -738,16 +738,16 @@
           "label": "Faster design turnaround across 200+ engineers"
         },
         {
-          "value": "40%",
-          "label": "Reduction in high priority delays via the prioritization model"
+          "value": "90%",
+          "label": "Faster recalculation, 25% fewer manual errors, about 2 hours saved per project"
+        },
+        {
+          "value": "$700K",
+          "label": "Approximate savings per regional operation from Auto BOM"
         },
         {
           "value": "28%",
           "label": "Improved network data accuracy from the DOCSIS 4.0 audit"
-        },
-        {
-          "value": "50%",
-          "label": "Faster report generation with Auto BOM, company wide"
         }
       ],
       "learnings": [
@@ -757,8 +757,311 @@
     }
   },
   {
-    "slug": "ai-trading-signals",
+    "slug": "tapq",
     "index": "03",
+    "category": "Founder · Product Management · Open Source · Wearables",
+    "headline": "AI you control without a screen.",
+    "summary": "TapQ is an open source macOS app that turns the AirPods people already wear into a private control surface for AI agents. Nod to approve, shake to decline, tilt to choose, speak to follow up. Launched from 50 beta users to 200+ downloads and 500+ GitHub stars with 40% D30 retention, and now expanding from developer agents into Business, Lecture, and Travel modes.",
+    "tags": [
+      "0 to 1",
+      "Open source",
+      "AirPods",
+      "IMU",
+      "Voice",
+      "Agents",
+      "Roadmap",
+      "User research"
+    ],
+    "metrics": [
+      {
+        "value": "500+",
+        "label": "GitHub stars"
+      },
+      {
+        "value": "200+",
+        "label": "Downloads, from 50 beta users"
+      },
+      {
+        "value": "40%",
+        "label": "D30 retention"
+      },
+      {
+        "value": "5",
+        "label": "Agent adapters: Claude Code, Codex, Cursor, Antigravity, OpenCode"
+      }
+    ],
+    "visual": "tapq",
+    "isCaseStudy": true,
+    "links": [
+      {
+        "label": "tapq.ai",
+        "url": "https://tapq.ai"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/spaceamoeba-t/tapq"
+      }
+    ],
+    "media": [
+      {
+        "file": "assets/img/tapq-hero.jpg",
+        "alt": "Two AirPods floating in front of a dark background with a sound wave behind them",
+        "caption": "TapQ. The earbuds people already wear become the interface: the agent speaks in your ear, you answer with your head or your voice."
+      },
+      {
+        "eyebrow": "Business Mode",
+        "file": "assets/img/tapq-meeting.jpg",
+        "alt": "A meeting where unfamiliar terms like ROI, KPI, LTV and ESG are quietly annotated for one participant",
+        "caption": "Business Mode. When a meeting mentions a term you do not know, TapQ quietly asks in your ear. Nod once and it explains using the meeting context, then takes the notes."
+      }
+    ],
+    "pipeline": [
+      "Listen: the session captures the meeting or the agent's prompt",
+      "Detect: rolling context flags an unfamiliar term or a decision the agent needs",
+      "Ask: a short private question in your ear, never through a speaker",
+      "Nod or shake: consent or dismissal, no wake word, no screen",
+      "Explain or act: a contextual answer, an approval sent to the agent, a note saved"
+    ],
+    "thesis": {
+      "eyebrow": "The thesis",
+      "title": "AI is becoming ambient. Interaction is still stuck on screens.",
+      "intro": "People now supervise several AI systems at once. The bottleneck is no longer the model. It is the moment a human has to return, unlock, read, and respond. Three frictions kept coming up in interviews, and each one had an interaction answer.",
+      "items": [
+        {
+          "pain": "Wake words are awkward",
+          "painDetail": "Saying a wake phrase in a meeting, a lecture, or a quiet office announces the interaction to the whole room.",
+          "answer": "Head gestures",
+          "answerDetail": "A double nod approves, a double shake declines, a tilt selects. Silent, private, and no phrase to say out loud."
+        },
+        {
+          "pain": "Ambient voice is noisy",
+          "painDetail": "Always on assistants cannot tell the wearer from the people around them, so they either miss commands or act on someone else's.",
+          "answer": "IMU voice attribution",
+          "answerDetail": "Motion data from the earbuds confirms the wearer is the one speaking, so full duplex conversation with an agent works in a shared space."
+        },
+        {
+          "pain": "Agents stall on the human",
+          "painDetail": "A coding agent can work for minutes, then wait on a permission prompt until you come back to the terminal.",
+          "answer": "In ear supervision",
+          "answerDetail": "Prompts are spoken in the ear. Approve, deny, choose an option, or queue a follow up without leaving what you are doing."
+        }
+      ],
+      "positioning": "TapQ does not manufacture hardware. It owns the interaction protocol between human intent and AI execution, on devices people already own."
+    },
+    "prd": {
+      "eyebrow": "Roadmap",
+      "title": "From developer agents to the rest of the day",
+      "intro": "The wedge is developer agent supervision because the actions are crisp: approve, deny, choose, follow up. The roadmap extends the same interaction primitive to meetings, lectures, and travel, in the order the research supported.",
+      "vision": "Let people stay present in the real world while AI remains available, informed, and controllable.",
+      "differentiators": [
+        "Existing device leverage: AirPods and the Mac you already own, no pendant or pin",
+        "Private in ear output: assistance goes to the wearer, never to the room",
+        "Motion as intent: nod, shake, and tilt are a silent response channel",
+        "Context aware intervention: the AI acts on what is happening now",
+        "Agent connectivity: it connects back to real workflows, not just answers",
+        "Safe fallback: an ambiguous gesture falls through to the screen instead of inventing an action"
+      ],
+      "personas": [
+        {
+          "name": "Primary: AI native knowledge worker",
+          "who": "Engineers, PMs, founders, consultants, researchers who already pay for AI and already wear AirPods",
+          "pain": "Supervising agents and sitting in meetings both keep pulling attention back to a screen"
+        },
+        {
+          "name": "Secondary: university student",
+          "who": "Graduate and undergraduate students in dense lectures",
+          "pain": "Concepts go by faster than they can be looked up without missing what comes next"
+        },
+        {
+          "name": "Future: cross language professional",
+          "who": "Travelers and people working across languages",
+          "pain": "Translation exists everywhere; interpretation and the ability to respond do not"
+        }
+      ],
+      "baseline": [
+        "Spoken agent prompts",
+        "Approve and deny by voice or motion",
+        "Option selection by tilt",
+        "Completion announcements",
+        "Follow up instructions",
+        "Multi agent queue",
+        "Fail through to the native on screen prompt"
+      ],
+      "roadmap": [
+        {
+          "phase": "H0",
+          "window": "Shipped",
+          "goal": "Developer Agent Mode: supervise coding agents without returning to the screen",
+          "items": [
+            "Five agent adapters",
+            "Double nod, double shake, tilt",
+            "IMU voice attribution",
+            "Full duplex voice with interruption",
+            "Unified gesture queue across sessions"
+          ]
+        },
+        {
+          "phase": "H1",
+          "window": "Priority",
+          "goal": "Business Mode: understand the meeting while it is happening, remember it afterward",
+          "items": [
+            "Explicit meeting session and consent",
+            "Rolling context and term detection",
+            "Proactive offer, nod to explain",
+            "Contextual explanation in ear",
+            "Summary, decisions, action items, glossary"
+          ]
+        },
+        {
+          "phase": "H2",
+          "window": "Next",
+          "goal": "Lecture Mode: turn passive capture into active learning",
+          "items": [
+            "Lecture capture",
+            "Concept detection tuned for teaching",
+            "Discreet explain this",
+            "Structured review notes",
+            "Unresolved questions surfaced"
+          ]
+        },
+        {
+          "phase": "H3",
+          "window": "Later",
+          "goal": "Travel Mode: interpretation and response, not just translation",
+          "items": [
+            "Best available translation service",
+            "What did they mean by that",
+            "Tell them I have a reservation",
+            "Summarize the instructions",
+            "Hands free while moving"
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "name": "AirPods",
+          "items": "Private audio out, wearer microphone, IMU motion for nod, shake, tilt"
+        },
+        {
+          "name": "TapQ runtime",
+          "items": "Gesture detection, voice attribution, context and consent, routing, fail through"
+        },
+        {
+          "name": "Agent adapters",
+          "items": "Claude Code, Codex, Cursor, Google Antigravity, OpenCode"
+        },
+        {
+          "name": "Modes",
+          "items": "Developer, Business, Lecture, Travel"
+        }
+      ],
+      "buyNotBuild": "Transcription, summarization, and translation are treated as enabling capabilities from best available providers, not as the product. TapQ competes on the intervention: when to ask, how to ask privately, and what the gesture controls.",
+      "nfrs": [
+        "Interrupt rarely, ask privately, answer immediately",
+        "Proactive offers begin conservatively and are measured on precision",
+        "Recording is explicit, visible, and consented, never background",
+        "A head gesture approves low risk actions only; consequential actions fall back to the screen",
+        "Low confidence does nothing rather than guessing"
+      ],
+      "labels": {
+        "personas": "Who it is for",
+        "baseline": "Already shipped in Developer Mode",
+        "roadmap": "Four horizons",
+        "buy": "Plumbing versus product",
+        "nfrs": "Product principles"
+      }
+    },
+    "caseStudy": {
+      "problem": "AI capability is scaling faster than human attention. An agent can work alone for minutes, then stall on a permission prompt until someone comes back to the terminal. In meetings and lectures the same thing happens in reverse: the moment you need help is exactly the moment you cannot pick up a phone.",
+      "insight": "The next interface is not another app or another gadget. It is a private control surface people already wear. The product had to be silent to use, private in what it says back, and honest about when it is unsure.",
+      "role": [
+        "Launched TapQ, an open source AirPods interface for hands free AI agent control, scaling from 50 beta users to 200+ downloads and 500+ GitHub stars while achieving 40% D30 retention; translated head gestures into intuitive approve, reject, and selection actions across AI agent workflows.",
+        "Identified voice attribution as a key limitation of always on AI interfaces through user interviews and designed an IMU based system that distinguishes the wearer's speech from ambient audio, enabling full duplex agent interaction without wake words.",
+        "Defined the product roadmap beyond developer agents into Business, Lecture, and Travel modes, prioritizing context aware meeting assistance based on user research; designed proactive AI experiences that surface unfamiliar terminology, respond to nod and shake gestures, generate contextual explanations, and capture searchable meeting or lecture notes.",
+        "Wrote the product strategy, the Business Mode PRD, the competitive landscape, the decision log, the metrics framework, and the research plan, all public in the repository.",
+        "Owned the investor product vision and the founding access waitlist at tapq.ai."
+      ],
+      "constraints": [
+        "No new hardware. Everything has to run on AirPods, a Mac, and sensor access Apple exposes.",
+        "Apple already ships nod and shake for Siri, so gestures alone are not a moat. The value has to come from what the gesture controls.",
+        "Proactive assistance that interrupts too often gets switched off. Precision over volume.",
+        "Meeting capture carries consent and privacy risk; recording state has to be explicit and visible."
+      ],
+      "decisionProcess": [
+        {
+          "heading": "Pick the wedge where the actions are crisp",
+          "body": [
+            "Developer agent supervision was the first mode because the decisions are binary and frequent: approve, deny, choose, follow up. A double nod maps to yes without ambiguity, and users can feel the saved context switches the same day."
+          ]
+        },
+        {
+          "heading": "Solve attribution before adding voice",
+          "body": [
+            "Interviews kept surfacing two frictions: wake phrases feel socially awkward, and always on voice cannot tell who is talking. The IMU on the earbuds solves both. Motion confirms the wearer is speaking, so the agent can hold a full duplex conversation with interruptions in a shared room, without a wake word."
+          ]
+        },
+        {
+          "heading": "Choose Business Mode over Lecture and Travel",
+          "body": [
+            "An investor conversation surfaced a specific pain: professionals hear terms in meetings they do not want to ask about publicly. Follow up interviews and a survey confirmed it. Business Mode came first because the evidence was direct, willingness to pay is highest, and the nod maps cleanly to explain or dismiss.",
+            "Lecture Mode reuses the same context engine once Business Mode is validated. Travel Mode came last on purpose: live translation is being bundled by Apple, Google, and Meta, so TapQ adds interpretation and response on top rather than competing on translation."
+          ]
+        },
+        {
+          "heading": "Differentiate on the intervention, not the transcript",
+          "body": [
+            "Granola, Otter, Plaud, and ChatGPT Record already own capture and summaries. TapQ treats transcription as plumbing and competes on the private, context aware moment during the meeting: detect, ask, nod, explain."
+          ]
+        }
+      ],
+      "solution": [
+        "A macOS app that speaks agent prompts in the ear and accepts double nod to approve, double shake to decline, tilt to navigate options, and voice for follow ups.",
+        "IMU augmented voice detection that distinguishes wearer speech from ambient noise, with natural interruption between user and agent.",
+        "A unified gesture queue across concurrent agent sessions, and a fail open design so a missed gesture never blocks a workflow.",
+        "Five agent adapters: Claude Code, Codex, Cursor, Google Antigravity, OpenCode.",
+        "A public product package: strategy, Business Mode PRD, roadmap, decision log, metrics, research plan, and copy ready GitHub issues."
+      ],
+      "architecture": [
+        "Swift 6 on macOS, Apache 2.0 licensed.",
+        "AirPods motion data drives gesture detection and voice attribution; speech backends deliver prompts privately in ear.",
+        "Adapters translate each agent's permission and clarification events into spoken prompts and route the response back.",
+        "Business Mode adds an explicit session, rolling transcript context, candidate term detection, and a consent gated explanation step."
+      ],
+      "productDecisions": [
+        "Used hardware people already own instead of shipping a pendant or pin.",
+        "Made proactive help ask permission before explaining, and measured it on precision and unwanted interruption rate rather than volume.",
+        "Let a head gesture approve only low risk actions; consequential actions fall back to the screen.",
+        "Published the product thinking openly so the roadmap is a conversation with users, not a promise of dates."
+      ],
+      "results": [
+        {
+          "value": "500+",
+          "label": "GitHub stars"
+        },
+        {
+          "value": "200+",
+          "label": "Downloads, up from 50 beta users"
+        },
+        {
+          "value": "40%",
+          "label": "D30 retention"
+        },
+        {
+          "value": "4",
+          "label": "Modes on the roadmap: Developer, Business, Lecture, Travel"
+        }
+      ],
+      "learnings": [
+        "A gesture is not a feature. What the gesture controls is the product.",
+        "Voice attribution is the unglamorous problem that makes always on AI socially usable.",
+        "Publishing the strategy and decision log in the open made the roadmap arguments shorter and the contributors better."
+      ]
+    },
+    "pipelineTitle": "A private micro interaction"
+  },
+  {
+    "slug": "ai-trading-signals",
+    "index": "04",
     "category": "AI · Data · Product Experiment",
     "headline": "Turning market noise into actionable signals.",
     "summary": "An experimental, AI assisted market monitoring system built to identify abnormal trading activity, summarize signals, and help active traders understand market reactions faster.",
@@ -842,7 +1145,7 @@
   },
   {
     "slug": "engineering-foundations",
-    "index": "04",
+    "index": "05",
     "category": "Plasma Physics · Electrical Engineering · Infrastructure · Software",
     "headline": "Engineering before product management.",
     "summary": "The industries changed: plasma physics research, electrical equipment engineering, telecommunications infrastructure, software automation, AI products. The underlying habit did not. Understand the system, find the bottleneck, build a better solution.",

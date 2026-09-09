@@ -297,6 +297,7 @@ footer { max-width: var(--max); margin: 0 auto; padding: 28px 28px 44px; display
 .cs-header h1 { font-size: clamp(40px, 6.4vw, 88px); max-width: 960px; font-weight: 300; letter-spacing: -.035em; }
 .cs-header .lede { max-width: 700px; margin-top: 26px; font-size: 17px; line-height: 1.7; color: var(--muted); }
 .cs-header .tags { margin-top: 28px; }
+.cs-links { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
 .cs-visual-wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
 .cs-visual { border: 1px solid var(--line-strong); background: linear-gradient(180deg, var(--bg-2), var(--surface-2)); min-height: 360px; display: flex; align-items: center; justify-content: center; padding: 40px; overflow: hidden; position: relative; }
 .cs-visual::before { content: ""; position: absolute; inset: 0; background-image: var(--concrete); opacity: .25; mix-blend-mode: multiply; pointer-events: none; }

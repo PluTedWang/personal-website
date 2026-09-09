@@ -522,9 +522,9 @@ function csMedia(ctx, eyebrow, m) {
           </figure>`);
 }
 
-function csPipeline(steps) {
+function csPipeline(steps, title) {
   return csBlock("Pipeline", `
-          <h2>From a web page to a panel</h2>
+          <h2>${title || "From a web page to a panel"}</h2>
           <ul class="pipeline">
             ${steps.map((s, i) => `<li><span class="pl-idx">${i + 1}</span><span>${s}</span></li>`).join("\n            ")}
           </ul>`);
@@ -573,23 +573,23 @@ function csPrd(p) {
           <div class="prd-sub">Differentiators</div>
           <ul class="bullets">${p.differentiators.map((d) => `<li>${d}</li>`).join("")}</ul>
 
-          <div class="prd-sub">Who it is for</div>
+          <div class="prd-sub">${(p.labels||{}).personas || "Who it is for"}</div>
           <div class="personas">${personas}</div>
 
-          <div class="prd-sub">Already working when I arrived</div>
+          <div class="prd-sub">${(p.labels||{}).baseline || "Already working when I arrived"}</div>
           <div class="chips">${p.baseline.map((b) => `<span class="chip">${b}</span>`).join("")}</div>
 
-          <div class="prd-sub">The four phases</div>
+          <div class="prd-sub">${(p.labels||{}).roadmap || "The four phases"}</div>
           <div class="roadmap">${phases}
           </div>
 
           <div class="prd-sub">Architecture</div>
           <div class="prd-layers">${layers}</div>
 
-          <div class="prd-sub">Buy, don&rsquo;t build</div>
+          <div class="prd-sub">${(p.labels||{}).buy || "Buy, don&rsquo;t build"}</div>
           <p class="prd-p">${p.buyNotBuild}</p>
 
-          <div class="prd-sub">Non functional bar</div>
+          <div class="prd-sub">${(p.labels||{}).nfrs || "Non functional bar"}</div>
           <div class="chips">${p.nfrs.map((b) => `<span class="chip">${b}</span>`).join("")}</div>`, "wide");
 }
 
@@ -643,6 +643,7 @@ function buildCaseStudy(project, next) {
     <h1>${project.headline}</h1>
     <p class="lede">${project.summary}</p>
     <div class="tags">${tags}</div>
+    ${project.links ? `<div class="cs-links">${project.links.map((l) => `<a class="btn" href="${attr(l.url)}" target="_blank" rel="noreferrer">${l.label} <span class="arrow">↗</span></a>`).join("")}</div>` : ""}
   </header>
 
   <div class="cs-visual-wrap reveal">
@@ -661,9 +662,9 @@ ${csBullets("Constraints", "What had to be true", cs.constraints)}
 ${csDecisionProcess(cs.decisionProcess)}
 ${project.prototypeNote ? csCallout("Prototype", project.prototypeNote) : ""}
 ${csBullets("Solution", "What shipped", cs.solution)}
-${project.media && project.media.length ? csMedia(WORK_CTX, "Shipped", project.media[0]) : ""}
+${project.media && project.media.length ? project.media.map((m, i) => csMedia(WORK_CTX, m.eyebrow || (i === 0 ? "Shipped" : "Also"), m)).join("") : ""}
 ${csBullets("Architecture", "How it was built", cs.architecture)}
-${project.pipeline ? csPipeline(project.pipeline) : ""}
+${project.pipeline ? csPipeline(project.pipeline, project.pipelineTitle) : ""}
 ${csBullets("Product decisions", "Trade offs I made on purpose", cs.productDecisions)}
 ${project.figma ? csFigma(WORK_CTX, project.figma) : ""}
 ${csMetrics(cs.results)}
