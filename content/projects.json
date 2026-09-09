@@ -5,12 +5,33 @@
     "category": "Product Management · AI Infrastructure · 0 → 1",
     "headline": "A private AI brain for the home.",
     "summary": "Nexus Gen is a privacy first AI NAS: local models, agents, and storage in one box. I joined the 0 to 1 build inside Dreame's incubator, wrote the early PRD and twelve month roadmap, ran the user research, and shipped two of its surfaces with my own hands. The product won the CES Asia Best Innovation Award.",
-    "tags": ["PRD", "Roadmap", "LLM", "Agents", "MCP", "Privacy", "Hardware", "Go to market"],
+    "tags": [
+      "PRD",
+      "Roadmap",
+      "LLM",
+      "Agents",
+      "MCP",
+      "Privacy",
+      "Hardware",
+      "Go to market"
+    ],
     "metrics": [
-      { "value": "100+", "label": "NAS users interviewed" },
-      { "value": "1 of ~100", "label": "Incubator projects funded" },
-      { "value": "4 phases", "label": "Twelve month roadmap, 21 PRDs" },
-      { "value": "CES Asia", "label": "Best Innovation Award" }
+      {
+        "value": "100+",
+        "label": "NAS users interviewed"
+      },
+      {
+        "value": "1 of ~100",
+        "label": "Incubator projects funded"
+      },
+      {
+        "value": "4 phases",
+        "label": "Twelve month roadmap, 21 PRDs"
+      },
+      {
+        "value": "CES Asia",
+        "label": "Best Innovation Award"
+      }
     ],
     "visual": "nexus",
     "isCaseStudy": true,
@@ -23,10 +44,21 @@
         "media": "assets/img/home-theater-hero.jpg",
         "frame": "browser",
         "stats": [
-          { "value": "81%", "label": "DAU penetration" },
-          { "value": "60%", "label": "2 week retention" }
+          {
+            "value": "81%",
+            "label": "DAU penetration"
+          },
+          {
+            "value": "60%",
+            "label": "2 week retention"
+          }
         ],
-        "tags": ["User research", "MVP", "On device AI", "Beta"]
+        "tags": [
+          "User research",
+          "MVP",
+          "On device AI",
+          "Beta"
+        ]
       },
       {
         "slug": "vitrine-display",
@@ -36,10 +68,20 @@
         "media": "assets/img/vitrine-scene-library.jpg",
         "frame": "panel",
         "stats": [
-          { "value": "8", "label": "Dashboard scenes" },
-          { "value": "80%", "label": "Lower cost than OEM" }
+          {
+            "value": "8",
+            "label": "Dashboard scenes"
+          },
+          {
+            "value": "80%",
+            "label": "Lower cost than OEM"
+          }
         ],
-        "tags": ["Reverse engineering", "USB serial", "Hardware"]
+        "tags": [
+          "Reverse engineering",
+          "USB serial",
+          "Hardware"
+        ]
       }
     ],
     "thesis": {
@@ -80,46 +122,111 @@
         "Open ecosystem: an agent plugin market plus a Docker app store, community driven"
       ],
       "personas": [
-        { "name": "Core: technical individuals", "who": "Developers, designers, data scientists, AI enthusiasts", "pain": "Data scattered across cloud drives and local disks, AI tools that demand uploads, no unified personal knowledge management" },
-        { "name": "Expansion: small teams", "who": "Studios and research groups of 3 to 20", "pain": "Commercial NAS has no AI, cloud collaboration tools leak control of data, team knowledge never settles anywhere" },
-        { "name": "Later: small and mid sized business", "who": "IT departments of 50 to 200 people", "pain": "Compliance demands, AI that has to be private, multi site sync" }
+        {
+          "name": "Core: technical individuals",
+          "who": "Developers, designers, data scientists, AI enthusiasts",
+          "pain": "Data scattered across cloud drives and local disks, AI tools that demand uploads, no unified personal knowledge management"
+        },
+        {
+          "name": "Expansion: small teams",
+          "who": "Studios and research groups of 3 to 20",
+          "pain": "Commercial NAS has no AI, cloud collaboration tools leak control of data, team knowledge never settles anywhere"
+        },
+        {
+          "name": "Later: small and mid sized business",
+          "who": "IT departments of 50 to 200 people",
+          "pain": "Compliance demands, AI that has to be private, multi site sync"
+        }
       ],
-      "baseline": ["ZFS pool management with snapshots and RAID", "Remote tunnel access without a public IP", "SMB and WebDAV sharing", "Accounts and team management", "Basic semantic search over files and images"],
+      "baseline": [
+        "ZFS pool management with snapshots and RAID",
+        "Remote tunnel access without a public IP",
+        "SMB and WebDAV sharing",
+        "Accounts and team management",
+        "Basic semantic search over files and images"
+      ],
       "roadmap": [
         {
           "phase": "P0",
           "window": "Month 1",
           "goal": "Make the AI usable, make the system extensible",
-          "items": ["Local model inference engine management", "AI chat assistant interface", "Smart file assistant agent", "Docker app management platform", "Richer in browser file preview"]
+          "items": [
+            "Local model inference engine management",
+            "AI chat assistant interface",
+            "Smart file assistant agent",
+            "Docker app management platform",
+            "Richer in browser file preview"
+          ]
         },
         {
           "phase": "P1",
           "window": "Months 2 to 3",
           "goal": "Multimodal AI everywhere, close the knowledge loop",
-          "items": ["Multimodal AI capability platform", "Smart photo album", "Knowledge base with RAG", "Automation workflow engine", "Monitoring and smart alerts", "Mobile app v1"]
+          "items": [
+            "Multimodal AI capability platform",
+            "Smart photo album",
+            "Knowledge base with RAG",
+            "Automation workflow engine",
+            "Monitoring and smart alerts",
+            "Mobile app v1"
+          ]
         },
         {
           "phase": "P2",
           "window": "Months 4 to 6",
           "goal": "Open the agent ecosystem, first enterprise capabilities",
-          "items": ["Agent plugin system and market", "Multi device sync", "AI security audit and compliance", "Advanced backup and disaster recovery", "Third party cloud storage gateway"]
+          "items": [
+            "Agent plugin system and market",
+            "Multi device sync",
+            "AI security audit and compliance",
+            "Advanced backup and disaster recovery",
+            "Third party cloud storage gateway"
+          ]
         },
         {
           "phase": "P3",
           "window": "Months 7 to 12",
           "goal": "From product to platform, build the developer ecosystem",
-          "items": ["AI development platform (Model Studio)", "Multi NAS cluster management", "Enterprise permissions and audit", "Open API and developer portal", "Edge compute and IoT integration"]
+          "items": [
+            "AI development platform (Model Studio)",
+            "Multi NAS cluster management",
+            "Enterprise permissions and audit",
+            "Open API and developer portal",
+            "Edge compute and IoT integration"
+          ]
         }
       ],
       "layers": [
-        { "name": "Clients", "items": "Web (React), mobile, desktop, CLI" },
-        { "name": "Gateway", "items": "Reverse proxy and TLS" },
-        { "name": "Services", "items": "Files, users, sharing, system, AI inference, agent orchestration, knowledge base RAG" },
-        { "name": "AI engine", "items": "LLM runtime (llama.cpp, vLLM, Ollama), embedding service, vision and audio models" },
-        { "name": "Storage and infra", "items": "ZFS pools, PostgreSQL metadata, Redis queues, vector DB, Docker runtime, GPU/NPU drivers" }
+        {
+          "name": "Clients",
+          "items": "Web (React), mobile, desktop, CLI"
+        },
+        {
+          "name": "Gateway",
+          "items": "Reverse proxy and TLS"
+        },
+        {
+          "name": "Services",
+          "items": "Files, users, sharing, system, AI inference, agent orchestration, knowledge base RAG"
+        },
+        {
+          "name": "AI engine",
+          "items": "LLM runtime (llama.cpp, vLLM, Ollama), embedding service, vision and audio models"
+        },
+        {
+          "name": "Storage and infra",
+          "items": "ZFS pools, PostgreSQL metadata, Redis queues, vector DB, Docker runtime, GPU/NPU drivers"
+        }
       ],
       "buyNotBuild": "Media, music, downloads, notes, passwords, code hosting, and monitoring were explicitly marked as buy, not build: Jellyfin, Navidrome, qBittorrent, Outline, Vaultwarden, Gitea, Grafana, all deployed through the Docker platform so the team's own effort stayed on the AI layer.",
-      "nfrs": ["First token under 2 seconds on a 7B model", "Semantic search under 3 seconds across 100K files", "Web UI first paint under 2 seconds", "20 concurrent users", "99.9% availability, ZFS integrity checks", "x86 and ARM, CUDA, ROCm, Metal"]
+      "nfrs": [
+        "First token under 2 seconds on a 7B model",
+        "Semantic search under 3 seconds across 100K files",
+        "Web UI first paint under 2 seconds",
+        "20 concurrent users",
+        "99.9% availability, ZFS integrity checks",
+        "x86 and ARM, CUDA, ROCm, Metal"
+      ]
     },
     "figma": {
       "eyebrow": "Design flows",
@@ -133,7 +240,13 @@
           "url": "https://www.figma.com/design/NdaMNxFcgwTJZp3bY4bl8r/AI%E4%BA%A4%E4%BA%92%E9%A6%96%E9%A1%B5?node-id=156-2&t=pkU7VSPTwB11GRZ5-1",
           "cover": "assets/img/figma/ai-home.webp",
           "maps": "P0-02 · AI chat assistant",
-          "flows": ["Home with suggested questions", "Text chat, stop generation, edit a message", "Attachments and image to image", "Multimedia chat over files, images, and video", "Movie chat that ends in a download"]
+          "flows": [
+            "Home with suggested questions",
+            "Text chat, stop generation, edit a message",
+            "Attachments and image to image",
+            "Multimedia chat over files, images, and video",
+            "Movie chat that ends in a download"
+          ]
         },
         {
           "title": "Onboarding",
@@ -142,7 +255,13 @@
           "url": "https://www.figma.com/design/5JQ9v8Ub2PmjpGuZ48UbcG/%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B5%E9%9D%A2?node-id=1-22&t=n0wwUIYRQfuouuxm-1",
           "cover": "assets/img/figma/onboarding.webp",
           "maps": "Baseline · account and storage setup",
-          "flows": ["Language", "Account", "Storage and data setup", "Device", "Done, with an English reference set"]
+          "flows": [
+            "Language",
+            "Account",
+            "Storage and data setup",
+            "Device",
+            "Done, with an English reference set"
+          ]
         },
         {
           "title": "Photo gallery",
@@ -151,7 +270,14 @@
           "url": "https://www.figma.com/design/ul6LY7JtgOvPm771qtNb3y/%E5%9B%BE%E5%BA%93%E7%9B%B8%E5%86%8C?node-id=0-1&t=N3zL2rkBIs5WrO4f-1",
           "cover": "assets/img/figma/photo-gallery.webp",
           "maps": "P1-02 · Smart photo album",
-          "flows": ["Library and favorites", "Albums", "People, grouped by face", "Duplicate check", "Recycle bin", "Upload"]
+          "flows": [
+            "Library and favorites",
+            "Albums",
+            "People, grouped by face",
+            "Duplicate check",
+            "Recycle bin",
+            "Upload"
+          ]
         },
         {
           "title": "Media library",
@@ -161,7 +287,12 @@
           "cover": "assets/img/figma/media-library.webp",
           "maps": "Home Theater branch",
           "branch": "home-theater",
-          "flows": ["Home, search, results", "Library grid and hover states", "Manual metadata match", "Movie and series detail with episodes"]
+          "flows": [
+            "Home, search, results",
+            "Library grid and hover states",
+            "Manual metadata match",
+            "Movie and series detail with episodes"
+          ]
         }
       ]
     },
@@ -244,17 +375,32 @@
         "Validated one sharp wedge (Home Theater) with real usage before expanding scope."
       ],
       "results": [
-        { "value": "Funded", "label": "Selected for investment from roughly one hundred incubator projects" },
-        { "value": "80%", "label": "Reduction in unnecessary tool selection tokens, timeouts eliminated" },
-        { "value": "40+", "label": "Release critical defects caught by the evaluation harness" },
-        { "value": "CES Asia", "label": "Best Innovation Award, privacy architecture cited" }
+        {
+          "value": "Funded",
+          "label": "Selected for investment from roughly one hundred incubator projects"
+        },
+        {
+          "value": "80%",
+          "label": "Reduction in unnecessary tool selection tokens, timeouts eliminated"
+        },
+        {
+          "value": "40+",
+          "label": "Release critical defects caught by the evaluation harness"
+        },
+        {
+          "value": "CES Asia",
+          "label": "Best Innovation Award, privacy architecture cited"
+        }
       ],
       "learnings": [
         "A roadmap is an argument about order. Writing the overview first made every later prioritization fight shorter.",
         "A model quality problem and a product adoption problem can look identical from the outside. The fix here was architectural, not a bigger model.",
         "The fastest way to earn a roadmap slot is a working thing people can click. Both branches below started that way."
       ]
-    }
+    },
+    "productImage": "assets/img/nexusgen-device.png",
+    "productImageAlt": "The NexusGen private AI server: a brushed aluminium cube with a top vent, power button, USB ports, and the NexusGen mark",
+    "productCaption": "NexusGen · private AI server"
   },
   {
     "slug": "home-theater",
@@ -263,12 +409,31 @@
     "category": "Consumer Product · Prototyping · Beta",
     "headline": "Making local AI actually useful in the living room.",
     "summary": "The consumer surface of Nexus Gen. I validated it with 100 users, built the working prototype myself before it had an engineering slot, and took it through a three iteration beta that won the case for full investment.",
-    "tags": ["User Research", "Prototyping", "FastAPI", "Recommendation", "Beta", "Home Theater"],
+    "tags": [
+      "User Research",
+      "Prototyping",
+      "FastAPI",
+      "Recommendation",
+      "Beta",
+      "Home Theater"
+    ],
     "metrics": [
-      { "value": "78%", "label": "Beta activation" },
-      { "value": "81%", "label": "DAU penetration in beta" },
-      { "value": "60%", "label": "Two week retention" },
-      { "value": "140", "label": "Feedback items, 3 iterations" }
+      {
+        "value": "78%",
+        "label": "Beta activation"
+      },
+      {
+        "value": "81%",
+        "label": "DAU penetration in beta"
+      },
+      {
+        "value": "60%",
+        "label": "Two week retention"
+      },
+      {
+        "value": "140",
+        "label": "Feedback items, 3 iterations"
+      }
     ],
     "visual": "aiHomeTheater",
     "isCaseStudy": true,
@@ -292,7 +457,12 @@
           "url": "https://www.figma.com/design/hDRy7HSxikzFZVtqVoGJQE/%E5%BD%B1%E9%9F%B3%E5%BA%93%E9%A6%96%E9%A1%B5?node-id=0-1&p=f&t=VRkrS9Gejz85vMoD-0",
           "cover": "assets/img/figma/media-library.webp",
           "maps": "Home Theater",
-          "flows": ["Home, search, results", "Library grid and hover states", "Manual metadata match", "Movie and series detail with episodes"]
+          "flows": [
+            "Home, search, results",
+            "Library grid and hover states",
+            "Manual metadata match",
+            "Movie and series detail with episodes"
+          ]
         }
       ]
     },
@@ -348,10 +518,22 @@
         "Kept the AI invisible: it matches and suggests, it does not announce itself."
       ],
       "results": [
-        { "value": "78%", "label": "Beta activation" },
-        { "value": "81%", "label": "DAU penetration, against a five interactions per week test bar" },
-        { "value": "60%", "label": "Two week retention among beta testers" },
-        { "value": "Approved", "label": "Full scale implementation funded on the beta data" }
+        {
+          "value": "78%",
+          "label": "Beta activation"
+        },
+        {
+          "value": "81%",
+          "label": "DAU penetration, against a five interactions per week test bar"
+        },
+        {
+          "value": "60%",
+          "label": "Two week retention among beta testers"
+        },
+        {
+          "value": "Approved",
+          "label": "Full scale implementation funded on the beta data"
+        }
       ],
       "learnings": [
         "A rough, working prototype moves a roadmap conversation faster than the best written spec.",
@@ -366,12 +548,30 @@
     "category": "Hardware · Reverse Engineering · Driver",
     "headline": "A dashboard for a panel that had no manual.",
     "summary": "The NAS shipped with a small USB LCD bar and no public protocol. I reverse engineered its serial framing and built Vitrine, a driver that turns the panel into a configurable dashboard, at roughly 80% lower cost than sourcing the OEM's accessory.",
-    "tags": ["Reverse Engineering", "USB Serial", "Flask", "Headless Chromium", "Hardware"],
+    "tags": [
+      "Reverse Engineering",
+      "USB Serial",
+      "Flask",
+      "Headless Chromium",
+      "Hardware"
+    ],
     "metrics": [
-      { "value": "80%", "label": "Lower cost than the OEM accessory" },
-      { "value": "8", "label": "Scenes in the library" },
-      { "value": "5 bytes", "label": "Frame header, reverse engineered" },
-      { "value": "0", "label": "Firmware changes needed per new scene" }
+      {
+        "value": "80%",
+        "label": "Lower cost than the OEM accessory"
+      },
+      {
+        "value": "8",
+        "label": "Scenes in the library"
+      },
+      {
+        "value": "5 bytes",
+        "label": "Frame header, reverse engineered"
+      },
+      {
+        "value": "0",
+        "label": "Firmware changes needed per new scene"
+      }
     ],
     "visual": "vitrine",
     "isCaseStudy": true,
@@ -433,8 +633,14 @@
         "Optimized for flexibility over frame rate: the panel is a status surface, not a video display."
       ],
       "results": [
-        { "value": "80%", "label": "Reported cost reduction versus the OEM accessory driver" },
-        { "value": "8", "label": "Scenes shipped, one of them user configurable" }
+        {
+          "value": "80%",
+          "label": "Reported cost reduction versus the OEM accessory driver"
+        },
+        {
+          "value": "8",
+          "label": "Scenes shipped, one of them user configurable"
+        }
       ],
       "learnings": [
         "Undocumented does not mean complicated. It means nobody wrote it down.",
@@ -448,12 +654,32 @@
     "category": "Automation · Infrastructure · Internal Tools · Product Thinking",
     "headline": "Turning repetitive infrastructure work into software.",
     "summary": "Owned the roadmap for an internal GIS/CAD network design tool used by 200+ engineers, and turned repeated operational bottlenecks into automation adopted company wide.",
-    "tags": ["Fiber", "HFC", "FTTH", "Python", "Internal Tooling", "Workflow Automation", "Network Infrastructure"],
+    "tags": [
+      "Fiber",
+      "HFC",
+      "FTTH",
+      "Python",
+      "Internal Tooling",
+      "Workflow Automation",
+      "Network Infrastructure"
+    ],
     "metrics": [
-      { "value": "150+", "label": "FTTH designs delivered" },
-      { "value": "620+", "label": "Enterprise fiber solutions across Manhattan" },
-      { "value": "60%", "label": "Faster signal verification" },
-      { "value": "2 hrs", "label": "Engineering time saved per project" }
+      {
+        "value": "150+",
+        "label": "FTTH designs delivered"
+      },
+      {
+        "value": "620+",
+        "label": "Enterprise fiber solutions across Manhattan"
+      },
+      {
+        "value": "60%",
+        "label": "Faster signal verification"
+      },
+      {
+        "value": "2 hrs",
+        "label": "Engineering time saved per project"
+      }
     ],
     "visual": "flow",
     "isCaseStudy": true,
@@ -507,10 +733,22 @@
         "Chose incremental regional rollout over a single company wide launch, using early results to build the case for wider adoption."
       ],
       "results": [
-        { "value": "40%", "label": "Faster design turnaround across 200+ engineers" },
-        { "value": "40%", "label": "Reduction in high priority delays via the prioritization model" },
-        { "value": "28%", "label": "Improved network data accuracy from the DOCSIS 4.0 audit" },
-        { "value": "50%", "label": "Faster report generation with Auto BOM, company wide" }
+        {
+          "value": "40%",
+          "label": "Faster design turnaround across 200+ engineers"
+        },
+        {
+          "value": "40%",
+          "label": "Reduction in high priority delays via the prioritization model"
+        },
+        {
+          "value": "28%",
+          "label": "Improved network data accuracy from the DOCSIS 4.0 audit"
+        },
+        {
+          "value": "50%",
+          "label": "Faster report generation with Auto BOM, company wide"
+        }
       ],
       "learnings": [
         "The highest leverage product opportunities were hiding inside operational workflows nobody thought of as a product. They just looked like how the job was done.",
@@ -524,11 +762,26 @@
     "category": "AI · Data · Product Experiment",
     "headline": "Turning market noise into actionable signals.",
     "summary": "An experimental, AI assisted market monitoring system built to identify abnormal trading activity, summarize signals, and help active traders understand market reactions faster.",
-    "tags": ["AI", "Data", "Alerts", "Rapid Prototyping", "Product Experiment"],
+    "tags": [
+      "AI",
+      "Data",
+      "Alerts",
+      "Rapid Prototyping",
+      "Product Experiment"
+    ],
     "metrics": [
-      { "value": "Experiment", "label": "Self initiated product exploration" },
-      { "value": "3", "label": "Core detection signals prototyped" },
-      { "value": "Iterative", "label": "Built through rapid prototyping and testing" }
+      {
+        "value": "Experiment",
+        "label": "Self initiated product exploration"
+      },
+      {
+        "value": "3",
+        "label": "Core detection signals prototyped"
+      },
+      {
+        "value": "Iterative",
+        "label": "Built through rapid prototyping and testing"
+      }
     ],
     "visual": "signals",
     "isCaseStudy": true,
@@ -572,8 +825,14 @@
         "Treated this as a validation exercise for a product hypothesis, reduce cognitive load rather than add more data, rather than a trading tool to monetize immediately."
       ],
       "results": [
-        { "value": "3", "label": "Detection and explanation components validated end to end" },
-        { "value": "Personal", "label": "Self funded exploration outside of full time roles" }
+        {
+          "value": "3",
+          "label": "Detection and explanation components validated end to end"
+        },
+        {
+          "value": "Personal",
+          "label": "Self funded exploration outside of full time roles"
+        }
       ],
       "learnings": [
         "Explaining a signal is a harder and more valuable product problem than detecting one.",
@@ -587,12 +846,31 @@
     "category": "Plasma Physics · Electrical Engineering · Infrastructure · Software",
     "headline": "Engineering before product management.",
     "summary": "The industries changed: plasma physics research, electrical equipment engineering, telecommunications infrastructure, software automation, AI products. The underlying habit did not. Understand the system, find the bottleneck, build a better solution.",
-    "tags": ["Plasma Physics", "SOLIDWORKS", "AutoCAD", "MATLAB", "DFM/DFA", "Systems Thinking"],
+    "tags": [
+      "Plasma Physics",
+      "SOLIDWORKS",
+      "AutoCAD",
+      "MATLAB",
+      "DFM/DFA",
+      "Systems Thinking"
+    ],
     "metrics": [
-      { "value": "2019", "label": "Consulting, structured problem solving" },
-      { "value": "2021", "label": "Plasma physics research, NYU Tandon" },
-      { "value": "2022", "label": "Electrical and mechanical product engineering" },
-      { "value": "2023+", "label": "Infrastructure, automation, AI products" }
+      {
+        "value": "2019",
+        "label": "Consulting, structured problem solving"
+      },
+      {
+        "value": "2021",
+        "label": "Plasma physics research, NYU Tandon"
+      },
+      {
+        "value": "2022",
+        "label": "Electrical and mechanical product engineering"
+      },
+      {
+        "value": "2023+",
+        "label": "Infrastructure, automation, AI products"
+      }
     ],
     "visual": "timeline",
     "isCaseStudy": true,
@@ -627,8 +905,14 @@
         "Carried a bias toward hands on validation, build the experiment, build the prototype, test it, into later product and engineering work."
       ],
       "results": [
-        { "value": "15%", "label": "Sales increase from Kearney's retail analysis" },
-        { "value": "15%", "label": "Fewer assembly errors from DFM/DFA review at Decom" }
+        {
+          "value": "15%",
+          "label": "Sales increase from Kearney's retail analysis"
+        },
+        {
+          "value": "15%",
+          "label": "Fewer assembly errors from DFM/DFA review at Decom"
+        }
       ],
       "learnings": [
         "Systems thinking transfers across mediums. Plasma physics, electrical hardware, fiber networks, and AI agents are different systems with the same underlying discipline."

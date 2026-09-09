@@ -54,7 +54,7 @@ function headMeta(ctx, { title, description, path: urlPath, ogTitle }) {
   <meta name="description" content="${attr(description)}" />
   <link rel="canonical" href="${canonical}" />
   <link rel="icon" href="${assetHref(ctx, "favicon.svg")}" type="image/svg+xml" />
-  <meta name="theme-color" content="#f1ece3" />
+  <meta name="theme-color" content="#f6f7f9" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="${attr(ogTitle || title)}" />
   <meta property="og:description" content="${attr(description)}" />
@@ -67,7 +67,7 @@ function headMeta(ctx, { title, description, path: urlPath, ogTitle }) {
   <meta name="twitter:image" content="${site.url}/og.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="${assetHref(ctx, "assets/styles.css")}" />
   <script>
     (function () {
@@ -94,7 +94,7 @@ function navHtml(ctx) {
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="nav-wrap">
     <nav id="nav">
-      <a href="${brandHref}" class="brand"><span class="brand-seal">王</span> ${site.name}</a>
+      <a href="${brandHref}" class="brand"><span class="brand-dot"></span> ${site.name}</a>
       <div class="nav-links">
         ${links}
         <a href="${siteHref(ctx, "/#contact")}" class="nav-cta">Let&rsquo;s talk</a>
@@ -113,7 +113,7 @@ function footerHtml() {
   return `
   <footer>
     <span>${site.name} · ${YEAR}</span>
-    <span class="serif-i">Made slowly, on purpose.</span>
+    <span>Designed and built by hand.</span>
   </footer>`;
 }
 
@@ -138,6 +138,14 @@ ${body}
 /* ---------------- project visuals ---------------- */
 
 function visualHtml(ctx, project) {
+  if (project.productImage) {
+    return `
+        <div class="product-stage">
+          <div class="product-halo"></div>
+          <img class="product-shot" src="${assetHref(ctx, project.productImage)}" alt="${attr(project.productImageAlt || "")}" loading="lazy" />
+          ${project.productCaption ? `<div class="product-caption">${project.productCaption}</div>` : ""}
+        </div>`;
+  }
   if (project.media && project.media.length) {
     const m = project.media[0];
     return `
@@ -337,11 +345,9 @@ ${cards}
 function philosophySection() {
   return `
     <section class="philosophy reveal">
-      ${brushRule("top")}
       <div class="section-kicker">How I think</div>
       <blockquote>I like complicated systems.<br><span>I like making them feel simple.</span></blockquote>
       <p>My work has moved between physical infrastructure, software, AI, engineering, and product. What interests me most is usually the same problem: understanding how a complex system works, finding where users experience friction, and building something better.</p>
-      ${brushRule("bottom")}
     </section>`;
 }
 
@@ -375,9 +381,9 @@ function experienceSection() {
 
 function principlesSection() {
   const items = [
-    { idx: "一", title: "Start with the user.", body: "Technology matters only when it solves something people actually care about." },
-    { idx: "二", title: "Understand the system.", body: "Good product decisions come from understanding technical constraints, incentives, workflows, and edge cases." },
-    { idx: "三", title: "Build, test, iterate.", body: "I prefer prototypes, experiments, and real user feedback over endless speculation." },
+    { idx: "01", title: "Start with the user.", body: "Technology matters only when it solves something people actually care about." },
+    { idx: "02", title: "Understand the system.", body: "Good product decisions come from understanding technical constraints, incentives, workflows, and edge cases." },
+    { idx: "03", title: "Build, test, iterate.", body: "I prefer prototypes, experiments, and real user feedback over endless speculation." },
   ]
     .map(
       (p) => `

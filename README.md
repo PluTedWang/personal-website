@@ -67,14 +67,14 @@ web server. Nothing needs compiling.
 
 ## Design notes
 
-- Wabi-sabi direction: washi paper background, sumi ink text, a clay accent,
-  a vermilion seal in the nav, deliberately uneven corner radii, a hand
-  drawn enso in the hero, paper grain. Light and dark themes (toggle in the
-  nav, persisted via `localStorage`, respects `prefers-color-scheme`).
-- Type: Fraunces (display) and Inter (body) from Google Fonts, with serif
-  system fallbacks when offline.
-- Motion: IntersectionObserver reveal on scroll, the enso draws itself once,
-  all guarded by `prefers-reduced-motion`.
+- Direction: cool neutrals (white and graphite), one blue accent, Inter
+  throughout, soft layered shadows, glass panels in the hero, the real
+  NexusGen product photo on the trunk project. Light and dark themes (toggle
+  in the nav, persisted via `localStorage`, respects `prefers-color-scheme`).
+- Type: Inter from Google Fonts, system sans fallback when offline.
+- Motion: reveal on scroll, cursor parallax on the hero panels, 3D tilt and
+  light sheen on the branch showcase cards, all guarded by
+  `prefers-reduced-motion` and disabled on touch.
 - Figma: the four design files are public. Each card shows the file cover
   and a "Preview live canvas" button that loads the embed on demand.
 
