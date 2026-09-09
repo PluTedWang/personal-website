@@ -47,7 +47,7 @@ shape of an existing one) and rerun the command above: a new page at
 
 One placeholder is worth a look:
 
-- `content/site.json` → `url` (`https://tedwang.dev`) is used for canonical
+- `content/site.json` → `url` (`https://tedwangzr.com`) is used for canonical
   links, sitemap.xml, and Open Graph tags: set it to wherever this actually
   deploys, then rerun the generator.
 

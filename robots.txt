@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tedwang.dev/sitemap.xml
+Sitemap: https://tedwangzr.com/sitemap.xml

@@ -213,12 +213,17 @@
       requestAnimationFrame(step);
     }
 
-    // Which gap is the pointer in? Returns how many balls sit to its left (1..N-1).
+    // Which gap is the pointer in? Counts the balls whose centre is left of the pointer,
+    // using where the balls are drawn right now (a lifted group has swung away from its
+    // resting slot, so the empty slot it left behind still belongs to that group).
+    var balls = pends.map(function (p) { return p.querySelector("b") || p; });
     function gapFor(clientX) {
-      var r = root.querySelector(".cradle-row").getBoundingClientRect();
-      var x = (clientX - r.left) / r.width;           // 0..1 across the row
-      var g = Math.round(x * N);                       // gap index 0..N
-      return Math.max(1, Math.min(N - 1, g));
+      var count = 0;
+      for (var i = 0; i < N; i++) {
+        var r = balls[i].getBoundingClientRect();
+        if (clientX > r.left + r.width / 2) count++;
+      }
+      return Math.max(1, Math.min(N - 1, count));
     }
 
     function hold(clientX) {
