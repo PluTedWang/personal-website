@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Making local AI actually useful in the living room. · Ted Wang</title>
+  <meta name="description" content="The consumer surface of Nexus Gen. I validated it with 100 users, built the working prototype myself before it had an engineering slot, and took it through a three iteration beta that won the case for full investment." />
+  <link rel="canonical" href="https://tedwang.dev/work/home-theater.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#f1ece3" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Making local AI actually useful in the living room. · Ted Wang" />
+  <meta property="og:description" content="The consumer surface of Nexus Gen. I validated it with 100 users, built the working prototype myself before it had an engineering slot, and took it through a three iteration beta that won the case for full investment." />
+  <meta property="og:url" content="https://tedwang.dev/work/home-theater.html" />
+  <meta property="og:site_name" content="Ted Wang" />
+  <meta property="og:image" content="https://tedwang.dev/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Making local AI actually useful in the living room. · Ted Wang" />
+  <meta name="twitter:description" content="The consumer surface of Nexus Gen. I validated it with 100 users, built the working prototype myself before it had an engineering slot, and took it through a three iteration beta that won the case for full investment." />
+  <meta name="twitter:image" content="https://tedwang.dev/og.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="grain"></div>
+  
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="nav-wrap">
+    <nav id="nav">
+      <a href="../index.html#top" class="brand"><span class="brand-seal">王</span> Ted Wang</a>
+      <div class="nav-links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="../index.html#contact" class="nav-cta">Let&rsquo;s talk</a>
+        
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <main id="main">
+
+  <header class="cs-header reveal">
+    <a class="cs-back" href="nexus-gen.html">← Part of A private AI brain for the home</a>
+    <div class="section-kicker">01 · Branch 01 &nbsp;·&nbsp; Consumer Product · Prototyping · Beta</div>
+    <h1>Making local AI actually useful in the living room.</h1>
+    <p class="lede">The consumer surface of Nexus Gen. I validated it with 100 users, built the working prototype myself before it had an engineering slot, and took it through a three iteration beta that won the case for full investment.</p>
+    <div class="tags"><span class="tag">User Research</span><span class="tag">Prototyping</span><span class="tag">FastAPI</span><span class="tag">Recommendation</span><span class="tag">Beta</span><span class="tag">Home Theater</span></div>
+  </header>
+
+  <div class="cs-visual-wrap reveal">
+    <div class="cs-visual dark">
+      
+        <div class="media-frame">
+          <img src="../assets/img/home-theater-hero.jpg" alt="Nexus Theatre home screen with Iron Man featured and a Continue Watching shelf below" loading="lazy" />
+        </div>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Problem</div>
+        <div>
+          <div class="prose">
+            <h2>What was not working</h2>
+            <p>A NAS full of movies is still a file browser with a play button. Finding something to watch meant scrolling folders, and the AI on the box had no obvious place to help.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Insight</div>
+        <div>
+          <div class="prose">
+            <h2>What the user actually needed</h2>
+            <p>People did not want a recommendation engine. They wanted the shelf they already understand from streaming apps, on their own library, with the AI quietly doing the matching and the suggesting.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">My role</div>
+        <div>
+          <h2>What I owned</h2>
+          <ul class="bullets">
+            <li>Interviewed 100+ NAS users and identified Home Theater as the clearest, most testable opportunity.</li>
+            <li>Designed and validated the experience end to end, from concept through a three iteration beta with 80 users.</li>
+            <li>Built the working prototype myself: a FastAPI backend, a single SQLite table for metadata, HTTP range video streaming, and a shelf based UI with no build step.</li>
+            <li>Owned requirements and flows for the media library design file.</li>
+            <li>Synthesized 140 feedback items into three product iterations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Constraints</div>
+        <div>
+          <h2>What had to be true</h2>
+          <ul class="bullets">
+            <li>It had to feel like a home theater app, not a demo of an AI feature.</li>
+            <li>Recommendations had to run on device with the same model the rest of the platform used.</li>
+            <li>There was no engineering slot yet. Validation had to happen before one existed.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Decision process</div>
+        <div>
+          <div class="decision-steps">
+          
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">01</span><h3>Scope the wedge</h3></div>
+              <p>Interviews kept surfacing the same three time sinks: choosing a movie, organizing the library, and recovering from misnamed files. I scoped an MVP around exactly those, and left the broader AI assistant pitch alone.</p>
+            </div>
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">02</span><h3>Prototype before the roadmap slot</h3></div>
+              <p>Rather than writing a spec and waiting, I built Home Theater as a working prototype: FastAPI, one evolving SQLite table with idempotent migrations, HTTP range requests so video could scrub and resume, and shelves for Continue Watching, Recently Added, Movies, and TV Series in plain HTML, CSS, and JS.</p>
+              <p>That let the beta touch a real product in days instead of after a full engineering cycle. The usage data from that prototype, not a mockup, is what won the case for full scale investment.</p>
+            </div>
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">03</span><h3>Iterate on real usage</h3></div>
+              <p>Three iterations, 140 feedback items. The changes that mattered most were not AI changes: series grouping with per season episode lists, IMDb based subtitle matching, and a continue watching shelf that actually resumed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Prototype</div>
+        <div>
+          <p class="callout-text">Built end to end as a working prototype, FastAPI plus SQLite plus vanilla HTML, CSS, and JS with no build step, before it was a funded roadmap item.</p>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Solution</div>
+        <div>
+          <h2>What shipped</h2>
+          <ul class="bullets">
+            <li>On device recommendations for similar titles, actors, and directors, plus IMDb based subtitle matching, wrapped in a simple conversational entry point.</li>
+            <li>Auto Scan: ingestion time indexing and tagging that cut manual organization and retrieval time by 90%.</li>
+            <li>Continue watching, movie and series grouping with per season episode lists, and a featured title shelf.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Shipped</div>
+        <div>
+          <figure class="cs-figure">
+            <img src="../assets/img/home-theater-hero.jpg" alt="Nexus Theatre home screen with Iron Man featured and a Continue Watching shelf below" loading="lazy" />
+            <figcaption>Nexus Theatre. The Home Theater design as it shipped: featured title, continue watching shelf, library shelves below.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Architecture</div>
+        <div>
+          <h2>How it was built</h2>
+          <ul class="bullets">
+            <li>FastAPI plus SQLite for the prototype, with new columns added through idempotent migrations and never a breaking schema change.</li>
+            <li>HTTP Range requests for scrubbing and resume, so the browser's own video element did the heavy lifting.</li>
+            <li>Deliberately boring, well understood tech so the team could argue about the experience, not the plumbing.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Product decisions</div>
+        <div>
+          <h2>Trade offs I made on purpose</h2>
+          <ul class="bullets">
+            <li>Shipped a narrow, well tested wedge instead of a broad AI assistant.</li>
+            <li>Prototyped in a throwaway stack rather than waiting for the production platform, so real usage could shape the roadmap.</li>
+            <li>Kept the AI invisible: it matches and suggests, it does not announce itself.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal wide">
+        <div class="eyebrow2">Design file</div>
+        <div>
+          <h2>The media library design</h2>
+          <p class="lead">The Figma file for this surface covers home, search, the library grid, hover states, manual metadata matching, and movie and series detail. I owned the requirements and flows; the visual design was a collaboration with the design team.</p>
+          <div class="figma-grid">
+            <div class="figma-card">
+              <div class="figma-media" data-embed="https://embed.figma.com/design/hDRy7HSxikzFZVtqVoGJQE/x?node-id=0-1&amp;embed-host=share&amp;theme=light">
+                <img src="../assets/img/figma/media-library.webp" alt="Cover of the Media library design file" loading="lazy" />
+                <button type="button" class="figma-play" aria-label="Load the live Figma canvas for Media library">Preview live canvas</button>
+              </div>
+              <div class="figma-copy">
+                <div class="figma-maps">Home Theater</div>
+                <h4>Media library</h4>
+                <ul class="flows"><li>Home, search, results</li><li>Library grid and hover states</li><li>Manual metadata match</li><li>Movie and series detail with episodes</li></ul>
+                <div class="figma-links">
+                  <a href="https://www.figma.com/design/hDRy7HSxikzFZVtqVoGJQE/%E5%BD%B1%E9%9F%B3%E5%BA%93%E9%A6%96%E9%A1%B5?node-id=0-1&amp;p=f&amp;t=VRkrS9Gejz85vMoD-0" target="_blank" rel="noreferrer">Open in Figma ↗</a>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Results</div>
+        <div>
+          <div class="cs-metrics">
+            <div class="cs-metric"><strong>78%</strong><span>Beta activation</span></div>
+            <div class="cs-metric"><strong>81%</strong><span>DAU penetration, against a five interactions per week test bar</span></div>
+            <div class="cs-metric"><strong>60%</strong><span>Two week retention among beta testers</span></div>
+            <div class="cs-metric"><strong>Approved</strong><span>Full scale implementation funded on the beta data</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">What I learned</div>
+        <div>
+          <h2>Takeaways</h2>
+          <ul class="bullets">
+            <li>A rough, working prototype moves a roadmap conversation faster than the best written spec.</li>
+            <li>The most valuable AI feature in the beta was the one nobody noticed.</li>
+          </ul>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="cs-next reveal">
+    <a href="vitrine-display.html">
+      <div>
+        <div class="lbl">Next</div>
+        <div class="title">A dashboard for a panel that had no manual.</div>
+      </div>
+      <span class="go">→</span>
+    </a>
+  </div>
+  </main>
+  
+  <footer>
+    <span>Ted Wang · 2026</span>
+    <span class="serif-i">Made slowly, on purpose.</span>
+  </footer>
+  <script src="../assets/main.js"></script>
+</body>
+</html>

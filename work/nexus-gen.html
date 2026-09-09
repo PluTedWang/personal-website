@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A private AI brain for the home. · Ted Wang</title>
+  <meta name="description" content="Nexus Gen is a privacy first AI NAS: local models, agents, and storage in one box. I joined the 0 to 1 build inside Dreame's incubator, wrote the early PRD and twelve month roadmap, ran the user research, and shipped two of its surfaces with my own hands. The product won the CES Asia Best Innovation Award." />
+  <link rel="canonical" href="https://tedwang.dev/work/nexus-gen.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#f1ece3" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="A private AI brain for the home. · Ted Wang" />
+  <meta property="og:description" content="Nexus Gen is a privacy first AI NAS: local models, agents, and storage in one box. I joined the 0 to 1 build inside Dreame's incubator, wrote the early PRD and twelve month roadmap, ran the user research, and shipped two of its surfaces with my own hands. The product won the CES Asia Best Innovation Award." />
+  <meta property="og:url" content="https://tedwang.dev/work/nexus-gen.html" />
+  <meta property="og:site_name" content="Ted Wang" />
+  <meta property="og:image" content="https://tedwang.dev/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A private AI brain for the home. · Ted Wang" />
+  <meta name="twitter:description" content="Nexus Gen is a privacy first AI NAS: local models, agents, and storage in one box. I joined the 0 to 1 build inside Dreame's incubator, wrote the early PRD and twelve month roadmap, ran the user research, and shipped two of its surfaces with my own hands. The product won the CES Asia Best Innovation Award." />
+  <meta name="twitter:image" content="https://tedwang.dev/og.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="grain"></div>
+  
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="nav-wrap">
+    <nav id="nav">
+      <a href="../index.html#top" class="brand"><span class="brand-seal">王</span> Ted Wang</a>
+      <div class="nav-links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="../index.html#contact" class="nav-cta">Let&rsquo;s talk</a>
+        
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <main id="main">
+
+  <header class="cs-header reveal">
+    <a class="cs-back" href="../index.html#work">← Back to work</a>
+    <div class="section-kicker">01 &nbsp;·&nbsp; Product Management · AI Infrastructure · 0 → 1</div>
+    <h1>A private AI brain for the home.</h1>
+    <p class="lede">Nexus Gen is a privacy first AI NAS: local models, agents, and storage in one box. I joined the 0 to 1 build inside Dreame's incubator, wrote the early PRD and twelve month roadmap, ran the user research, and shipped two of its surfaces with my own hands. The product won the CES Asia Best Innovation Award.</p>
+    <div class="tags"><span class="tag">PRD</span><span class="tag">Roadmap</span><span class="tag">LLM</span><span class="tag">Agents</span><span class="tag">MCP</span><span class="tag">Privacy</span><span class="tag">Hardware</span><span class="tag">Go to market</span></div>
+  </header>
+
+  <div class="cs-visual-wrap reveal">
+    <div class="cs-visual">
+      
+        <div class="stack-visual" aria-hidden="true">
+          <div class="layer"><span>Agent</span><em>plan, load skills, execute</em></div>
+          <div class="layer"><span>Model</span><em>hundred billion class, local, quantized</em></div>
+          <div class="layer"><span>Data</span><em>private RAG, encrypted at rest</em></div>
+          <div class="layer"><span>Connection</span><em>reachable without a public IP</em></div>
+          <div class="stack-foot">one box · zero bytes uploaded</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Problem</div>
+        <div>
+          <div class="prose">
+            <h2>What was not working</h2>
+            <p>The company had a strong storage product and a strong hardware story, and a wide open question: what does AI actually do for someone who owns a NAS? Local AI systems were capable but hard to discover, unreliable at tool calling, and unclear in value. The agent could technically do a lot. Nobody could tell, and it kept timing out.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Insight</div>
+        <div>
+          <div class="prose">
+            <h2>What the user actually needed</h2>
+            <p>Users did not want AI features. They wanted AI to remove friction from things they already cared about: media, files, photos, and privacy. The product had to disappear into an existing habit, not add a new one. That single insight decided the roadmap order.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal wide">
+        <div class="eyebrow2">The pitch</div>
+        <div>
+          <h2>Three reasons people were not using AI at home</h2>
+          <p class="lead">The deck we pitched with framed the problem as three refusals. Each one had a structural answer, and the answers became the three pillars of the product.</p>
+          <div class="thesis-grid">
+            <div class="thesis-col">
+              <div class="thesis-pain"><span class="strike">Can't afford it</span><p>Token bills keep growing, the big models keep raising prices, and the return is hard to control.</p></div>
+              <div class="thesis-arrow" aria-hidden="true">↓</div>
+              <div class="thesis-answer"><span>Local compute</span><p>One purchase, expand on demand, no per token billing, no vendor lock in. Long term cost stays flat.</p></div>
+            </div>
+            <div class="thesis-col">
+              <div class="thesis-pain"><span class="strike">Don't dare use it</span><p>Uploading the family archive or the company's contracts to a cloud model felt like leaving core assets out in the open.</p></div>
+              <div class="thesis-arrow" aria-hidden="true">↓</div>
+              <div class="thesis-answer"><span>Local storage</span><p>Data never leaves the box. Sovereignty by construction, not by policy.</p></div>
+            </div>
+            <div class="thesis-col">
+              <div class="thesis-pain"><span class="strike">Can't make it fit</span><p>AI capability rarely matches the actual scene. Deployment is slow, results are thin, and setup needs an engineer.</p></div>
+              <div class="thesis-arrow" aria-hidden="true">↓</div>
+              <div class="thesis-answer"><span>Skill Market</span><p>Packaged, shareable skills so expert workflows install like apps instead of being rebuilt per household.</p></div>
+            </div>
+          </div>
+          <p class="positioning">Consumer NAS boxes can store your data but cannot run a model. Enterprise AI servers can run the model but nobody can afford one at home. Nexus Gen sits in the gap: consumer price, enterprise grade local inference, a hundred billion parameter model on the desk.</p>
+        </div>
+      </div>
+
+      <div class="cs-block reveal wide">
+        <div class="eyebrow2">The PRD</div>
+        <div>
+          <h2>One overview document, twenty one requirement docs, four phases</h2>
+          <p class="lead">The first artifact I wrote was the product overview and roadmap. It set the vision, named the users, inventoried what already worked, drew the architecture, and then sequenced twelve months of work into phases with priorities and estimates. Every phase linked to its own detailed PRD.</p>
+
+          <blockquote class="vision">Build a private cloud storage platform with an on device large model at its core. A NAS that stops being a passive network drive and becomes active intelligence: it understands your files, organizes your data, and automates your workflows, with every inference done locally and zero bytes uploaded.</blockquote>
+
+          <div class="prd-sub">Differentiators</div>
+          <ul class="bullets"><li>On device AI native: all inference on local GPU or NPU, no cloud API, no privacy exposure</li><li>Agent driven: understand intent, plan steps, execute, report back, instead of just searching files</li><li>Private knowledge base: RAG over the user's own files, personal or team</li><li>Open ecosystem: an agent plugin market plus a Docker app store, community driven</li></ul>
+
+          <div class="prd-sub">Who it is for</div>
+          <div class="personas"><div class="persona"><h4>Core: technical individuals</h4><div class="who">Developers, designers, data scientists, AI enthusiasts</div><p>Data scattered across cloud drives and local disks, AI tools that demand uploads, no unified personal knowledge management</p></div><div class="persona"><h4>Expansion: small teams</h4><div class="who">Studios and research groups of 3 to 20</div><p>Commercial NAS has no AI, cloud collaboration tools leak control of data, team knowledge never settles anywhere</p></div><div class="persona"><h4>Later: small and mid sized business</h4><div class="who">IT departments of 50 to 200 people</div><p>Compliance demands, AI that has to be private, multi site sync</p></div></div>
+
+          <div class="prd-sub">Already working when I arrived</div>
+          <div class="chips"><span class="chip">ZFS pool management with snapshots and RAID</span><span class="chip">Remote tunnel access without a public IP</span><span class="chip">SMB and WebDAV sharing</span><span class="chip">Accounts and team management</span><span class="chip">Basic semantic search over files and images</span></div>
+
+          <div class="prd-sub">The four phases</div>
+          <div class="roadmap">
+              <div class="phase">
+                <div class="phase-head"><span class="phase-id">P0</span><span class="phase-window">Month 1</span></div>
+                <div class="phase-goal">Make the AI usable, make the system extensible</div>
+                <ul><li>Local model inference engine management</li><li>AI chat assistant interface</li><li>Smart file assistant agent</li><li>Docker app management platform</li><li>Richer in browser file preview</li></ul>
+              </div>
+              <div class="phase">
+                <div class="phase-head"><span class="phase-id">P1</span><span class="phase-window">Months 2 to 3</span></div>
+                <div class="phase-goal">Multimodal AI everywhere, close the knowledge loop</div>
+                <ul><li>Multimodal AI capability platform</li><li>Smart photo album</li><li>Knowledge base with RAG</li><li>Automation workflow engine</li><li>Monitoring and smart alerts</li><li>Mobile app v1</li></ul>
+              </div>
+              <div class="phase">
+                <div class="phase-head"><span class="phase-id">P2</span><span class="phase-window">Months 4 to 6</span></div>
+                <div class="phase-goal">Open the agent ecosystem, first enterprise capabilities</div>
+                <ul><li>Agent plugin system and market</li><li>Multi device sync</li><li>AI security audit and compliance</li><li>Advanced backup and disaster recovery</li><li>Third party cloud storage gateway</li></ul>
+              </div>
+              <div class="phase">
+                <div class="phase-head"><span class="phase-id">P3</span><span class="phase-window">Months 7 to 12</span></div>
+                <div class="phase-goal">From product to platform, build the developer ecosystem</div>
+                <ul><li>AI development platform (Model Studio)</li><li>Multi NAS cluster management</li><li>Enterprise permissions and audit</li><li>Open API and developer portal</li><li>Edge compute and IoT integration</li></ul>
+              </div>
+          </div>
+
+          <div class="prd-sub">Architecture</div>
+          <div class="prd-layers"><div class="prd-layer"><span>Clients</span><em>Web (React), mobile, desktop, CLI</em></div><div class="prd-layer"><span>Gateway</span><em>Reverse proxy and TLS</em></div><div class="prd-layer"><span>Services</span><em>Files, users, sharing, system, AI inference, agent orchestration, knowledge base RAG</em></div><div class="prd-layer"><span>AI engine</span><em>LLM runtime (llama.cpp, vLLM, Ollama), embedding service, vision and audio models</em></div><div class="prd-layer"><span>Storage and infra</span><em>ZFS pools, PostgreSQL metadata, Redis queues, vector DB, Docker runtime, GPU/NPU drivers</em></div></div>
+
+          <div class="prd-sub">Buy, don&rsquo;t build</div>
+          <p class="prd-p">Media, music, downloads, notes, passwords, code hosting, and monitoring were explicitly marked as buy, not build: Jellyfin, Navidrome, qBittorrent, Outline, Vaultwarden, Gitea, Grafana, all deployed through the Docker platform so the team's own effort stayed on the AI layer.</p>
+
+          <div class="prd-sub">Non functional bar</div>
+          <div class="chips"><span class="chip">First token under 2 seconds on a 7B model</span><span class="chip">Semantic search under 3 seconds across 100K files</span><span class="chip">Web UI first paint under 2 seconds</span><span class="chip">20 concurrent users</span><span class="chip">99.9% availability, ZFS integrity checks</span><span class="chip">x86 and ARM, CUDA, ROCm, Metal</span></div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">My role</div>
+        <div>
+          <h2>What I owned</h2>
+          <ul class="bullets">
+            <li>Wrote the product overview PRD and the twelve month roadmap: vision, personas, baseline inventory, architecture, four phases with priorities and estimates, and the buy versus build decisions.</li>
+            <li>Interviewed 100+ NAS users to separate real product opportunities from feature requests, and used that to rank the phases.</li>
+            <li>Owned the roadmap for the AI NAS unit inside a company wide incubator, competing with roughly one hundred internal projects for investment.</li>
+            <li>Owned model selection for the on device agent through a six dimension evaluation and A/B tests of seven LLMs across 1,000+ prompts.</li>
+            <li>Diagnosed the agent's timeout defect and drove the move to an MCP based tool registry.</li>
+            <li>Defined the dual volume privacy architecture that separated a fully offline volume from a connected service volume.</li>
+            <li>Owned requirements and flows for the AI chat, onboarding, photo gallery, and media library surfaces, working with two designers.</li>
+            <li>Built two surfaces myself: the Home Theater prototype and the Vitrine display driver. Each has its own page.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Constraints</div>
+        <div>
+          <h2>What had to be true</h2>
+          <ul class="bullets">
+            <li>Everything had to run acceptably on consumer hardware, not a cloud GPU cluster.</li>
+            <li>Privacy was a stated pillar of the pitch, not a compliance checkbox. The architecture had to hold up under real scrutiny.</li>
+            <li>The agent's tool registry was growing faster than its ability to reason about which tool to call, and every added integration made timeouts more likely.</li>
+            <li>The team was small and the incubator clock was short. Anything that could be bought or deployed from open source had to be.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Decision process</div>
+        <div>
+          <div class="decision-steps">
+          
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">01</span><h3>Write the map before the features</h3></div>
+              <p>Before any feature work I wrote the overview document: who the product is for, what already works, what the architecture looks like, and what happens in each of four phases. Twenty one detailed PRDs hung off it.</p>
+              <p>The point was less the document than the argument it forced: P0 had to make AI usable and the system extensible, nothing else. Multimodal and knowledge work waited for P1. Ecosystem waited for P2. Platform waited for P3.</p>
+            </div>
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">02</span><h3>Find the real opportunity</h3></div>
+              <p>Rather than starting from what the AI could do, I ran structured interviews with 100+ existing NAS users to map where they actually lost time: finding something to watch, organizing a media library, recovering from duplicate or misnamed files.</p>
+              <p>Home Theater surfaced as the clearest, most testable wedge. It became its own branch of the work.</p>
+            </div>
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">03</span><h3>Diagnose the timeouts</h3></div>
+              <p>Agent timeouts and runaway token use traced back to exhaustive API enumeration: the agent was reasoning over every available tool on every turn.</p>
+              <p>I proposed an MCP based tool registry so the agent only reasoned over relevant tools per task. Tool selection overhead dropped by roughly 80% and the timeouts disappeared.</p>
+            </div>
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">04</span><h3>Choose the on device model</h3></div>
+              <p>Model choice had to balance quality, latency, and what would actually run on the box. I built a six dimension evaluation framework and A/B tested seven candidate LLMs across 1,000+ prompts.</p>
+              <p>Qwen paired with Hermes scored highest at 4.5 out of 5 and became the default. The same harness later caught 40+ release critical defects before they reached users.</p>
+            </div>
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">05</span><h3>Make privacy structural</h3></div>
+              <p>The pitch promised that data never leaves the device. A setting cannot promise that; an architecture can. I defined two volumes: an isolated private volume for fully offline data and models, and a separate connected volume for anything that touches the network.</p>
+              <p>That design was part of what the CES Asia jury cited.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Solution</div>
+        <div>
+          <h2>What shipped</h2>
+          <ul class="bullets">
+            <li>A product overview and roadmap that the team, the incubator committee, and later the investor deck all built on.</li>
+            <li>An MCP based tool registry that scoped the agent's tools to the task at hand.</li>
+            <li>A reproducible model evaluation harness used for selection and then as a regression suite.</li>
+            <li>The dual volume privacy architecture.</li>
+            <li>Four designed surfaces with owned requirements: AI chat, onboarding, photo gallery, media library.</li>
+            <li>Two shipped branches: the Home Theater experience and the Vitrine display driver.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Architecture</div>
+        <div>
+          <h2>How it was built</h2>
+          <ul class="bullets">
+            <li>Agent layer: task planning and decomposition, dynamic skill loading, chain of thought over long tasks, a containerized agent runtime.</li>
+            <li>Model layer: a hundred billion parameter class local LLM with 4 and 8 bit quantization, PagedAttention memory optimization, multimodal vision, and Whisper transcription.</li>
+            <li>Data layer: private RAG with traceable citations, OCR document parsing, incremental indexing into a vector database, full disk AES-256 encryption.</li>
+            <li>Connection layer: P2P traversal so the box is reachable without a public IP, TLS 1.3, multi device sync, wearable data flowing back in.</li>
+            <li>Hardware: a flagship AMD APU with 128 GB unified memory, NVMe plus large SATA arrays, 10GbE, ZFS. The hardware team's work; my job was making sure the software roadmap used it.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Product decisions</div>
+        <div>
+          <h2>Trade offs I made on purpose</h2>
+          <ul class="bullets">
+            <li>Sequenced the roadmap so P0 only made the AI usable and extensible, and resisted pulling knowledge base or ecosystem work forward.</li>
+            <li>Marked media, music, downloads, notes, and monitoring as buy, not build, so team effort stayed on the differentiating AI layer.</li>
+            <li>Treated the tool calling defect as a product problem, not an engineering bug: an agent that times out has no product value regardless of model quality.</li>
+            <li>Made privacy a property of the architecture rather than a setting a user could misconfigure.</li>
+            <li>Validated one sharp wedge (Home Theater) with real usage before expanding scope.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal wide">
+        <div class="eyebrow2">Design flows</div>
+        <div>
+          <h2>Four design files, mapped to the roadmap</h2>
+          <p class="lead">I owned the requirements and flows for these surfaces and worked with the design team on the screens. Each file below is public in Figma; the cards open the live canvas. The media library file belongs to the Home Theater branch and lives there.</p>
+          <div class="figma-grid">
+            <div class="figma-card">
+              <div class="figma-media" data-embed="https://embed.figma.com/design/NdaMNxFcgwTJZp3bY4bl8r/x?node-id=156-2&amp;embed-host=share&amp;theme=light">
+                <img src="../assets/img/figma/ai-home.webp" alt="Cover of the AI interaction home design file" loading="lazy" />
+                <button type="button" class="figma-play" aria-label="Load the live Figma canvas for AI interaction home">Preview live canvas</button>
+              </div>
+              <div class="figma-copy">
+                <div class="figma-maps">P0-02 · AI chat assistant</div>
+                <h4>AI interaction home</h4>
+                <ul class="flows"><li>Home with suggested questions</li><li>Text chat, stop generation, edit a message</li><li>Attachments and image to image</li><li>Multimedia chat over files, images, and video</li><li>Movie chat that ends in a download</li></ul>
+                <div class="figma-links">
+                  <a href="https://www.figma.com/design/NdaMNxFcgwTJZp3bY4bl8r/AI%E4%BA%A4%E4%BA%92%E9%A6%96%E9%A1%B5?node-id=156-2&amp;t=pkU7VSPTwB11GRZ5-1" target="_blank" rel="noreferrer">Open in Figma ↗</a>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="figma-card">
+              <div class="figma-media" data-embed="https://embed.figma.com/design/5JQ9v8Ub2PmjpGuZ48UbcG/x?node-id=1-22&amp;embed-host=share&amp;theme=light">
+                <img src="../assets/img/figma/onboarding.webp" alt="Cover of the Onboarding design file" loading="lazy" />
+                <button type="button" class="figma-play" aria-label="Load the live Figma canvas for Onboarding">Preview live canvas</button>
+              </div>
+              <div class="figma-copy">
+                <div class="figma-maps">Baseline · account and storage setup</div>
+                <h4>Onboarding</h4>
+                <ul class="flows"><li>Language</li><li>Account</li><li>Storage and data setup</li><li>Device</li><li>Done, with an English reference set</li></ul>
+                <div class="figma-links">
+                  <a href="https://www.figma.com/design/5JQ9v8Ub2PmjpGuZ48UbcG/%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B5%E9%9D%A2?node-id=1-22&amp;t=n0wwUIYRQfuouuxm-1" target="_blank" rel="noreferrer">Open in Figma ↗</a>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="figma-card">
+              <div class="figma-media" data-embed="https://embed.figma.com/design/ul6LY7JtgOvPm771qtNb3y/x?node-id=0-1&amp;embed-host=share&amp;theme=light">
+                <img src="../assets/img/figma/photo-gallery.webp" alt="Cover of the Photo gallery design file" loading="lazy" />
+                <button type="button" class="figma-play" aria-label="Load the live Figma canvas for Photo gallery">Preview live canvas</button>
+              </div>
+              <div class="figma-copy">
+                <div class="figma-maps">P1-02 · Smart photo album</div>
+                <h4>Photo gallery</h4>
+                <ul class="flows"><li>Library and favorites</li><li>Albums</li><li>People, grouped by face</li><li>Duplicate check</li><li>Recycle bin</li><li>Upload</li></ul>
+                <div class="figma-links">
+                  <a href="https://www.figma.com/design/ul6LY7JtgOvPm771qtNb3y/%E5%9B%BE%E5%BA%93%E7%9B%B8%E5%86%8C?node-id=0-1&amp;t=N3zL2rkBIs5WrO4f-1" target="_blank" rel="noreferrer">Open in Figma ↗</a>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="figma-card">
+              <div class="figma-media" data-embed="https://embed.figma.com/design/hDRy7HSxikzFZVtqVoGJQE/x?node-id=0-1&amp;embed-host=share&amp;theme=light">
+                <img src="../assets/img/figma/media-library.webp" alt="Cover of the Media library design file" loading="lazy" />
+                <button type="button" class="figma-play" aria-label="Load the live Figma canvas for Media library">Preview live canvas</button>
+              </div>
+              <div class="figma-copy">
+                <div class="figma-maps">Home Theater branch</div>
+                <h4>Media library</h4>
+                <ul class="flows"><li>Home, search, results</li><li>Library grid and hover states</li><li>Manual metadata match</li><li>Movie and series detail with episodes</li></ul>
+                <div class="figma-links">
+                  <a href="https://www.figma.com/design/hDRy7HSxikzFZVtqVoGJQE/%E5%BD%B1%E9%9F%B3%E5%BA%93%E9%A6%96%E9%A1%B5?node-id=0-1&amp;p=f&amp;t=VRkrS9Gejz85vMoD-0" target="_blank" rel="noreferrer">Open in Figma ↗</a>
+                  <a class="figma-branch" href="home-theater.html">Read the branch →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Results</div>
+        <div>
+          <div class="cs-metrics">
+            <div class="cs-metric"><strong>Funded</strong><span>Selected for investment from roughly one hundred incubator projects</span></div>
+            <div class="cs-metric"><strong>80%</strong><span>Reduction in unnecessary tool selection tokens, timeouts eliminated</span></div>
+            <div class="cs-metric"><strong>40+</strong><span>Release critical defects caught by the evaluation harness</span></div>
+            <div class="cs-metric"><strong>CES Asia</strong><span>Best Innovation Award, privacy architecture cited</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">What I learned</div>
+        <div>
+          <h2>Takeaways</h2>
+          <ul class="bullets">
+            <li>A roadmap is an argument about order. Writing the overview first made every later prioritization fight shorter.</li>
+            <li>A model quality problem and a product adoption problem can look identical from the outside. The fix here was architectural, not a bigger model.</li>
+            <li>The fastest way to earn a roadmap slot is a working thing people can click. Both branches below started that way.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal wide">
+        <div class="eyebrow2">Branches</div>
+        <div>
+          <h2>Two things I built off this trunk</h2>
+          <div class="branch-grid">
+            <a class="branch-card" href="home-theater.html">
+              <div class="branch-img"><img src="../assets/img/home-theater-hero.jpg" alt="" loading="lazy" /></div>
+              <div class="branch-copy">
+                <div class="branch-label">Branch 01</div>
+                <h4>Home Theater</h4>
+                <p>The consumer surface I validated with 100 users, prototyped myself, and took through a three iteration beta.</p>
+                <span class="branch-go">Read the branch →</span>
+              </div>
+            </a>
+            <a class="branch-card" href="vitrine-display.html">
+              <div class="branch-img"><img src="../assets/img/vitrine-scene-library.jpg" alt="" loading="lazy" /></div>
+              <div class="branch-copy">
+                <div class="branch-label">Branch 02</div>
+                <h4>Vitrine display driver</h4>
+                <p>A reverse engineered driver that turned an undocumented USB panel into a configurable dashboard.</p>
+                <span class="branch-go">Read the branch →</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="cs-next reveal">
+    <a href="home-theater.html">
+      <div>
+        <div class="lbl">Next</div>
+        <div class="title">Making local AI actually useful in the living room.</div>
+      </div>
+      <span class="go">→</span>
+    </a>
+  </div>
+  </main>
+  
+  <footer>
+    <span>Ted Wang · 2026</span>
+    <span class="serif-i">Made slowly, on purpose.</span>
+  </footer>
+  <script src="../assets/main.js"></script>
+</body>
+</html>

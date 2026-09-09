@@ -1,178 +1,432 @@
 [
   {
-    "slug": "ai-nas-home-theater",
+    "slug": "nexus-gen",
     "index": "01",
-    "category": "Product Management · AI · LLM · Consumer Technology",
-    "headline": "Making local AI actually useful at home.",
-    "summary": "Worked on an AI-powered NAS platform combining local models, intelligent file management, media discovery, privacy controls, and AI agents — during a 0→1 build that won the CES Asia Best Innovation Award.",
-    "tags": [
-      "LLM",
-      "Qwen",
-      "MCP",
-      "AI Agents",
-      "User Research",
-      "Home Theater",
-      "Privacy",
-      "Product Strategy",
-      "Prototyping",
-      "Hardware"
-    ],
+    "category": "Product Management · AI Infrastructure · 0 → 1",
+    "headline": "A private AI brain for the home.",
+    "summary": "Nexus Gen is a privacy first AI NAS: local models, agents, and storage in one box. I joined the 0 to 1 build inside Dreame's incubator, wrote the early PRD and twelve month roadmap, ran the user research, and shipped two of its surfaces with my own hands. The product won the CES Asia Best Innovation Award.",
+    "tags": ["PRD", "Roadmap", "LLM", "Agents", "MCP", "Privacy", "Hardware", "Go to market"],
     "metrics": [
+      { "value": "100+", "label": "NAS users interviewed" },
+      { "value": "1 of ~100", "label": "Incubator projects funded" },
+      { "value": "4 phases", "label": "Twelve month roadmap, 21 PRDs" },
+      { "value": "CES Asia", "label": "Best Innovation Award" }
+    ],
+    "visual": "nexus",
+    "isCaseStudy": true,
+    "branches": [
       {
-        "value": "100+",
-        "label": "User interviews"
+        "slug": "home-theater",
+        "label": "Branch 01",
+        "title": "Home Theater",
+        "blurb": "The consumer surface I validated with 100 users, prototyped myself, and took through a three iteration beta.",
+        "media": "assets/img/home-theater-hero.jpg"
       },
       {
-        "value": "80%",
-        "label": "Reduction in unnecessary tool-selection tokens"
-      },
-      {
-        "value": "78%",
-        "label": "Beta activation for Home Theater"
-      },
-      {
-        "value": "40+",
-        "label": "Critical AI issues identified through evaluation"
+        "slug": "vitrine-display",
+        "label": "Branch 02",
+        "title": "Vitrine display driver",
+        "blurb": "A reverse engineered driver that turned an undocumented USB panel into a configurable dashboard.",
+        "media": "assets/img/vitrine-scene-library.jpg"
       }
     ],
-    "visual": "aiHomeTheater",
-    "isCaseStudy": true,
+    "thesis": {
+      "eyebrow": "The pitch",
+      "title": "Three reasons people were not using AI at home",
+      "intro": "The deck we pitched with framed the problem as three refusals. Each one had a structural answer, and the answers became the three pillars of the product.",
+      "items": [
+        {
+          "pain": "Can't afford it",
+          "painDetail": "Token bills keep growing, the big models keep raising prices, and the return is hard to control.",
+          "answer": "Local compute",
+          "answerDetail": "One purchase, expand on demand, no per token billing, no vendor lock in. Long term cost stays flat."
+        },
+        {
+          "pain": "Don't dare use it",
+          "painDetail": "Uploading the family archive or the company's contracts to a cloud model felt like leaving core assets out in the open.",
+          "answer": "Local storage",
+          "answerDetail": "Data never leaves the box. Sovereignty by construction, not by policy."
+        },
+        {
+          "pain": "Can't make it fit",
+          "painDetail": "AI capability rarely matches the actual scene. Deployment is slow, results are thin, and setup needs an engineer.",
+          "answer": "Skill Market",
+          "answerDetail": "Packaged, shareable skills so expert workflows install like apps instead of being rebuilt per household."
+        }
+      ],
+      "positioning": "Consumer NAS boxes can store your data but cannot run a model. Enterprise AI servers can run the model but nobody can afford one at home. Nexus Gen sits in the gap: consumer price, enterprise grade local inference, a hundred billion parameter model on the desk."
+    },
+    "prd": {
+      "eyebrow": "The PRD",
+      "title": "One overview document, twenty one requirement docs, four phases",
+      "intro": "The first artifact I wrote was the product overview and roadmap. It set the vision, named the users, inventoried what already worked, drew the architecture, and then sequenced twelve months of work into phases with priorities and estimates. Every phase linked to its own detailed PRD.",
+      "vision": "Build a private cloud storage platform with an on device large model at its core. A NAS that stops being a passive network drive and becomes active intelligence: it understands your files, organizes your data, and automates your workflows, with every inference done locally and zero bytes uploaded.",
+      "differentiators": [
+        "On device AI native: all inference on local GPU or NPU, no cloud API, no privacy exposure",
+        "Agent driven: understand intent, plan steps, execute, report back, instead of just searching files",
+        "Private knowledge base: RAG over the user's own files, personal or team",
+        "Open ecosystem: an agent plugin market plus a Docker app store, community driven"
+      ],
+      "personas": [
+        { "name": "Core: technical individuals", "who": "Developers, designers, data scientists, AI enthusiasts", "pain": "Data scattered across cloud drives and local disks, AI tools that demand uploads, no unified personal knowledge management" },
+        { "name": "Expansion: small teams", "who": "Studios and research groups of 3 to 20", "pain": "Commercial NAS has no AI, cloud collaboration tools leak control of data, team knowledge never settles anywhere" },
+        { "name": "Later: small and mid sized business", "who": "IT departments of 50 to 200 people", "pain": "Compliance demands, AI that has to be private, multi site sync" }
+      ],
+      "baseline": ["ZFS pool management with snapshots and RAID", "Remote tunnel access without a public IP", "SMB and WebDAV sharing", "Accounts and team management", "Basic semantic search over files and images"],
+      "roadmap": [
+        {
+          "phase": "P0",
+          "window": "Month 1",
+          "goal": "Make the AI usable, make the system extensible",
+          "items": ["Local model inference engine management", "AI chat assistant interface", "Smart file assistant agent", "Docker app management platform", "Richer in browser file preview"]
+        },
+        {
+          "phase": "P1",
+          "window": "Months 2 to 3",
+          "goal": "Multimodal AI everywhere, close the knowledge loop",
+          "items": ["Multimodal AI capability platform", "Smart photo album", "Knowledge base with RAG", "Automation workflow engine", "Monitoring and smart alerts", "Mobile app v1"]
+        },
+        {
+          "phase": "P2",
+          "window": "Months 4 to 6",
+          "goal": "Open the agent ecosystem, first enterprise capabilities",
+          "items": ["Agent plugin system and market", "Multi device sync", "AI security audit and compliance", "Advanced backup and disaster recovery", "Third party cloud storage gateway"]
+        },
+        {
+          "phase": "P3",
+          "window": "Months 7 to 12",
+          "goal": "From product to platform, build the developer ecosystem",
+          "items": ["AI development platform (Model Studio)", "Multi NAS cluster management", "Enterprise permissions and audit", "Open API and developer portal", "Edge compute and IoT integration"]
+        }
+      ],
+      "layers": [
+        { "name": "Clients", "items": "Web (React), mobile, desktop, CLI" },
+        { "name": "Gateway", "items": "Reverse proxy and TLS" },
+        { "name": "Services", "items": "Files, users, sharing, system, AI inference, agent orchestration, knowledge base RAG" },
+        { "name": "AI engine", "items": "LLM runtime (llama.cpp, vLLM, Ollama), embedding service, vision and audio models" },
+        { "name": "Storage and infra", "items": "ZFS pools, PostgreSQL metadata, Redis queues, vector DB, Docker runtime, GPU/NPU drivers" }
+      ],
+      "buyNotBuild": "Media, music, downloads, notes, passwords, code hosting, and monitoring were explicitly marked as buy, not build: Jellyfin, Navidrome, qBittorrent, Outline, Vaultwarden, Gitea, Grafana, all deployed through the Docker platform so the team's own effort stayed on the AI layer.",
+      "nfrs": ["First token under 2 seconds on a 7B model", "Semantic search under 3 seconds across 100K files", "Web UI first paint under 2 seconds", "20 concurrent users", "99.9% availability, ZFS integrity checks", "x86 and ARM, CUDA, ROCm, Metal"]
+    },
+    "figma": {
+      "eyebrow": "Design flows",
+      "title": "Four design files, mapped to the roadmap",
+      "intro": "I owned the requirements and flows for these surfaces and worked with the design team on the screens. Each file below is public in Figma; the cards open the live canvas. The media library file belongs to the Home Theater branch and lives there.",
+      "files": [
+        {
+          "title": "AI interaction home",
+          "key": "NdaMNxFcgwTJZp3bY4bl8r",
+          "node": "156-2",
+          "url": "https://www.figma.com/design/NdaMNxFcgwTJZp3bY4bl8r/AI%E4%BA%A4%E4%BA%92%E9%A6%96%E9%A1%B5?node-id=156-2&t=pkU7VSPTwB11GRZ5-1",
+          "cover": "assets/img/figma/ai-home.webp",
+          "maps": "P0-02 · AI chat assistant",
+          "flows": ["Home with suggested questions", "Text chat, stop generation, edit a message", "Attachments and image to image", "Multimedia chat over files, images, and video", "Movie chat that ends in a download"]
+        },
+        {
+          "title": "Onboarding",
+          "key": "5JQ9v8Ub2PmjpGuZ48UbcG",
+          "node": "1-22",
+          "url": "https://www.figma.com/design/5JQ9v8Ub2PmjpGuZ48UbcG/%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B5%E9%9D%A2?node-id=1-22&t=n0wwUIYRQfuouuxm-1",
+          "cover": "assets/img/figma/onboarding.webp",
+          "maps": "Baseline · account and storage setup",
+          "flows": ["Language", "Account", "Storage and data setup", "Device", "Done, with an English reference set"]
+        },
+        {
+          "title": "Photo gallery",
+          "key": "ul6LY7JtgOvPm771qtNb3y",
+          "node": "0-1",
+          "url": "https://www.figma.com/design/ul6LY7JtgOvPm771qtNb3y/%E5%9B%BE%E5%BA%93%E7%9B%B8%E5%86%8C?node-id=0-1&t=N3zL2rkBIs5WrO4f-1",
+          "cover": "assets/img/figma/photo-gallery.webp",
+          "maps": "P1-02 · Smart photo album",
+          "flows": ["Library and favorites", "Albums", "People, grouped by face", "Duplicate check", "Recycle bin", "Upload"]
+        },
+        {
+          "title": "Media library",
+          "key": "hDRy7HSxikzFZVtqVoGJQE",
+          "node": "0-1",
+          "url": "https://www.figma.com/design/hDRy7HSxikzFZVtqVoGJQE/%E5%BD%B1%E9%9F%B3%E5%BA%93%E9%A6%96%E9%A1%B5?node-id=0-1&p=f&t=VRkrS9Gejz85vMoD-0",
+          "cover": "assets/img/figma/media-library.webp",
+          "maps": "Home Theater branch",
+          "branch": "home-theater",
+          "flows": ["Home, search, results", "Library grid and hover states", "Manual metadata match", "Movie and series detail with episodes"]
+        }
+      ]
+    },
     "caseStudy": {
-      "problem": "Local AI systems had powerful capabilities but poor discoverability, unreliable tool calling, and unclear user value. The on-device agent could technically do a lot — but nobody could tell, and it kept timing out.",
-      "insight": "Users did not want “AI features.” They wanted AI to remove friction from things they already cared about — media, files, photos, and privacy. The product had to disappear into an existing habit, not add a new one.",
+      "problem": "The company had a strong storage product and a strong hardware story, and a wide open question: what does AI actually do for someone who owns a NAS? Local AI systems were capable but hard to discover, unreliable at tool calling, and unclear in value. The agent could technically do a lot. Nobody could tell, and it kept timing out.",
+      "insight": "Users did not want AI features. They wanted AI to remove friction from things they already cared about: media, files, photos, and privacy. The product had to disappear into an existing habit, not add a new one. That single insight decided the roadmap order.",
       "role": [
-        "Interviewed 100+ NAS users to separate real product opportunities from feature requests.",
-        "Prioritized the roadmap for the AI NAS business unit inside a company-wide incubator, competing against ~100 other internal projects for investment.",
-        "Designed and validated the AI Home Theater experience end to end, from concept through a 3-iteration beta.",
-        "Owned model selection for the on-device agent and diagnosed a scaling defect in its tool-calling architecture.",
-        "Defined the privacy architecture that separated a fully offline volume from a connected service volume.",
-        "Built a working prototype of the Home Theater experience myself (FastAPI + SQLite + vanilla JS/CSS, zero build step) — continue-watching shelf, movie/series grouping, HTTP-range video streaming — to validate the UX before it became a funded roadmap item.",
-        "Reverse-engineered the protocol for an undocumented secondary display panel (USB-serial, no public spec) and built its driver end to end, turning it into a configurable dashboard — at roughly 80% lower cost than sourcing the OEM's own accessory."
+        "Wrote the product overview PRD and the twelve month roadmap: vision, personas, baseline inventory, architecture, four phases with priorities and estimates, and the buy versus build decisions.",
+        "Interviewed 100+ NAS users to separate real product opportunities from feature requests, and used that to rank the phases.",
+        "Owned the roadmap for the AI NAS unit inside a company wide incubator, competing with roughly one hundred internal projects for investment.",
+        "Owned model selection for the on device agent through a six dimension evaluation and A/B tests of seven LLMs across 1,000+ prompts.",
+        "Diagnosed the agent's timeout defect and drove the move to an MCP based tool registry.",
+        "Defined the dual volume privacy architecture that separated a fully offline volume from a connected service volume.",
+        "Owned requirements and flows for the AI chat, onboarding, photo gallery, and media library surfaces, working with two designers.",
+        "Built two surfaces myself: the Home Theater prototype and the Vitrine display driver. Each has its own page."
       ],
       "constraints": [
-        "Everything had to run acceptably on consumer NAS hardware, not a cloud GPU cluster.",
-        "Privacy was a stated product pillar, not a compliance checkbox — the architecture had to hold up under real scrutiny.",
-        "The agent's tool registry was growing faster than its ability to reason about which tool to call, and every added integration made timeouts more likely."
+        "Everything had to run acceptably on consumer hardware, not a cloud GPU cluster.",
+        "Privacy was a stated pillar of the pitch, not a compliance checkbox. The architecture had to hold up under real scrutiny.",
+        "The agent's tool registry was growing faster than its ability to reason about which tool to call, and every added integration made timeouts more likely.",
+        "The team was small and the incubator clock was short. Anything that could be bought or deployed from open source had to be."
       ],
       "decisionProcess": [
         {
-          "heading": "Finding the real opportunity",
+          "heading": "Write the map before the features",
           "body": [
-            "Rather than starting from “what can the AI do,” I ran structured interviews with 100+ existing NAS users to map where they actually lost time: finding a movie to watch, organizing a media library, recovering from duplicate or misnamed files.",
-            "Home Theater — AI-assisted media discovery and recommendation — surfaced as the clearest, most testable opportunity, so I scoped an MVP around it instead of a broader “AI assistant” pitch."
+            "Before any feature work I wrote the overview document: who the product is for, what already works, what the architecture looks like, and what happens in each of four phases. Twenty one detailed PRDs hung off it.",
+            "The point was less the document than the argument it forced: P0 had to make AI usable and the system extensible, nothing else. Multimodal and knowledge work waited for P1. Ecosystem waited for P2. Platform waited for P3."
           ]
         },
         {
-          "heading": "Diagnosing the timeout problem",
+          "heading": "Find the real opportunity",
           "body": [
-            "Agent timeouts and runaway token use traced back to exhaustive API enumeration — the agent was reasoning over every available tool on every turn.",
-            "I proposed an MCP-based tool registry so the agent only reasoned over relevant tools per task, cutting tool-selection token overhead by roughly 80% and eliminating the timeouts outright."
+            "Rather than starting from what the AI could do, I ran structured interviews with 100+ existing NAS users to map where they actually lost time: finding something to watch, organizing a media library, recovering from duplicate or misnamed files.",
+            "Home Theater surfaced as the clearest, most testable wedge. It became its own branch of the work."
           ]
         },
         {
-          "heading": "Choosing the on-device model",
+          "heading": "Diagnose the timeouts",
           "body": [
-            "Model choice had to balance quality, latency, and what would actually run on-device. I built a 6-dimension evaluation framework and A/B tested 7 candidate LLMs across 1,000+ prompts.",
-            "Qwen paired with Hermes scored highest (4.5/5) and became the on-device default; the same evaluation harness later caught 40+ release-critical defects before they reached users."
+            "Agent timeouts and runaway token use traced back to exhaustive API enumeration: the agent was reasoning over every available tool on every turn.",
+            "I proposed an MCP based tool registry so the agent only reasoned over relevant tools per task. Tool selection overhead dropped by roughly 80% and the timeouts disappeared."
           ]
         },
         {
-          "heading": "Prototyping before the roadmap slot",
+          "heading": "Choose the on device model",
           "body": [
-            "Rather than writing a spec and waiting for an engineering slot, I built Home Theater myself as a working prototype: a FastAPI backend with a single SQLite table for metadata, HTTP-range streaming so video could scrub and resume, and a shelf-based UI (Continue Watching, Recently Added, Movies, TV Series) in plain HTML/CSS/JS with no build step.",
-            "That let the 80-user beta touch a real, working product in days rather than after a full engineering cycle — the usage data from that prototype, not a mockup, is what won the case for full-scale investment."
+            "Model choice had to balance quality, latency, and what would actually run on the box. I built a six dimension evaluation framework and A/B tested seven candidate LLMs across 1,000+ prompts.",
+            "Qwen paired with Hermes scored highest at 4.5 out of 5 and became the default. The same harness later caught 40+ release critical defects before they reached users."
+          ]
+        },
+        {
+          "heading": "Make privacy structural",
+          "body": [
+            "The pitch promised that data never leaves the device. A setting cannot promise that; an architecture can. I defined two volumes: an isolated private volume for fully offline data and models, and a separate connected volume for anything that touches the network.",
+            "That design was part of what the CES Asia jury cited."
           ]
         }
       ],
       "solution": [
-        "An AI Home Theater experience: on-device recommendations for similar titles, actors, and directors, plus IMDb-based subtitle matching, wrapped in a simple conversational entry point.",
-        "Auto Scan — ingestion-time indexing and tagging that cut manual organization and retrieval time by 90%.",
-        "An MCP-based tool registry that scoped the agent's available tools to the task at hand instead of the full catalog.",
-        "Continue-watching and movie/series grouping (with per-season episode lists), so the experience read as a home-theater app, not a file browser with a play button."
+        "A product overview and roadmap that the team, the incubator committee, and later the investor deck all built on.",
+        "An MCP based tool registry that scoped the agent's tools to the task at hand.",
+        "A reproducible model evaluation harness used for selection and then as a regression suite.",
+        "The dual volume privacy architecture.",
+        "Four designed surfaces with owned requirements: AI chat, onboarding, photo gallery, media library.",
+        "Two shipped branches: the Home Theater experience and the Vitrine display driver."
       ],
       "architecture": [
-        "Dual-volume privacy design: an isolated private volume for fully offline data and models, and a separate connected-service volume for anything that touches the network — so users could opt into convenience without quietly losing the offline guarantee.",
-        "On-device inference (Qwen + Hermes) for recommendation and conversational features, with the MCP tool registry mediating access to file-system and media-metadata tools.",
-        "A reproducible evaluation harness (1,000+ prompts across 7 models) used both for model selection and as an ongoing regression suite.",
-        "The wider platform separated into an Agent layer (task planning, dynamic skill loading), a Model layer (a local, quantized multi-billion-parameter LLM with multimodal understanding), a Data layer (private RAG over the user's own files, vector search, full-disk encryption), and a Connection layer (NAT traversal so the NAS is reachable without a public IP) — Home Theater was the consumer-facing surface I built on top of that stack.",
-        "My own prototype ran on FastAPI with one evolving SQLite table — new columns added through idempotent migrations, never a breaking schema change — and HTTP Range requests for scrubbing and resume: deliberately boring, well-understood tech so the team could argue about the experience, not the plumbing."
+        "Agent layer: task planning and decomposition, dynamic skill loading, chain of thought over long tasks, a containerized agent runtime.",
+        "Model layer: a hundred billion parameter class local LLM with 4 and 8 bit quantization, PagedAttention memory optimization, multimodal vision, and Whisper transcription.",
+        "Data layer: private RAG with traceable citations, OCR document parsing, incremental indexing into a vector database, full disk AES-256 encryption.",
+        "Connection layer: P2P traversal so the box is reachable without a public IP, TLS 1.3, multi device sync, wearable data flowing back in.",
+        "Hardware: a flagship AMD APU with 128 GB unified memory, NVMe plus large SATA arrays, 10GbE, ZFS. The hardware team's work; my job was making sure the software roadmap used it."
       ],
       "productDecisions": [
-        "Shipped Home Theater as a narrow, well-tested wedge rather than a broad “AI assistant,” so the team could validate real usage before expanding scope.",
-        "Treated the tool-calling defect as a product problem, not just an engineering bug — an agent that times out has no product value regardless of model quality.",
-        "Made privacy a structural property of the architecture (separate volumes) rather than a setting a user could misconfigure.",
-        "Chose to prototype in a throwaway stack (FastAPI/SQLite/vanilla JS) rather than wait for the production platform, so real usage could shape the roadmap instead of the other way around."
+        "Sequenced the roadmap so P0 only made the AI usable and extensible, and resisted pulling knowledge base or ecosystem work forward.",
+        "Marked media, music, downloads, notes, and monitoring as buy, not build, so team effort stayed on the differentiating AI layer.",
+        "Treated the tool calling defect as a product problem, not an engineering bug: an agent that times out has no product value regardless of model quality.",
+        "Made privacy a property of the architecture rather than a setting a user could misconfigure.",
+        "Validated one sharp wedge (Home Theater) with real usage before expanding scope."
       ],
       "results": [
-        {
-          "value": "81%",
-          "label": "DAU penetration in beta, against a 5-interactions/week test bar"
-        },
-        {
-          "value": "60%",
-          "label": "2-week retention among beta testers"
-        },
-        {
-          "value": "140",
-          "label": "Feedback items synthesized into 3 product iterations"
-        },
-        {
-          "value": "CES Asia",
-          "label": "Best Innovation Award, contributed to by the privacy architecture"
-        }
+        { "value": "Funded", "label": "Selected for investment from roughly one hundred incubator projects" },
+        { "value": "80%", "label": "Reduction in unnecessary tool selection tokens, timeouts eliminated" },
+        { "value": "40+", "label": "Release critical defects caught by the evaluation harness" },
+        { "value": "CES Asia", "label": "Best Innovation Award, privacy architecture cited" }
       ],
       "learnings": [
-        "A model-quality problem and a product-adoption problem can look identical from the outside — the fix here was architectural (tool scoping), not a bigger model.",
-        "Validating one sharp use case with real usage data made the case for full-scale investment far more effectively than a broader feature list would have.",
-        "A rough, working prototype moves a roadmap conversation faster than the best-written spec — it turns “I think users will like this” into something a stakeholder can actually click through."
+        "A roadmap is an argument about order. Writing the overview first made every later prioritization fight shorter.",
+        "A model quality problem and a product adoption problem can look identical from the outside. The fix here was architectural, not a bigger model.",
+        "The fastest way to earn a roadmap slot is a working thing people can click. Both branches below started that way."
       ]
-    },
+    }
+  },
+  {
+    "slug": "home-theater",
+    "parent": "nexus-gen",
+    "index": "01 · Branch 01",
+    "category": "Consumer Product · Prototyping · Beta",
+    "headline": "Making local AI actually useful in the living room.",
+    "summary": "The consumer surface of Nexus Gen. I validated it with 100 users, built the working prototype myself before it had an engineering slot, and took it through a three iteration beta that won the case for full investment.",
+    "tags": ["User Research", "Prototyping", "FastAPI", "Recommendation", "Beta", "Home Theater"],
+    "metrics": [
+      { "value": "78%", "label": "Beta activation" },
+      { "value": "81%", "label": "DAU penetration in beta" },
+      { "value": "60%", "label": "Two week retention" },
+      { "value": "140", "label": "Feedback items, 3 iterations" }
+    ],
+    "visual": "aiHomeTheater",
+    "isCaseStudy": true,
     "media": [
       {
         "file": "assets/img/home-theater-hero.jpg",
-        "alt": "Nexus Theatre home screen showing Iron Man as the featured title, with a Continue Watching shelf below",
-        "caption": "Nexus Theatre — the Home Theater outlook design, and the actual shipped screen."
+        "alt": "Nexus Theatre home screen with Iron Man featured and a Continue Watching shelf below",
+        "caption": "Nexus Theatre. The Home Theater design as it shipped: featured title, continue watching shelf, library shelves below."
       }
     ],
-    "prototypeNote": "Built end-to-end as a working prototype — FastAPI + SQLite + vanilla HTML/CSS/JS, no build step — before it was a funded roadmap item.",
-    "figmaLinks": [
-      {
-        "label": "Home Theater / media library UI",
-        "url": "https://www.figma.com/design/hDRy7HSxikzFZVtqVoGJQE/%E5%BD%B1%E9%9F%B3%E5%BA%93%E9%A6%96%E9%A1%B5?node-id=0-1&p=f&t=VRkrS9Gejz85vMoD-0"
-      },
-      {
-        "label": "AI interaction home",
-        "url": "https://www.figma.com/design/NdaMNxFcgwTJZp3bY4bl8r/AI%E4%BA%A4%E4%BA%92%E9%A6%96%E9%A1%B5?node-id=156-2&t=pkU7VSPTwB11GRZ5-1"
-      },
-      {
-        "label": "Photo album / gallery",
-        "url": "https://www.figma.com/design/ul6LY7JtgOvPm771qtNb3y/%E5%9B%BE%E5%BA%93%E7%9B%B8%E5%86%8C?node-id=0-1&t=N3zL2rkBIs5WrO4f-1"
-      },
-      {
-        "label": "Onboarding / setup flow",
-        "url": "https://www.figma.com/design/5JQ9v8Ub2PmjpGuZ48UbcG/%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B5%E9%9D%A2?node-id=1-22&t=n0wwUIYRQfuouuxm-1"
-      }
+    "prototypeNote": "Built end to end as a working prototype, FastAPI plus SQLite plus vanilla HTML, CSS, and JS with no build step, before it was a funded roadmap item.",
+    "figma": {
+      "eyebrow": "Design file",
+      "title": "The media library design",
+      "intro": "The Figma file for this surface covers home, search, the library grid, hover states, manual metadata matching, and movie and series detail. I owned the requirements and flows; the visual design was a collaboration with the design team.",
+      "files": [
+        {
+          "title": "Media library",
+          "key": "hDRy7HSxikzFZVtqVoGJQE",
+          "node": "0-1",
+          "url": "https://www.figma.com/design/hDRy7HSxikzFZVtqVoGJQE/%E5%BD%B1%E9%9F%B3%E5%BA%93%E9%A6%96%E9%A1%B5?node-id=0-1&p=f&t=VRkrS9Gejz85vMoD-0",
+          "cover": "assets/img/figma/media-library.webp",
+          "maps": "Home Theater",
+          "flows": ["Home, search, results", "Library grid and hover states", "Manual metadata match", "Movie and series detail with episodes"]
+        }
+      ]
+    },
+    "caseStudy": {
+      "problem": "A NAS full of movies is still a file browser with a play button. Finding something to watch meant scrolling folders, and the AI on the box had no obvious place to help.",
+      "insight": "People did not want a recommendation engine. They wanted the shelf they already understand from streaming apps, on their own library, with the AI quietly doing the matching and the suggesting.",
+      "role": [
+        "Interviewed 100+ NAS users and identified Home Theater as the clearest, most testable opportunity.",
+        "Designed and validated the experience end to end, from concept through a three iteration beta with 80 users.",
+        "Built the working prototype myself: a FastAPI backend, a single SQLite table for metadata, HTTP range video streaming, and a shelf based UI with no build step.",
+        "Owned requirements and flows for the media library design file.",
+        "Synthesized 140 feedback items into three product iterations."
+      ],
+      "constraints": [
+        "It had to feel like a home theater app, not a demo of an AI feature.",
+        "Recommendations had to run on device with the same model the rest of the platform used.",
+        "There was no engineering slot yet. Validation had to happen before one existed."
+      ],
+      "decisionProcess": [
+        {
+          "heading": "Scope the wedge",
+          "body": [
+            "Interviews kept surfacing the same three time sinks: choosing a movie, organizing the library, and recovering from misnamed files. I scoped an MVP around exactly those, and left the broader AI assistant pitch alone."
+          ]
+        },
+        {
+          "heading": "Prototype before the roadmap slot",
+          "body": [
+            "Rather than writing a spec and waiting, I built Home Theater as a working prototype: FastAPI, one evolving SQLite table with idempotent migrations, HTTP range requests so video could scrub and resume, and shelves for Continue Watching, Recently Added, Movies, and TV Series in plain HTML, CSS, and JS.",
+            "That let the beta touch a real product in days instead of after a full engineering cycle. The usage data from that prototype, not a mockup, is what won the case for full scale investment."
+          ]
+        },
+        {
+          "heading": "Iterate on real usage",
+          "body": [
+            "Three iterations, 140 feedback items. The changes that mattered most were not AI changes: series grouping with per season episode lists, IMDb based subtitle matching, and a continue watching shelf that actually resumed."
+          ]
+        }
+      ],
+      "solution": [
+        "On device recommendations for similar titles, actors, and directors, plus IMDb based subtitle matching, wrapped in a simple conversational entry point.",
+        "Auto Scan: ingestion time indexing and tagging that cut manual organization and retrieval time by 90%.",
+        "Continue watching, movie and series grouping with per season episode lists, and a featured title shelf."
+      ],
+      "architecture": [
+        "FastAPI plus SQLite for the prototype, with new columns added through idempotent migrations and never a breaking schema change.",
+        "HTTP Range requests for scrubbing and resume, so the browser's own video element did the heavy lifting.",
+        "Deliberately boring, well understood tech so the team could argue about the experience, not the plumbing."
+      ],
+      "productDecisions": [
+        "Shipped a narrow, well tested wedge instead of a broad AI assistant.",
+        "Prototyped in a throwaway stack rather than waiting for the production platform, so real usage could shape the roadmap.",
+        "Kept the AI invisible: it matches and suggests, it does not announce itself."
+      ],
+      "results": [
+        { "value": "78%", "label": "Beta activation" },
+        { "value": "81%", "label": "DAU penetration, against a five interactions per week test bar" },
+        { "value": "60%", "label": "Two week retention among beta testers" },
+        { "value": "Approved", "label": "Full scale implementation funded on the beta data" }
+      ],
+      "learnings": [
+        "A rough, working prototype moves a roadmap conversation faster than the best written spec.",
+        "The most valuable AI feature in the beta was the one nobody noticed."
+      ]
+    }
+  },
+  {
+    "slug": "vitrine-display",
+    "parent": "nexus-gen",
+    "index": "01 · Branch 02",
+    "category": "Hardware · Reverse Engineering · Driver",
+    "headline": "A dashboard for a panel that had no manual.",
+    "summary": "The NAS shipped with a small USB LCD bar and no public protocol. I reverse engineered its serial framing and built Vitrine, a driver that turns the panel into a configurable dashboard, at roughly 80% lower cost than sourcing the OEM's accessory.",
+    "tags": ["Reverse Engineering", "USB Serial", "Flask", "Headless Chromium", "Hardware"],
+    "metrics": [
+      { "value": "80%", "label": "Lower cost than the OEM accessory" },
+      { "value": "8", "label": "Scenes in the library" },
+      { "value": "5 bytes", "label": "Frame header, reverse engineered" },
+      { "value": "0", "label": "Firmware changes needed per new scene" }
     ],
-    "secondaryFeature": {
-      "eyebrow": "Also shipped",
-      "title": "An auxiliary-display driver for an undocumented USB panel",
-      "description": [
-        "The NAS's secondary display — a small USB LCD bar — had no public protocol or SDK. I reverse-engineered its serial framing (a 5-byte header plus a raw JPEG, no container) and built a driver that turns it into a configurable dashboard.",
-        "Scenes — industrial telemetry, NAS status, a clock, weather, now-playing, a drag-to-arrange custom widget board, even a media loop or photo slideshow — are authored as ordinary HTML pages, screenshotted headlessly, rotated into the panel's native orientation, and streamed over serial. A new scene never needs a firmware change or a rebuild.",
-        "Reported result: roughly 80% lower cost than sourcing the OEM's own accessory driver, for a materially more flexible display."
-      ],
-      "pipeline": [
-        "Pick a scene in the browser control panel",
-        "A small server renders that scene's HTML at 960×360 in headless Chromium",
-        "The frame is rotated 90° into the panel's native 360×960 portrait JPEG",
-        "Pushed over serial behind a 5-byte frame header — the undocumented part I reverse-engineered",
-        "The USB panel displays it, refreshed continuously"
-      ],
-      "media": {
+    "visual": "vitrine",
+    "isCaseStudy": true,
+    "media": [
+      {
         "file": "assets/img/vitrine-scene-library.jpg",
-        "alt": "Scene Library control panel showing 8 selectable dashboard scenes: industrial telemetry, NAS status, clock, weather, now playing, custom dashboard, media loop, photo slideshow",
-        "caption": "The driver's scene library — each tile is a swappable dashboard for the panel."
+        "alt": "Scene Library control panel showing eight selectable dashboard scenes",
+        "caption": "The scene library. Each tile is a swappable dashboard for the panel: telemetry, NAS status, clock, weather, now playing, a custom board, a media loop, a slideshow."
       }
+    ],
+    "pipeline": [
+      "Pick a scene in the browser control panel",
+      "A small server renders that scene's HTML at 960 by 360 in headless Chromium",
+      "The frame is rotated 90 degrees into the panel's native 360 by 960 portrait JPEG",
+      "Pushed over serial behind a five byte frame header, the undocumented part",
+      "The USB panel displays it, refreshed continuously"
+    ],
+    "caseStudy": {
+      "problem": "The hardware included a secondary display with real potential and no documentation. The vendor's own driver was expensive to license and only showed what the vendor decided it should.",
+      "insight": "If the panel could accept any image over serial, then any web page could be a dashboard. The problem was not what to display; it was learning how the panel wanted to be spoken to.",
+      "role": [
+        "Captured and decoded the panel's serial traffic and worked out the framing: a five byte header followed by a raw JPEG, no container.",
+        "Built the driver end to end: a Flask control panel, a headless Chromium renderer, the rotation step, and the serial writer.",
+        "Designed the scene model so new dashboards are ordinary HTML pages, no firmware and no rebuild.",
+        "Shipped eight scenes including a drag to arrange custom widget board."
+      ],
+      "constraints": [
+        "No SDK, no protocol document, no vendor support.",
+        "The panel is portrait, 360 by 960, and the natural way to author a dashboard is landscape.",
+        "It had to run on the NAS itself alongside everything else."
+      ],
+      "decisionProcess": [
+        {
+          "heading": "Learn the protocol",
+          "body": [
+            "The panel's traffic turned out to be simpler than feared: a fixed five byte header and then JPEG bytes. Once that was confirmed, the whole problem collapsed into producing the right JPEG often enough."
+          ]
+        },
+        {
+          "heading": "Make scenes cheap",
+          "body": [
+            "Instead of drawing widgets in code, every scene is an HTML page rendered by headless Chromium. Telemetry, weather, now playing, a slideshow: each is a template plus a data source. Adding a scene is adding a file."
+          ]
+        }
+      ],
+      "solution": [
+        "Vitrine: a browser control panel with a scene library, a renderer, and a serial driver for the panel.",
+        "Eight scenes: industrial telemetry, NAS status, minimal clock, weather, now playing, custom dashboard, media loop, photo slideshow."
+      ],
+      "architecture": [
+        "Flask serves the control panel and scene pages.",
+        "Playwright drives headless Chromium to screenshot the active scene at 960 by 360.",
+        "The frame is rotated to the panel's portrait orientation, encoded as JPEG, and written over USB serial behind the header.",
+        "A refresh loop keeps the panel current; scenes with live data poll their sources."
+      ],
+      "productDecisions": [
+        "Chose HTML as the scene format so anyone on the team could author one.",
+        "Optimized for flexibility over frame rate: the panel is a status surface, not a video display."
+      ],
+      "results": [
+        { "value": "80%", "label": "Reported cost reduction versus the OEM accessory driver" },
+        { "value": "8", "label": "Scenes shipped, one of them user configurable" }
+      ],
+      "learnings": [
+        "Undocumented does not mean complicated. It means nobody wrote it down.",
+        "Choosing a format people already know (a web page) is a product decision with an engineering disguise."
+      ]
     }
   },
   {
@@ -180,105 +434,73 @@
     "index": "02",
     "category": "Automation · Infrastructure · Internal Tools · Product Thinking",
     "headline": "Turning repetitive infrastructure work into software.",
-    "summary": "Owned the roadmap for an internal GIS/CAD network design tool used by 200+ engineers, and turned repeated operational bottlenecks into automation adopted company-wide.",
-    "tags": [
-      "Fiber",
-      "HFC",
-      "FTTH",
-      "Python",
-      "Internal Tooling",
-      "Workflow Automation",
-      "Network Infrastructure"
-    ],
+    "summary": "Owned the roadmap for an internal GIS/CAD network design tool used by 200+ engineers, and turned repeated operational bottlenecks into automation adopted company wide.",
+    "tags": ["Fiber", "HFC", "FTTH", "Python", "Internal Tooling", "Workflow Automation", "Network Infrastructure"],
     "metrics": [
-      {
-        "value": "150+",
-        "label": "FTTH designs delivered"
-      },
-      {
-        "value": "620+",
-        "label": "Enterprise fiber solutions across Manhattan"
-      },
-      {
-        "value": "60%",
-        "label": "Faster signal verification"
-      },
-      {
-        "value": "2 hrs",
-        "label": "Engineering time saved per project"
-      }
+      { "value": "150+", "label": "FTTH designs delivered" },
+      { "value": "620+", "label": "Enterprise fiber solutions across Manhattan" },
+      { "value": "60%", "label": "Faster signal verification" },
+      { "value": "2 hrs", "label": "Engineering time saved per project" }
     ],
     "visual": "flow",
     "isCaseStudy": true,
     "caseStudy": {
-      "problem": "200+ engineers relied on an internal GIS/CAD tool for network design, but the workflow around it was manual: downstream signal recalculation, BOM assembly, and equipment-error checking all depended on someone doing the same repetitive steps correctly, every time.",
-      "insight": "The bottleneck wasn't the design tool itself — it was everything engineers did by hand around it. Interviews with 30+ designers kept surfacing the same two time sinks: recalculating signal levels after a change, and manually pulling bills of materials.",
+      "problem": "200+ engineers relied on an internal GIS/CAD tool for network design, but the workflow around it was manual: downstream signal recalculation, BOM assembly, and equipment error checking all depended on someone doing the same repetitive steps correctly, every time.",
+      "insight": "The bottleneck was not the design tool itself. It was everything engineers did by hand around it. Interviews with 30+ designers kept surfacing the same two time sinks: recalculating signal levels after a change, and manually pulling bills of materials.",
       "role": [
         "Functioned as product owner for the internal GIS/CAD network design tool, translating feedback from 30+ users into a prioritized roadmap.",
-        "Identified manual downstream signal recalculation as a key bottleneck and defined a 3-click Python automation for tracing, recalculation, and verification.",
+        "Identified manual downstream signal recalculation as a key bottleneck and defined a three click Python automation for tracing, recalculation, and verification.",
         "Built an Auto BOM function that automatically recorded equipment changes as they happened.",
-        "Owned the prioritization model for a 30-person cross-functional unit, ranking requests by volume, urgency, and dependency.",
-        "Led a 20-person audit of 1,000+ optical nodes for DOCSIS 4.0 readiness."
+        "Owned the prioritization model for a 30 person cross functional unit, ranking requests by volume, urgency, and dependency.",
+        "Led a 20 person audit of 1,000+ optical nodes for DOCSIS 4.0 readiness."
       ],
       "constraints": [
-        "Any automation had to slot into an existing, already-adopted GIS/CAD workflow — engineers wouldn't switch tools, so the tool had to come to them.",
+        "Any automation had to slot into an existing, already adopted GIS/CAD workflow. Engineers would not switch tools, so the tool had to come to them.",
         "Errors in signal recalculation or BOM data have real field consequences, so automation had to be at least as accurate as careful manual work, not just faster.",
-        "Prioritization had to serve a 30-person cross-functional unit with genuinely competing, legitimate priorities."
+        "Prioritization had to serve a 30 person cross functional unit with competing, legitimate priorities."
       ],
       "decisionProcess": [
         {
           "heading": "Finding the bottleneck through interviews",
           "body": [
-            "Rather than assuming what to automate, I interviewed 30+ designers about where their time actually went. Manual downstream signal recalculation and BOM/equipment-error checking came up repeatedly, independent of region or seniority."
+            "Rather than assuming what to automate, I interviewed 30+ designers about where their time actually went. Manual downstream signal recalculation and BOM and equipment error checking came up repeatedly, independent of region or seniority."
           ]
         },
         {
-          "heading": "Designing a 3-click automation, not a new system",
+          "heading": "Designing a three click automation, not a new system",
           "body": [
-            "Because designers wouldn't adopt a separate tool, the automation was built as a lightweight layer that traced, recalculated, and verified signal levels in three clicks inside the existing workflow — cutting recalculation time significantly and manual errors by 25%.",
-            "The same logic pattern — trace, compute, verify — was reused for Auto BOM, which recorded equipment changes automatically instead of requiring a manual pull."
+            "Because designers would not adopt a separate tool, the automation was built as a lightweight layer that traced, recalculated, and verified signal levels in three clicks inside the existing workflow, cutting recalculation time significantly and manual errors by 25%.",
+            "The same pattern, trace, compute, verify, was reused for Auto BOM, which recorded equipment changes automatically instead of requiring a manual pull."
           ]
         },
         {
           "heading": "Scaling adoption",
           "body": [
-            "Both tools were rolled out incrementally across regional teams; the recalculation automation was adopted by 3+ regional teams, and Auto BOM went company-wide once report-generation time savings (about 50%) were demonstrated in the first region."
+            "Both tools were rolled out incrementally across regional teams. The recalculation automation was adopted by 3+ regional teams, and Auto BOM went company wide once report generation savings of about 50% were demonstrated in the first region."
           ]
         }
       ],
       "solution": [
-        "A 3-click Python automation for downstream signal tracing, recalculation, and verification, embedded in the existing design workflow.",
-        "Auto BOM: automatic recording of equipment changes as designers made them, replacing manual bill-of-materials assembly.",
-        "A prioritization model for the 30-person cross-functional unit that ranked requests by volume, urgency, and dependency instead of first-come-first-served."
+        "A three click Python automation for downstream signal tracing, recalculation, and verification, embedded in the existing design workflow.",
+        "Auto BOM: automatic recording of equipment changes as designers made them, replacing manual bill of materials assembly.",
+        "A prioritization model for the 30 person cross functional unit that ranked requests by volume, urgency, and dependency instead of first come first served."
       ],
       "architecture": [
         "Python automation layered on top of the existing GIS/CAD tool's data model, so designers kept their existing workflow and tool of record.",
-        "Change-tracking hooks that captured equipment modifications at the point of design, rather than reconstructing them later from disparate records."
+        "Change tracking hooks that captured equipment modifications at the point of design, rather than reconstructing them later from disparate records."
       ],
       "productDecisions": [
-        "Prioritized automating the two highest-frequency manual tasks (signal recalculation, BOM pulling) identified directly from user interviews, over building new design features.",
-        "Chose incremental regional rollout over a single company-wide launch, using early results to build the case for wider adoption."
+        "Prioritized automating the two highest frequency manual tasks (signal recalculation, BOM pulling) identified directly from user interviews, over building new design features.",
+        "Chose incremental regional rollout over a single company wide launch, using early results to build the case for wider adoption."
       ],
       "results": [
-        {
-          "value": "40%",
-          "label": "Faster design turnaround across 200+ engineers"
-        },
-        {
-          "value": "40%",
-          "label": "Reduction in high-priority delays via the prioritization model"
-        },
-        {
-          "value": "28%",
-          "label": "Improved network-data accuracy from the DOCSIS 4.0 audit"
-        },
-        {
-          "value": "50%",
-          "label": "Faster report generation with Auto BOM, company-wide"
-        }
+        { "value": "40%", "label": "Faster design turnaround across 200+ engineers" },
+        { "value": "40%", "label": "Reduction in high priority delays via the prioritization model" },
+        { "value": "28%", "label": "Improved network data accuracy from the DOCSIS 4.0 audit" },
+        { "value": "50%", "label": "Faster report generation with Auto BOM, company wide" }
       ],
       "learnings": [
-        "The highest-leverage product opportunities were hiding inside operational workflows nobody thought of as a “product” — they just looked like how the job was done.",
+        "The highest leverage product opportunities were hiding inside operational workflows nobody thought of as a product. They just looked like how the job was done.",
         "Automation that respects an existing workflow spreads faster than automation that asks people to change how they work."
       ]
     }
@@ -288,59 +510,44 @@
     "index": "03",
     "category": "AI · Data · Product Experiment",
     "headline": "Turning market noise into actionable signals.",
-    "summary": "An experimental, AI-assisted market monitoring system built to identify abnormal trading activity, summarize signals, and help active traders understand market reactions faster.",
-    "tags": [
-      "AI",
-      "Data",
-      "Alerts",
-      "Rapid Prototyping",
-      "Product Experiment"
-    ],
+    "summary": "An experimental, AI assisted market monitoring system built to identify abnormal trading activity, summarize signals, and help active traders understand market reactions faster.",
+    "tags": ["AI", "Data", "Alerts", "Rapid Prototyping", "Product Experiment"],
     "metrics": [
-      {
-        "value": "Experiment",
-        "label": "Self-initiated product exploration"
-      },
-      {
-        "value": "3",
-        "label": "Core detection signals prototyped"
-      },
-      {
-        "value": "Iterative",
-        "label": "Built through rapid prototyping and testing"
-      }
+      { "value": "Experiment", "label": "Self initiated product exploration" },
+      { "value": "3", "label": "Core detection signals prototyped" },
+      { "value": "Iterative", "label": "Built through rapid prototyping and testing" }
     ],
     "visual": "signals",
     "isCaseStudy": true,
     "caseStudy": {
       "problem": "Markets generate far more data than any single person can watch. Active traders either miss meaningful anomalies in the noise, or burn out trying to monitor everything manually.",
-      "insight": "The goal wasn't to predict the market — it was to reduce the cognitive load of scanning it. Traders didn't need another opinion; they needed the system to notice what deserved attention and explain why, in plain language.",
+      "insight": "The goal was not to predict the market. It was to reduce the cognitive load of scanning it. Traders did not need another opinion; they needed the system to notice what deserved attention and explain why, in plain language.",
       "role": [
         "Scoped and built the product as a personal experiment, from problem framing through a working prototype.",
-        "Designed the core loop: detect anomaly → summarize → explain → let the user decide.",
-        "Built a volume-anomaly detection layer, an AI explanation panel, and an alert timeline as the first testable slice."
+        "Designed the core loop: detect anomaly, summarize, explain, let the user decide.",
+        "Built a volume anomaly detection layer, an AI explanation panel, and an alert timeline as the first testable slice."
       ],
       "constraints": [
-        "The system had to stay explanatory, never prescriptive — surfacing signals without telling users what to do with them.",
-        "Signal quality mattered more than signal quantity: a feed full of low-value alerts would train users to ignore it."
+        "The system had to stay explanatory, never prescriptive, surfacing signals without telling users what to do with them.",
+        "Signal quality mattered more than signal quantity: a feed full of low value alerts would train users to ignore it."
       ],
       "decisionProcess": [
         {
           "heading": "Choosing what to detect first",
           "body": [
-            "Rather than building broad market coverage, I started with volume-acceleration anomalies — a signal that's cheap to compute, easy to validate, and immediately legible to an active trader."
+            "Rather than building broad market coverage, I started with volume acceleration anomalies: a signal that is cheap to compute, easy to validate, and immediately legible to an active trader."
           ]
         },
         {
           "heading": "Designing the explanation layer",
           "body": [
-            "An anomaly on its own is just a number. The AI explanation panel translates a detected anomaly into a short, plain-language summary of what changed and why it might matter, without predicting a direction."
+            "An anomaly on its own is just a number. The AI explanation panel translates a detected anomaly into a short, plain language summary of what changed and why it might matter, without predicting a direction."
           ]
         }
       ],
       "solution": [
         "A signal feed surfacing detected anomalies in near real time.",
-        "Volume-anomaly detection as the first production signal, with room to add sentiment and order-flow signals.",
+        "Volume anomaly detection as the first production signal, with room to add sentiment and order flow signals.",
         "An AI explanation panel that summarizes what the system noticed in plain language.",
         "An alert timeline for reviewing what fired and when."
       ],
@@ -348,22 +555,16 @@
         "A lightweight monitoring layer that ingests market data, computes anomaly scores, and routes flagged events to a summarization step before they reach the feed."
       ],
       "productDecisions": [
-        "Deliberately kept the product to a dashboard-style signal feed rather than stock-market clichés (tickers, candlesticks-as-hero), to keep the focus on interpretation over spectacle.",
-        "Treated this as a validation exercise for a product hypothesis — reduce cognitive load, not just add more data — rather than a trading tool to monetize immediately."
+        "Deliberately kept the product to a dashboard style signal feed rather than stock market clichés, to keep the focus on interpretation over spectacle.",
+        "Treated this as a validation exercise for a product hypothesis, reduce cognitive load rather than add more data, rather than a trading tool to monetize immediately."
       ],
       "results": [
-        {
-          "value": "3",
-          "label": "Detection and explanation components validated end-to-end"
-        },
-        {
-          "value": "Personal",
-          "label": "Self-funded exploration outside of full-time roles"
-        }
+        { "value": "3", "label": "Detection and explanation components validated end to end" },
+        { "value": "Personal", "label": "Self funded exploration outside of full time roles" }
       ],
       "learnings": [
         "Explaining a signal is a harder and more valuable product problem than detecting one.",
-        "Restraint — showing fewer, higher-confidence signals — is itself a product decision, not a limitation."
+        "Restraint, showing fewer, higher confidence signals, is itself a product decision, not a limitation."
       ]
     }
   },
@@ -372,46 +573,27 @@
     "index": "04",
     "category": "Plasma Physics · Electrical Engineering · Infrastructure · Software",
     "headline": "Engineering before product management.",
-    "summary": "The industries changed — plasma physics research, electrical equipment engineering, telecommunications infrastructure, software automation, AI products. The underlying habit didn't: understand the system, find the bottleneck, build a better solution.",
-    "tags": [
-      "Plasma Physics",
-      "SOLIDWORKS",
-      "AutoCAD",
-      "MATLAB",
-      "DFM/DFA",
-      "Systems Thinking"
-    ],
+    "summary": "The industries changed: plasma physics research, electrical equipment engineering, telecommunications infrastructure, software automation, AI products. The underlying habit did not. Understand the system, find the bottleneck, build a better solution.",
+    "tags": ["Plasma Physics", "SOLIDWORKS", "AutoCAD", "MATLAB", "DFM/DFA", "Systems Thinking"],
     "metrics": [
-      {
-        "value": "2019",
-        "label": "Consulting — structured problem solving"
-      },
-      {
-        "value": "2021",
-        "label": "Plasma physics research, NYU Tandon"
-      },
-      {
-        "value": "2022",
-        "label": "Electrical / mechanical product engineering"
-      },
-      {
-        "value": "2023+",
-        "label": "Infrastructure, automation, AI products"
-      }
+      { "value": "2019", "label": "Consulting, structured problem solving" },
+      { "value": "2021", "label": "Plasma physics research, NYU Tandon" },
+      { "value": "2022", "label": "Electrical and mechanical product engineering" },
+      { "value": "2023+", "label": "Infrastructure, automation, AI products" }
     ],
     "visual": "timeline",
     "isCaseStudy": true,
     "caseStudy": {
-      "problem": "Before product management, the work was hands-on: physics experiments, electrical hardware, and field infrastructure — each with its own constraints, materials, and failure modes.",
-      "insight": "Every environment rewarded the same habit: understand how the system actually behaves, find where it breaks down or wastes effort, and build a concrete fix — a curve fit, a tolerance adjustment, an automation script.",
+      "problem": "Before product management, the work was hands on: physics experiments, electrical hardware, and field infrastructure, each with its own constraints, materials, and failure modes.",
+      "insight": "Every environment rewarded the same habit: understand how the system actually behaves, find where it breaks down or wastes effort, and build a concrete fix. A curve fit, a tolerance adjustment, an automation script.",
       "role": [
-        "NYU Tandon Plasma Physics Lab: designed Paschen Curve experiments isolating the effect of magnetic-field orientation on gas-discharge breakdown voltage, and built the lab itself from an empty facility to operational readiness.",
-        "Decom Electrical: co-engineered a 600mm-wide SF6 gas-insulated switchgear system, producing 3D models and assembly drawings in SOLIDWORKS and AutoCAD from concept through prototype.",
-        "A.T. Kearney: analyzed customer and store-performance data for a major retail client, contributing to a 15% sales increase."
+        "NYU Tandon Plasma Physics Lab: designed Paschen Curve experiments isolating the effect of magnetic field orientation on gas discharge breakdown voltage, and built the lab itself from an empty facility to operational readiness.",
+        "Decom Electrical: co engineered a 600mm wide SF6 gas insulated switchgear system, producing 3D models and assembly drawings in SOLIDWORKS and AutoCAD from concept through prototype.",
+        "A.T. Kearney: analyzed customer and store performance data for a major retail client, contributing to a 15% sales increase."
       ],
       "constraints": [
-        "Physical hardware has no “ship a patch later” — tolerance and assembly decisions had to be right before prototype build.",
-        "A brand-new lab meant building infrastructure (vacuum systems, safety integration) before any experiment could run at all."
+        "Physical hardware has no ship a patch later. Tolerance and assembly decisions had to be right before prototype build.",
+        "A brand new lab meant building infrastructure (vacuum systems, safety integration) before any experiment could run at all."
       ],
       "decisionProcess": [
         {
@@ -422,27 +604,21 @@
         }
       ],
       "solution": [
-        "A working plasma physics lab, built from equipment acquisition through vacuum-system setup and safety integration.",
-        "A 600mm-wide SF6 gas-insulated switchgear system carried from concept to prototype assembly."
+        "A working plasma physics lab, built from equipment acquisition through vacuum system setup and safety integration.",
+        "A 600mm wide SF6 gas insulated switchgear system carried from concept to prototype assembly."
       ],
       "architecture": [
-        "Not applicable in the software sense — the throughline is methodology: instrument the system, isolate the variable, fix the bottleneck."
+        "Not applicable in the software sense. The throughline is methodology: instrument the system, isolate the variable, fix the bottleneck."
       ],
       "productDecisions": [
-        "Carried a bias toward hands-on validation — build the experiment, build the prototype, test it — into later product and engineering work."
+        "Carried a bias toward hands on validation, build the experiment, build the prototype, test it, into later product and engineering work."
       ],
       "results": [
-        {
-          "value": "15%",
-          "label": "Sales increase from Kearney's retail analysis"
-        },
-        {
-          "value": "15%",
-          "label": "Fewer assembly errors from DFM/DFA review at Decom"
-        }
+        { "value": "15%", "label": "Sales increase from Kearney's retail analysis" },
+        { "value": "15%", "label": "Fewer assembly errors from DFM/DFA review at Decom" }
       ],
       "learnings": [
-        "Systems thinking transfers across mediums — plasma physics, electrical hardware, fiber networks, and AI agents are different systems with the same underlying discipline."
+        "Systems thinking transfers across mediums. Plasma physics, electrical hardware, fiber networks, and AI agents are different systems with the same underlying discipline."
       ]
     }
   }

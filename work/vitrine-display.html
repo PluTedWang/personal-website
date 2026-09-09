@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A dashboard for a panel that had no manual. · Ted Wang</title>
+  <meta name="description" content="The NAS shipped with a small USB LCD bar and no public protocol. I reverse engineered its serial framing and built Vitrine, a driver that turns the panel into a configurable dashboard, at roughly 80% lower cost than sourcing the OEM's accessory." />
+  <link rel="canonical" href="https://tedwang.dev/work/vitrine-display.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#f1ece3" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="A dashboard for a panel that had no manual. · Ted Wang" />
+  <meta property="og:description" content="The NAS shipped with a small USB LCD bar and no public protocol. I reverse engineered its serial framing and built Vitrine, a driver that turns the panel into a configurable dashboard, at roughly 80% lower cost than sourcing the OEM's accessory." />
+  <meta property="og:url" content="https://tedwang.dev/work/vitrine-display.html" />
+  <meta property="og:site_name" content="Ted Wang" />
+  <meta property="og:image" content="https://tedwang.dev/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A dashboard for a panel that had no manual. · Ted Wang" />
+  <meta name="twitter:description" content="The NAS shipped with a small USB LCD bar and no public protocol. I reverse engineered its serial framing and built Vitrine, a driver that turns the panel into a configurable dashboard, at roughly 80% lower cost than sourcing the OEM's accessory." />
+  <meta name="twitter:image" content="https://tedwang.dev/og.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="grain"></div>
+  
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="nav-wrap">
+    <nav id="nav">
+      <a href="../index.html#top" class="brand"><span class="brand-seal">王</span> Ted Wang</a>
+      <div class="nav-links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../resume.pdf">Resume</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="../index.html#contact" class="nav-cta">Let&rsquo;s talk</a>
+        
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <main id="main">
+
+  <header class="cs-header reveal">
+    <a class="cs-back" href="nexus-gen.html">← Part of A private AI brain for the home</a>
+    <div class="section-kicker">01 · Branch 02 &nbsp;·&nbsp; Hardware · Reverse Engineering · Driver</div>
+    <h1>A dashboard for a panel that had no manual.</h1>
+    <p class="lede">The NAS shipped with a small USB LCD bar and no public protocol. I reverse engineered its serial framing and built Vitrine, a driver that turns the panel into a configurable dashboard, at roughly 80% lower cost than sourcing the OEM's accessory.</p>
+    <div class="tags"><span class="tag">Reverse Engineering</span><span class="tag">USB Serial</span><span class="tag">Flask</span><span class="tag">Headless Chromium</span><span class="tag">Hardware</span></div>
+  </header>
+
+  <div class="cs-visual-wrap reveal">
+    <div class="cs-visual dark">
+      
+        <div class="media-frame">
+          <img src="../assets/img/vitrine-scene-library.jpg" alt="Scene Library control panel showing eight selectable dashboard scenes" loading="lazy" />
+        </div>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Problem</div>
+        <div>
+          <div class="prose">
+            <h2>What was not working</h2>
+            <p>The hardware included a secondary display with real potential and no documentation. The vendor's own driver was expensive to license and only showed what the vendor decided it should.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Insight</div>
+        <div>
+          <div class="prose">
+            <h2>What the user actually needed</h2>
+            <p>If the panel could accept any image over serial, then any web page could be a dashboard. The problem was not what to display; it was learning how the panel wanted to be spoken to.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">My role</div>
+        <div>
+          <h2>What I owned</h2>
+          <ul class="bullets">
+            <li>Captured and decoded the panel's serial traffic and worked out the framing: a five byte header followed by a raw JPEG, no container.</li>
+            <li>Built the driver end to end: a Flask control panel, a headless Chromium renderer, the rotation step, and the serial writer.</li>
+            <li>Designed the scene model so new dashboards are ordinary HTML pages, no firmware and no rebuild.</li>
+            <li>Shipped eight scenes including a drag to arrange custom widget board.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Constraints</div>
+        <div>
+          <h2>What had to be true</h2>
+          <ul class="bullets">
+            <li>No SDK, no protocol document, no vendor support.</li>
+            <li>The panel is portrait, 360 by 960, and the natural way to author a dashboard is landscape.</li>
+            <li>It had to run on the NAS itself alongside everything else.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Decision process</div>
+        <div>
+          <div class="decision-steps">
+          
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">01</span><h3>Learn the protocol</h3></div>
+              <p>The panel's traffic turned out to be simpler than feared: a fixed five byte header and then JPEG bytes. Once that was confirmed, the whole problem collapsed into producing the right JPEG often enough.</p>
+            </div>
+            <div class="decision-step">
+              <div class="step-head"><span class="step-idx">02</span><h3>Make scenes cheap</h3></div>
+              <p>Instead of drawing widgets in code, every scene is an HTML page rendered by headless Chromium. Telemetry, weather, now playing, a slideshow: each is a template plus a data source. Adding a scene is adding a file.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Solution</div>
+        <div>
+          <h2>What shipped</h2>
+          <ul class="bullets">
+            <li>Vitrine: a browser control panel with a scene library, a renderer, and a serial driver for the panel.</li>
+            <li>Eight scenes: industrial telemetry, NAS status, minimal clock, weather, now playing, custom dashboard, media loop, photo slideshow.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Shipped</div>
+        <div>
+          <figure class="cs-figure">
+            <img src="../assets/img/vitrine-scene-library.jpg" alt="Scene Library control panel showing eight selectable dashboard scenes" loading="lazy" />
+            <figcaption>The scene library. Each tile is a swappable dashboard for the panel: telemetry, NAS status, clock, weather, now playing, a custom board, a media loop, a slideshow.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Architecture</div>
+        <div>
+          <h2>How it was built</h2>
+          <ul class="bullets">
+            <li>Flask serves the control panel and scene pages.</li>
+            <li>Playwright drives headless Chromium to screenshot the active scene at 960 by 360.</li>
+            <li>The frame is rotated to the panel's portrait orientation, encoded as JPEG, and written over USB serial behind the header.</li>
+            <li>A refresh loop keeps the panel current; scenes with live data poll their sources.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Pipeline</div>
+        <div>
+          <h2>From a web page to a panel</h2>
+          <ul class="pipeline">
+            <li><span class="pl-idx">1</span><span>Pick a scene in the browser control panel</span></li>
+            <li><span class="pl-idx">2</span><span>A small server renders that scene's HTML at 960 by 360 in headless Chromium</span></li>
+            <li><span class="pl-idx">3</span><span>The frame is rotated 90 degrees into the panel's native 360 by 960 portrait JPEG</span></li>
+            <li><span class="pl-idx">4</span><span>Pushed over serial behind a five byte frame header, the undocumented part</span></li>
+            <li><span class="pl-idx">5</span><span>The USB panel displays it, refreshed continuously</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Product decisions</div>
+        <div>
+          <h2>Trade offs I made on purpose</h2>
+          <ul class="bullets">
+            <li>Chose HTML as the scene format so anyone on the team could author one.</li>
+            <li>Optimized for flexibility over frame rate: the panel is a status surface, not a video display.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">Results</div>
+        <div>
+          <div class="cs-metrics">
+            <div class="cs-metric"><strong>80%</strong><span>Reported cost reduction versus the OEM accessory driver</span></div>
+            <div class="cs-metric"><strong>8</strong><span>Scenes shipped, one of them user configurable</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-block reveal ">
+        <div class="eyebrow2">What I learned</div>
+        <div>
+          <h2>Takeaways</h2>
+          <ul class="bullets">
+            <li>Undocumented does not mean complicated. It means nobody wrote it down.</li>
+            <li>Choosing a format people already know (a web page) is a product decision with an engineering disguise.</li>
+          </ul>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="cs-next reveal">
+    <a href="spectrum-network-automation.html">
+      <div>
+        <div class="lbl">Next</div>
+        <div class="title">Turning repetitive infrastructure work into software.</div>
+      </div>
+      <span class="go">→</span>
+    </a>
+  </div>
+  </main>
+  
+  <footer>
+    <span>Ted Wang · 2026</span>
+    <span class="serif-i">Made slowly, on purpose.</span>
+  </footer>
+  <script src="../assets/main.js"></script>
+</body>
+</html>
