@@ -54,7 +54,7 @@ function headMeta(ctx, { title, description, path: urlPath, ogTitle }) {
   <meta name="description" content="${attr(description)}" />
   <link rel="canonical" href="${canonical}" />
   <link rel="icon" href="${assetHref(ctx, "favicon.svg")}" type="image/svg+xml" />
-  <meta name="theme-color" content="#f6f7f9" />
+  <meta name="theme-color" content="#ebebe9" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="${attr(ogTitle || title)}" />
   <meta property="og:description" content="${attr(description)}" />
@@ -67,7 +67,7 @@ function headMeta(ctx, { title, description, path: urlPath, ogTitle }) {
   <meta name="twitter:image" content="${site.url}/og.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" />
   <link rel="stylesheet" href="${assetHref(ctx, "assets/styles.css")}" />
   <script>
     (function () {
@@ -94,7 +94,7 @@ function navHtml(ctx) {
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="nav-wrap">
     <nav id="nav">
-      <a href="${brandHref}" class="brand"><span class="brand-dot"></span> ${site.name}</a>
+      <a href="${brandHref}" class="brand"><span class="brand-mark"></span> ${site.name}</a>
       <div class="nav-links">
         ${links}
         <a href="${siteHref(ctx, "/#contact")}" class="nav-cta">Let&rsquo;s talk</a>
@@ -217,6 +217,7 @@ function heroSection() {
       <div class="hero-inner reveal">
         <div class="hero-kicker">${site.fullName} &nbsp;·&nbsp; ${site.role}</div>
         <h1 class="hero-name"><span>Ted</span><span>Wang</span></h1>
+        <div class="hero-rule"></div>
         <p class="hero-tag">I build products where technology meets real-world problems.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#work">Selected work <span class="arrow">→</span></a>
@@ -229,24 +230,17 @@ function heroSection() {
         </div>
       </div>
       <div class="hero-art reveal" aria-hidden="true" data-parallax>
-        <div class="art-glow"></div>
-        <div class="art-card art-back" data-depth="0.5" data-rot="-3">
-          <div class="art-bar"><span></span><span></span><span></span><b>Home Theater</b></div>
-          <div class="art-shelf">
-            <div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div>
-          </div>
-          <div class="art-shelf small">
-            <div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div>
-          </div>
+        <div class="wall" data-depth="0.25" data-rot="0">
+          <div class="wall-ties"></div>
+          <div class="wall-slit"></div>
+          <div class="wall-seam s1"></div>
+          <div class="wall-seam s2"></div>
         </div>
-        <div class="art-card art-front" data-depth="1.4" data-rot="2">
-          <div class="art-chat">
-            <span class="art-pill">Local AI</span>
-            <div class="art-msg">Find something atmospheric, under two hours.</div>
-            <div class="art-msg you">On it &mdash; three picks, all on your drive.</div>
-            <div class="art-input"><span></span><i></i></div>
-          </div>
+        <div class="cube" data-depth="0.9" data-rot="0">
+          <img src="assets/img/nexusgen-device.png" alt="" />
+          <div class="cube-shadow"></div>
         </div>
+        <div class="hero-caption"><span>01</span> NexusGen · private AI server</div>
       </div>
     </section>`;
 }

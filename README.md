@@ -67,11 +67,13 @@ web server. Nothing needs compiling.
 
 ## Design notes
 
-- Direction: cool neutrals (white and graphite), one blue accent, Inter
-  throughout, soft layered shadows, glass panels in the hero, the real
-  NexusGen product photo on the trunk project. Light and dark themes (toggle
-  in the nav, persisted via `localStorage`, respects `prefers-color-scheme`).
-- Type: Inter from Google Fonts, system sans fallback when offline.
+- Direction: after Tadao Ando. Black, white and grey only, light concrete
+  surfaces with a faint aggregate texture, sharp corners, hairline rules,
+  long horizontals. The hero is a concrete wall with tie holes and a single
+  slit of light, with the NexusGen cube standing in front of it. Light and
+  dark themes (toggle in the nav, persisted via `localStorage`).
+- Type: Archivo (display, light weight, uppercase name) and Inter (body)
+  from Google Fonts, Helvetica fallback when offline.
 - Motion: reveal on scroll, cursor parallax on the hero panels, 3D tilt and
   light sheen on the branch showcase cards, all guarded by
   `prefers-reduced-motion` and disabled on touch.
