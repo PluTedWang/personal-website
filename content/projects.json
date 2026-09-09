@@ -17,17 +17,29 @@
     "branches": [
       {
         "slug": "home-theater",
-        "label": "Branch 01",
+        "label": "Branch 01 · Consumer product",
         "title": "Home Theater",
-        "blurb": "The consumer surface I validated with 100 users, prototyped myself, and took through a three iteration beta.",
-        "media": "assets/img/home-theater-hero.jpg"
+        "blurb": "Validated as a priority use case through research with 100 NAS users, translated into an MVP, and aligned leadership and engineering behind it. Built with IMDb based subtitle matching and an on device recommendation engine.",
+        "media": "assets/img/home-theater-hero.jpg",
+        "frame": "browser",
+        "stats": [
+          { "value": "81%", "label": "DAU penetration" },
+          { "value": "60%", "label": "2 week retention" }
+        ],
+        "tags": ["User research", "MVP", "On device AI", "Beta"]
       },
       {
         "slug": "vitrine-display",
-        "label": "Branch 02",
-        "title": "Vitrine display driver",
-        "blurb": "A reverse engineered driver that turned an undocumented USB panel into a configurable dashboard.",
-        "media": "assets/img/vitrine-scene-library.jpg"
+        "label": "Branch 02 · Hardware",
+        "title": "Auxiliary display driver",
+        "blurb": "Reverse engineered and implemented a driver for the NAS prototype's undocumented USB panel, validating the hardware interface and adding custom display functions with product and engineering.",
+        "media": "assets/img/vitrine-scene-library.jpg",
+        "frame": "panel",
+        "stats": [
+          { "value": "8", "label": "Dashboard scenes" },
+          { "value": "80%", "label": "Lower cost than OEM" }
+        ],
+        "tags": ["Reverse engineering", "USB serial", "Hardware"]
       }
     ],
     "thesis": {
@@ -288,11 +300,11 @@
       "problem": "A NAS full of movies is still a file browser with a play button. Finding something to watch meant scrolling folders, and the AI on the box had no obvious place to help.",
       "insight": "People did not want a recommendation engine. They wanted the shelf they already understand from streaming apps, on their own library, with the AI quietly doing the matching and the suggesting.",
       "role": [
-        "Interviewed 100+ NAS users and identified Home Theater as the clearest, most testable opportunity.",
-        "Designed and validated the experience end to end, from concept through a three iteration beta with 80 users.",
-        "Built the working prototype myself: a FastAPI backend, a single SQLite table for metadata, HTTP range video streaming, and a shelf based UI with no build step.",
+        "Validated Home Theater as a priority use case through research with 100 NAS users, translating the findings into an MVP and securing leadership and engineering alignment for MVP development.",
+        "Built the MVP with IMDb based subtitle matching and an on device recommendation engine, reaching 81% DAU penetration against a five interactions per week test requirement and 60% two week retention, supporting approval for full scale implementation.",
+        "Built the working prototype myself before it had an engineering slot: a FastAPI backend, a single SQLite table for metadata, HTTP range video streaming, and a shelf based UI with no build step.",
         "Owned requirements and flows for the media library design file.",
-        "Synthesized 140 feedback items into three product iterations."
+        "Ran a three iteration beta with 80 users and synthesized 140 feedback items into product changes."
       ],
       "constraints": [
         "It had to feel like a home theater app, not a demo of an AI feature.",
@@ -381,6 +393,7 @@
       "problem": "The hardware included a secondary display with real potential and no documentation. The vendor's own driver was expensive to license and only showed what the vendor decided it should.",
       "insight": "If the panel could accept any image over serial, then any web page could be a dashboard. The problem was not what to display; it was learning how the panel wanted to be spoken to.",
       "role": [
+        "Reverse engineered and implemented an auxiliary display driver for the consumer NAS prototype, validating the hardware interface and adding custom display functions in coordination with product and engineering teams.",
         "Captured and decoded the panel's serial traffic and worked out the framing: a five byte header followed by a raw JPEG, no container.",
         "Built the driver end to end: a Flask control panel, a headless Chromium renderer, the rotation step, and the serial writer.",
         "Designed the scene model so new dashboards are ordinary HTML pages, no firmware and no rebuild.",

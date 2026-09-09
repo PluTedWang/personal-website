@@ -70,17 +70,25 @@
           <span>Open to Product / AI opportunities</span>
         </div>
       </div>
-      <div class="enso-wrap reveal" aria-hidden="true">
-        <svg class="enso" viewBox="0 0 420 420">
-          <defs>
-            <filter id="ink" x="-10%" y="-10%" width="120%" height="120%">
-              <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
-              <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
-            </filter>
-          </defs>
-          <path class="enso-stroke" filter="url(#ink)" d="M318 116 C 372 168 366 292 272 338 C 176 384 72 322 64 220 C 56 126 138 56 232 60" />
-          <path class="enso-stroke thin" filter="url(#ink)" d="M322 124 C 360 176 352 280 270 322" />
-        </svg>
+      <div class="hero-art reveal" aria-hidden="true" data-parallax>
+        <div class="art-glow"></div>
+        <div class="art-card art-back" data-depth="0.5" data-rot="-3">
+          <div class="art-bar"><span></span><span></span><span></span><b>Home Theater</b></div>
+          <div class="art-shelf">
+            <div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div>
+          </div>
+          <div class="art-shelf small">
+            <div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div>
+          </div>
+        </div>
+        <div class="art-card art-front" data-depth="1.4" data-rot="2">
+          <div class="art-chat">
+            <span class="art-pill">Local AI</span>
+            <div class="art-msg">Find something atmospheric, under two hours.</div>
+            <div class="art-msg you">On it &mdash; three picks, all on your drive.</div>
+            <div class="art-input"><span></span><i></i></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -117,28 +125,40 @@
           </div>
         </article>
 
-        <div class="branches reveal">
-          <svg class="branch-lines" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M600 0 C 600 40, 300 40, 300 88" />
-            <path d="M600 0 C 600 40, 900 40, 900 88" />
-          </svg>
-          <div class="branch-grid">
-          <a class="branch-card" href="work/home-theater.html">
-            <div class="branch-img"><img src="assets/img/home-theater-hero.jpg" alt="" loading="lazy" /></div>
-            <div class="branch-copy">
-              <div class="branch-label">Branch 01</div>
-              <h4>Home Theater</h4>
-              <p>The consumer surface I validated with 100 users, prototyped myself, and took through a three iteration beta.</p>
-              <span class="branch-go">Read the branch →</span>
+        <div class="showcase">
+          <div class="sc-head reveal"><span class="sc-node"></span><h2>Two things I built off this trunk</h2></div>
+          <div class="showcase-list">
+          <a class="showcase-card reveal" href="work/home-theater.html" data-tilt>
+            <div class="sc-media">
+              <div class="sc-frame"><div class="frame-bar"><span></span><span></span><span></span></div>
+                <div class="sc-img"><img src="assets/img/home-theater-hero.jpg" alt="" loading="lazy" /></div>
+              </div>
+              <div class="sc-sheen"></div>
+            </div>
+            <div class="sc-copy">
+              <div class="branch-label">Branch 01 · Consumer product</div>
+              <h3>Home Theater</h3>
+              <p>Validated as a priority use case through research with 100 NAS users, translated into an MVP, and aligned leadership and engineering behind it. Built with IMDb based subtitle matching and an on device recommendation engine.</p>
+              <div class="sc-stats"><div class="sc-stat"><strong>81%</strong><span>DAU penetration</span></div><div class="sc-stat"><strong>60%</strong><span>2 week retention</span></div></div>
+              <div class="tags"><span class="tag">User research</span><span class="tag">MVP</span><span class="tag">On device AI</span><span class="tag">Beta</span></div>
+              <span class="sc-go">Read the branch <i>→</i></span>
             </div>
           </a>
-          <a class="branch-card" href="work/vitrine-display.html">
-            <div class="branch-img"><img src="assets/img/vitrine-scene-library.jpg" alt="" loading="lazy" /></div>
-            <div class="branch-copy">
-              <div class="branch-label">Branch 02</div>
-              <h4>Vitrine display driver</h4>
-              <p>A reverse engineered driver that turned an undocumented USB panel into a configurable dashboard.</p>
-              <span class="branch-go">Read the branch →</span>
+
+          <a class="showcase-card reveal flip" href="work/vitrine-display.html" data-tilt>
+            <div class="sc-media">
+              <div class="sc-frame"><div class="frame-bar panel"></div>
+                <div class="sc-img"><img src="assets/img/vitrine-scene-library.jpg" alt="" loading="lazy" /></div>
+              </div>
+              <div class="sc-sheen"></div>
+            </div>
+            <div class="sc-copy">
+              <div class="branch-label">Branch 02 · Hardware</div>
+              <h3>Auxiliary display driver</h3>
+              <p>Reverse engineered and implemented a driver for the NAS prototype's undocumented USB panel, validating the hardware interface and adding custom display functions with product and engineering.</p>
+              <div class="sc-stats"><div class="sc-stat"><strong>8</strong><span>Dashboard scenes</span></div><div class="sc-stat"><strong>80%</strong><span>Lower cost than OEM</span></div></div>
+              <div class="tags"><span class="tag">Reverse engineering</span><span class="tag">USB serial</span><span class="tag">Hardware</span></div>
+              <span class="sc-go">Read the branch <i>→</i></span>
             </div>
           </a>
           </div>

@@ -220,46 +220,73 @@ function heroSection() {
           <span>${site.statusIndicator}</span>
         </div>
       </div>
-      <div class="enso-wrap reveal" aria-hidden="true">
-        <svg class="enso" viewBox="0 0 420 420">
-          <defs>
-            <filter id="ink" x="-10%" y="-10%" width="120%" height="120%">
-              <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
-              <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
-            </filter>
-          </defs>
-          <path class="enso-stroke" filter="url(#ink)" d="M318 116 C 372 168 366 292 272 338 C 176 384 72 322 64 220 C 56 126 138 56 232 60" />
-          <path class="enso-stroke thin" filter="url(#ink)" d="M322 124 C 360 176 352 280 270 322" />
-        </svg>
+      <div class="hero-art reveal" aria-hidden="true" data-parallax>
+        <div class="art-glow"></div>
+        <div class="art-card art-back" data-depth="0.5" data-rot="-3">
+          <div class="art-bar"><span></span><span></span><span></span><b>Home Theater</b></div>
+          <div class="art-shelf">
+            <div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div>
+          </div>
+          <div class="art-shelf small">
+            <div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div><div class="art-poster"></div>
+          </div>
+        </div>
+        <div class="art-card art-front" data-depth="1.4" data-rot="2">
+          <div class="art-chat">
+            <span class="art-pill">Local AI</span>
+            <div class="art-msg">Find something atmospheric, under two hours.</div>
+            <div class="art-msg you">On it &mdash; three picks, all on your drive.</div>
+            <div class="art-input"><span></span><i></i></div>
+          </div>
+        </div>
       </div>
     </section>`;
 }
 
-function branchesStrip(ctx, project) {
-  if (!project.branches || !project.branches.length) return "";
-  const cards = project.branches
-    .map(
-      (b) => `
-          <a class="branch-card" href="${workHref(ctx, b.slug)}">
-            <div class="branch-img"><img src="${assetHref(ctx, b.media)}" alt="" loading="lazy" /></div>
-            <div class="branch-copy">
-              <div class="branch-label">${b.label}</div>
-              <h4>${b.title}</h4>
-              <p>${b.blurb}</p>
-              <span class="branch-go">Read the branch →</span>
-            </div>
-          </a>`
-    )
+function showcaseCard(ctx, b, i) {
+  const stats = (b.stats || [])
+    .map((s) => `<div class="sc-stat"><strong>${s.value}</strong><span>${s.label}</span></div>`)
     .join("");
+  const tags = (b.tags || []).map((t) => `<span class="tag">${t}</span>`).join("");
+  const frameTop =
+    b.frame === "browser"
+      ? `<div class="frame-bar"><span></span><span></span><span></span></div>`
+      : `<div class="frame-bar panel"></div>`;
   return `
-        <div class="branches reveal">
-          <svg class="branch-lines" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M600 0 C 600 40, 300 40, 300 88" />
-            <path d="M600 0 C 600 40, 900 40, 900 88" />
-          </svg>
-          <div class="branch-grid">${cards}
+          <a class="showcase-card reveal${i % 2 === 1 ? " flip" : ""}" href="${workHref(ctx, b.slug)}" data-tilt>
+            <div class="sc-media">
+              <div class="sc-frame">${frameTop}
+                <div class="sc-img"><img src="${assetHref(ctx, b.media)}" alt="" loading="lazy" /></div>
+              </div>
+              <div class="sc-sheen"></div>
+            </div>
+            <div class="sc-copy">
+              <div class="branch-label">${b.label}</div>
+              <h3>${b.title}</h3>
+              <p>${b.blurb}</p>
+              <div class="sc-stats">${stats}</div>
+              <div class="tags">${tags}</div>
+              <span class="sc-go">Read the branch <i>→</i></span>
+            </div>
+          </a>`;
+}
+
+function showcase(ctx, project, opts = {}) {
+  if (!project.branches || !project.branches.length) return "";
+  const cards = project.branches.map((b, i) => showcaseCard(ctx, b, i)).join("\n");
+  const head = opts.heading
+    ? `<div class="sc-head reveal"><span class="sc-node"></span><h2>${opts.heading}</h2></div>`
+    : "";
+  return `
+        <div class="showcase${opts.wrap ? " boxed" : ""}">
+          ${head}
+          <div class="showcase-list">${cards}
           </div>
         </div>`;
+}
+
+function branchesStrip(ctx, project) {
+  return showcase(ctx, project, { heading: "Two things I built off this trunk" });
 }
 
 function projectCard(project, index) {
@@ -600,24 +627,9 @@ function csFigma(ctx, fg) {
 }
 
 function csBranches(ctx, project) {
-  const cards = project.branches
-    .map(
-      (b) => `
-            <a class="branch-card" href="${workHref(ctx, b.slug)}">
-              <div class="branch-img"><img src="${assetHref(ctx, b.media)}" alt="" loading="lazy" /></div>
-              <div class="branch-copy">
-                <div class="branch-label">${b.label}</div>
-                <h4>${b.title}</h4>
-                <p>${b.blurb}</p>
-                <span class="branch-go">Read the branch →</span>
-              </div>
-            </a>`
-    )
-    .join("");
   return csBlock("Branches", `
           <h2>Two things I built off this trunk</h2>
-          <div class="branch-grid">${cards}
-          </div>`, "wide");
+          ${showcase(ctx, project, {})}`, "wide");
 }
 
 function buildCaseStudy(project, next) {
