@@ -19,6 +19,8 @@ const projects = JSON.parse(readFileSync(path.join(ROOT, "content/projects.json"
 const exp = JSON.parse(readFileSync(path.join(ROOT, "content/experience.json"), "utf8"));
 
 const YEAR = new Date().getFullYear();
+// Cache buster: changes on every generate so browsers never reuse a stale stylesheet.
+const V = Date.now().toString(36);
 const bySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
 
 /* ---------------- helpers ---------------- */
@@ -68,7 +70,7 @@ function headMeta(ctx, { title, description, path: urlPath, ogTitle }) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" />
-  <link rel="stylesheet" href="${assetHref(ctx, "assets/styles.css")}" />
+  <link rel="stylesheet" href="${assetHref(ctx, "assets/styles.css")}?v=${V}" />
   <script>
     (function () {
       try {
@@ -129,7 +131,7 @@ function page(ctx, { title, description, urlPath, ogTitle, body }) {
 ${body}
   </main>
   ${footerHtml()}
-  <script src="${assetHref(ctx, "assets/main.js")}"></script>
+  <script src="${assetHref(ctx, "assets/main.js")}?v=${V}"></script>
 </body>
 </html>
 `;
