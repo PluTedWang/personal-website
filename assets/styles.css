@@ -376,6 +376,52 @@ footer { max-width: var(--max); margin: 0 auto; padding: 20px 28px 45px; display
 .cs-next .go { font-size: 24px; transition: transform .2s; }
 .cs-next a:hover .go { transform: translateX(4px); }
 
+/* ---------- Real media (screenshots) ---------- */
+.media-frame {
+  width: 92%; border-radius: 20px; overflow: hidden; position: relative; z-index: 2;
+  box-shadow: 0 32px 80px rgba(10,15,30,.30);
+}
+.media-frame img { display: block; width: 100%; height: auto; }
+.cs-visual .media-frame { width: 100%; max-width: 760px; }
+
+.cs-figure { margin: 0; max-width: 860px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.cs-figure img { display: block; width: 100%; height: auto; }
+.cs-figure figcaption { padding: 16px 22px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+
+.callout-text {
+  max-width: 720px; font-size: 15.5px; line-height: 1.75; color: var(--text);
+  background: var(--accent-soft); border: 1px solid var(--line); border-radius: 18px; padding: 20px 24px; margin: 0;
+}
+
+/* ---------- Figma links ---------- */
+.figma-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.figma-link {
+  display: inline-flex; align-items: center; gap: 9px; padding: 12px 16px; border: 1px solid var(--line);
+  border-radius: 999px; background: var(--surface); font-size: 13px; font-weight: 650; color: var(--text); transition: .2s ease;
+}
+.figma-link:hover { background: var(--surface-strong); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(17,19,24,.08); }
+.figma-link .figma-ic { color: var(--accent); font-size: 10px; }
+.figma-link .go { margin-left: 2px; opacity: .6; }
+
+/* ---------- Secondary feature ("also shipped") ---------- */
+.secondary-feature {
+  max-width: var(--max); margin: 30px auto 60px; padding: 44px; border: 1px solid var(--line);
+  border-radius: var(--radius); background: var(--surface);
+}
+.secondary-feature .sf-head { margin-bottom: 26px; }
+.secondary-feature h3 { font-size: clamp(22px, 2.8vw, 32px); margin: 10px 0 0; letter-spacing: -.03em; }
+.sf-body { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: start; }
+.sf-text p { font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0 0 14px; }
+.sf-pipeline { display: grid; gap: 12px; margin-top: 18px; }
+.sf-pipeline li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.6; color: var(--text); opacity: .85; }
+.pl-idx {
+  flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-soft); color: var(--accent);
+  font-size: 11px; font-weight: 800; display: grid; place-items: center; margin-top: 1px;
+}
+.sf-media { margin: 0; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); }
+.sf-media img { display: block; width: 100%; height: auto; }
+.sf-media figcaption { padding: 14px 18px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); background: var(--surface-strong); }
+
 /* ---------- Reveal / motion ---------- */
 .reveal { opacity: 0; transform: translateY(20px); transition: .7s cubic-bezier(.2,.8,.2,1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -398,6 +444,8 @@ footer { max-width: var(--max); margin: 0 auto; padding: 20px 28px 45px; display
   .metrics-inline { grid-template-columns: 1fr 1fr; }
   .principles { grid-template-columns: 1fr; }
   .cs-metrics { grid-template-columns: 1fr 1fr; }
+  .sf-body { grid-template-columns: 1fr; }
+  .secondary-feature { padding: 30px; }
 }
 
 @media (max-width: 620px) {

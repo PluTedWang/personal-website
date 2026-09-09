@@ -132,7 +132,14 @@ ${body}
 
 /* ---------------- project visuals ---------------- */
 
-function visualHtml(project) {
+function visualHtml(ctx, project) {
+  if (project.media && project.media.length) {
+    const m = project.media[0];
+    return `
+        <div class="media-frame">
+          <img src="${assetHref(ctx, m.file)}" alt="${m.alt}" loading="lazy" />
+        </div>`;
+  }
   switch (project.visual) {
     case "aiHomeTheater":
       return `
@@ -262,7 +269,7 @@ function projectCard(project, index) {
             <a class="project-link" href="${linkHref}">${linkLabel} <span>${linkArrow}</span></a>
           </div>
           <div class="project-visual${isDarkVisual(project.visual) ? " dark" : ""}">
-            ${visualHtml(project)}
+            ${visualHtml(HOME_CTX, project)}
           </div>
         </article>`;
 }
@@ -483,6 +490,74 @@ function csMetrics(metrics) {
       </div>`;
 }
 
+function csCallout(eyebrow, text) {
+  return `
+      <div class="cs-block reveal">
+        <div class="eyebrow2">${eyebrow}</div>
+        <div>
+          <p class="callout-text">${text}</p>
+        </div>
+      </div>`;
+}
+
+function csMedia(ctx, eyebrow, mediaItem) {
+  return `
+      <div class="cs-block reveal">
+        <div class="eyebrow2">${eyebrow}</div>
+        <div>
+          <figure class="cs-figure">
+            <img src="${assetHref(ctx, mediaItem.file)}" alt="${mediaItem.alt}" loading="lazy" />
+            <figcaption>${mediaItem.caption}</figcaption>
+          </figure>
+        </div>
+      </div>`;
+}
+
+function csFigmaLinks(links) {
+  const items = links
+    .map(
+      (l) =>
+        `<a class="figma-link" href="${l.url}" target="_blank" rel="noreferrer"><span class="figma-ic">◆</span>${l.label}<span class="go">↗</span></a>`
+    )
+    .join("\n            ");
+  return `
+      <div class="cs-block reveal">
+        <div class="eyebrow2">Design</div>
+        <div>
+          <h2>Explore the design files</h2>
+          <div class="figma-links">
+            ${items}
+          </div>
+        </div>
+      </div>`;
+}
+
+function csSecondaryFeature(ctx, feature) {
+  const desc = feature.description.map((p) => `<p>${p}</p>`).join("\n            ");
+  const pipeline = feature.pipeline
+    .map((step, i) => `<li><span class="pl-idx">${i + 1}</span><span>${step}</span></li>`)
+    .join("\n              ");
+  return `
+      <div class="secondary-feature reveal">
+        <div class="sf-head">
+          <div class="eyebrow2">${feature.eyebrow}</div>
+          <h3>${feature.title}</h3>
+        </div>
+        <div class="sf-body">
+          <div class="sf-text">
+            ${desc}
+            <ul class="sf-pipeline">
+              ${pipeline}
+            </ul>
+          </div>
+          <figure class="sf-media">
+            <img src="${assetHref(ctx, feature.media.file)}" alt="${feature.media.alt}" loading="lazy" />
+            <figcaption>${feature.media.caption}</figcaption>
+          </figure>
+        </div>
+      </div>`;
+}
+
 function buildCaseStudy(project, next) {
   const cs = project.caseStudy;
   const tags = project.tags.map((t) => `<span class="tag">${t}</span>`).join("");
@@ -504,7 +579,7 @@ function buildCaseStudy(project, next) {
       ? "background:var(--dark-panel)"
       : "background:linear-gradient(140deg, rgba(74,114,255,.08), rgba(255,255,255,.02));border:1px solid var(--line)"
   }">
-      ${visualHtml(project)}
+      ${visualHtml(WORK_CTX, project)}
     </div>
   </div>
 
@@ -514,11 +589,15 @@ ${csProse("User Insight", "What the user actually needed", [cs.insight])}
 ${csBullets("My Role", "What I owned", cs.role)}
 ${csBullets("Constraints", "What had to be true", cs.constraints)}
 ${csDecisionProcess(cs.decisionProcess)}
+${project.prototypeNote ? csCallout("Prototype", project.prototypeNote) : ""}
 ${csBullets("Solution", "What shipped", cs.solution)}
+${project.media && project.media.length ? csMedia(WORK_CTX, "Shipped", project.media[0]) : ""}
 ${csBullets("Technical Architecture", "How it was built", cs.architecture)}
 ${csBullets("Product Decisions", "Trade-offs I made on purpose", cs.productDecisions)}
+${project.figmaLinks && project.figmaLinks.length ? csFigmaLinks(project.figmaLinks) : ""}
 ${csMetrics(cs.results)}
 ${csBullets("What I Learned", "Takeaways", cs.learnings)}
+${project.secondaryFeature ? csSecondaryFeature(WORK_CTX, project.secondaryFeature) : ""}
   </div>
 
   <div class="cs-next reveal">
